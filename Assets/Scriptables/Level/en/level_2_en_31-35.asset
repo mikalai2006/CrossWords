@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35974bb0cc8ee974892209109b7321d1, type: 3}
+  m_Name: level_2_en_31-35
+  m_EditorClassIdentifier: 
+  idLevel: 2_en
+  text:
+    title:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  minRate: 50
+  locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+  levelWords:
+  - aster
+  - artist
+  - author
+  - banker
+  - barony
+  - bridge
+  - course
+  - corpse
+  - direct
+  - hacker
+  - hearse
+  - hearth
+  - metric
+  - mouser
+  - notice
+  - theory
+  - violet
+  - animist
+  - balance
+  - diamond
+  - dolphin
+  - roadway
+  - defender
+  - notation
+  - vanguard
+  - brandy
+  - buster
+  - drawer
+  - fiesta
+  - forest
+  - hinter
+  - holder
+  - parish
+  - target
+  - apology
+  - average
+  - blocker
+  - clutter
+  - cultism
+  - curator
+  - inferno
+  - license
+  - sniffer
+  - vantage
+  - vitrine
+  - bayberry
+  - barberry
+  - climatic
+  - catalyst
+  - espresso
+  - fullback
+  - hockshop
+  - omelette
+  - polyglot
+  - seafarer
+  - softness
+  - paste
+  - petal
+  - plate
+  - advert
+  - artery
+  - backer
+  - ballet
+  - carbon
+  - dealer
+  - factor
+  - folder
+  - gasket
+  - golfer
+  - leader
+  - oracle
+  - sealer
+  - senior
+  - weapon
+  - bragger
+  - capital
+  - collier
+  - ellipse
+  - expanse
+  - explore
+  - learner
+  - offline
+  - boiler
+  - barter
+  - finale
+  - molder
+  - sniper
+  - console
+  - decoder
+  - firebug
+  - mailbox
+  - skipper
+  - ampule
+  - dragon
+  - ranter
+  - winter
+  - browser
+  - answer
+  - mother
+  - period
+  references:
+    version: 2
+    RefIds: []

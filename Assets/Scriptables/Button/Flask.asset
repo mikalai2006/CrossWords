@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ac79744966eae48a9c4345a270ea2f, type: 3}
+  m_Name: Flask
+  m_EditorClassIdentifier: 
+  text:
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
+      m_TableEntryReference:
+        m_KeyId: 919320084512768
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
+      m_TableEntryReference:
+        m_KeyId: 919386207715328
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  sprite: {fileID: 21300000, guid: d9ce8f8502d2f1449b25ea8b219d5b22, type: 3}
+  references:
+    version: 2
+    RefIds: []

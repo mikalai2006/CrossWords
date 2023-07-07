@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa4eac3b3b754c4b9882d35a741e84c, type: 3}
+  m_Name: GameSetting
+  m_EditorClassIdentifier: 
+  Audio: {fileID: 11400000, guid: 8f34d19db11906f4b8a97ad95ea85df1, type: 2}
+  PrefabSymbol: {fileID: 7149879278780047571, guid: e7419d168977efa48a744d43a95bae4e, type: 3}
+  ThemeDefault: {fileID: 11400000, guid: 523cefe3a73243e47b0457cff73ee60b, type: 2}
+  PlayerSettings:
+  - {fileID: 11400000, guid: b57b9e953e14d084dbf1e284147084c7, type: 2}
+  - {fileID: 11400000, guid: c74f5f99da2ab024b85faf3c9958078f, type: 2}
+  - {fileID: 11400000, guid: 4d273518aa34c7645bfda59536cd7088, type: 2}
+  - {fileID: 11400000, guid: cb4e1465ae67a53418d2620b40fe9de3, type: 2}
+  - {fileID: 11400000, guid: 2aff9521db4364049844d3fd0ddc9096, type: 2}
+  countHoursDailyGift: 6
+  lineWidth: 0.15
+  radius: 2.5
+  addinitiallyRow: 3
+  maxCountHiddenChar: 200
+  minCountHiddenChar: 20
+  timeGeneralAnimation: 0.5
+  Boom: {fileID: 4370175670826504157, guid: 0d64c2d06fc2020488bed46426152725, type: 3}
+  BoomLarge: {fileID: 5387774378321571289, guid: d3e641e39ca10654fab4ca2a25b477b3, type: 3}
+  spriteShuffle: {fileID: 21300000, guid: 0eb98c0f30cc22e4d9d2268f100fc94a, type: 3}
+  spriteFlask: {fileID: 0}
+  spriteDirectory: {fileID: 21300000, guid: 7615abb3c84eacc4ca79f706c06bbe55, type: 3}
+  spriteCog: {fileID: 21300000, guid: fe7f28583815e944993cdb808f259b29, type: 3}
+  spriteRate: {fileID: 21300000, guid: 54e35f220d7347e4f99f199862e81c5e, type: 3}
+  spriteShop: {fileID: 21300000, guid: 1ab9b49f9f0ed954fbbc36f707b39d3e, type: 3}
+  spriteAdv: {fileID: 21300000, guid: 492308d20a1450b47a5bc631a8dbfacd, type: 3}
+  spriteBuy: {fileID: 21300000, guid: 3c7959c56fe59aa43a320d194c7962a3, type: 3}
+  spriteInfo: {fileID: 21300000, guid: 4650a140dc17cae45bd840ee53efe598, type: 3}
+  spriteDouble: {fileID: 21300000, guid: 2450c012d2d6c24468b89adeb1918e62, type: 3}
+  spriteUser: {fileID: 21300000, guid: d94185b46cb54c14f94d79544f773b22, type: 3}
+  debounceTime: 1000
+  timeDelayOverChar: 47
+  GameLevels:
+  - {fileID: 11400000, guid: a08b3e1cabcc95b409f026e0d8735fe6, type: 2}
+  - {fileID: 11400000, guid: 74abe629d5d539047915091fed005a23, type: 2}
+  - {fileID: 11400000, guid: b6b31847cd35bbc4b82fe4d417211af2, type: 2}
+  - {fileID: 11400000, guid: c6c831121ed143741a51fef46e63f0a8, type: 2}
+  - {fileID: 11400000, guid: b8ba788c4d1f3894daa410719a7355ff, type: 2}
+  - {fileID: 11400000, guid: fb9c287131e4a38468f3068ed7b78c69, type: 2}
+  - {fileID: 11400000, guid: c0459733e98b33546ac8a7cb2e605c4d, type: 2}
+  - {fileID: 11400000, guid: 9dacdc8b7e2e41144adf717f57690399, type: 2}
+  - {fileID: 11400000, guid: 54c516731a7f90140a849b4b71ef23dc, type: 2}
+  - {fileID: 11400000, guid: b37a1ad0cae4fb3479ca530f94f76dfb, type: 2}
+  ShopItems:
+  - entity: {fileID: 11400000, guid: 2be5099a5ef97d84db2786c20dfcafde, type: 2}
+    count: 1
+    cost: 100
+  - entity: {fileID: 11400000, guid: 4029cdca5db16194890ed31906de574b, type: 2}
+    count: 1
+    cost: 500
+  - entity: {fileID: 11400000, guid: 44b0831f1b50a3e45a0355ae33c073c2, type: 2}
+    count: 1
+    cost: 500
+  - entity: {fileID: 11400000, guid: 7dd3f4fc6b9f65840a29682e241374d7, type: 2}
+    count: 1
+    cost: 1000
+  ShopItemsBonus:
+  - entity: {fileID: 11400000, guid: 257080754fd05bf478e8de6f8b9b610b, type: 2}
+    count: 1
+    cost: 300
+  - entity: {fileID: 11400000, guid: a01ec9408590b6b4f8ff0abb0aa4f9a1, type: 2}
+    count: 1
+    cost: 300
+  noName:
+    title:
+      m_TableReference:
+        m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
+      m_TableEntryReference:
+        m_KeyId: 4517829861867520
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  APIDirectory:
+    token: 
+    pathExpression: https://{0}.wikipedia.org/api/rest_v1/page/summary/{1}?origin=*
+  wordFiles:
+  - text:
+      title:
+        m_TableReference:
+          m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
+        m_TableEntryReference:
+          m_KeyId: 6780731931131904
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      description:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    locale: {fileID: 11400000, guid: 64a3977be13583547bee7545b3c13f3f, type: 2}
+    file: {fileID: 4900000, guid: 256722d1ee7dff744a9764a500a69d62, type: 3}
+  - text:
+      title:
+        m_TableReference:
+          m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
+        m_TableEntryReference:
+          m_KeyId: 6374939935539200
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+      description:
+        m_TableReference:
+          m_TableCollectionName: 
+        m_TableEntryReference:
+          m_KeyId: 0
+          m_Key: 
+        m_FallbackState: 0
+        m_WaitForCompletion: 0
+        m_LocalVariables: []
+    locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+    file: {fileID: 4900000, guid: 7d6956f25003465479a81103aab1600d, type: 3}
+  adsPerTime: 1
+  minRateForReview: 0
+  countCoinForReview: 0
+  references:
+    version: 2
+    RefIds: []

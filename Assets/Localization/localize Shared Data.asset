@@ -1,0 +1,460 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: localize Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: localize
+  m_TableCollectionNameGuidString: f9a9052fe3a3e0948889bf1b4a32b1ae
+  m_Entries:
+  - m_Id: 4188194111488
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25112389779456
+    m_Key: close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27265573486592
+    m_Key: volumeEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27321571639296
+    m_Key: volumeMusic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33680207806464
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70858921115648
+    m_Key: newgame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70874469400576
+    m_Key: loadgame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74181401280512
+    m_Key: tostartmenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87222457106432
+    m_Key: loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 197804439011328
+    m_Key: name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 197849909460992
+    m_Key: ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587069316562944
+    m_Key: countword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662165112651776
+    m_Key: loadconfig
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1550790163595264
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563663732473856
+    m_Key: foundcountword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1568783467708416
+    m_Key: continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1569602485256192
+    m_Key: nostartlevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1584892828876800
+    m_Key: "\u0441ompleted"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1596861162094592
+    m_Key: appname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2874372776951808
+    m_Key: achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2878022177947648
+    m_Key: double
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3187166948786176
+    m_Key: actualprogress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189624831901696
+    m_Key: begin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189652749189120
+    m_Key: junior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189693752705024
+    m_Key: middle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189713814061056
+    m_Key: major
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189738174578688
+    m_Key: senior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3213003978866688
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3236358320717824
+    m_Key: timedelay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3424084047331328
+    m_Key: shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3431009346551808
+    m_Key: buyforcoin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3431140439523328
+    m_Key: buyadv
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3448300033441792
+    m_Key: costitemtext
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3451102625431552
+    m_Key: star
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3451218186895360
+    m_Key: frequency
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3451377402675200
+    m_Key: bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3452249054543872
+    m_Key: coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458438974832640
+    m_Key: lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458590401789952
+    m_Key: lightning_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458919637876736
+    m_Key: frequency_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459213977354240
+    m_Key: bomb_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459454394859520
+    m_Key: star_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3460500663992320
+    m_Key: lackscoin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476356110385152
+    m_Key: openneighbours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476387282452480
+    m_Key: openneighbours_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3730866485493760
+    m_Key: completelevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3731728058449920
+    m_Key: completelevel_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3766257527717888
+    m_Key: policyround
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3766582691135488
+    m_Key: roundconditdesc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3767132480503808
+    m_Key: roundresult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3769140453212160
+    m_Key: round
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3806642551554048
+    m_Key: givestarthints
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3806768712024064
+    m_Key: givestarthints_no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4121322570547200
+    m_Key: info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4131258318880768
+    m_Key: cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4151194764345344
+    m_Key: coin_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4151229912612864
+    m_Key: coin_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4186970411663360
+    m_Key: notfoundnodehiddenchar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4495698834915328
+    m_Key: currentprogress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4517829861867520
+    m_Key: noname
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523303260815360
+    m_Key: newrank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523397003509760
+    m_Key: newrank_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4600095082446848
+    m_Key: directory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4600829513465856
+    m_Key: goread
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4652926063599616
+    m_Key: disconnect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4653720194416640
+    m_Key: nofoundword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667022840594432
+    m_Key: leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4968534221422592
+    m_Key: indexbonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4968681890283520
+    m_Key: indexbonus_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5209502396874752
+    m_Key: theme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5290888118042624
+    m_Key: nothint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5294099914719232
+    m_Key: successbuy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5984530734415872
+    m_Key: foundcountwordtotal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6374939935539200
+    m_Key: title_word_en
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6699709965172736
+    m_Key: dailycoins_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6700294437240832
+    m_Key: dailycoins_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6713619946569728
+    m_Key: dodialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6741078280667136
+    m_Key: confirm_runhint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6741702284050432
+    m_Key: confirm_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6748302013005824
+    m_Key: confirm_runbuyhint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6751560454537216
+    m_Key: confirm_buybonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6780731931131904
+    m_Key: title_word_ru
+    m_Metadata:
+      m_Items: []
+  - m_Id: 604976465477632
+    m_Key: successgetbonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 669462014623744
+    m_Key: help_choosechar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670107916468224
+    m_Key: help_findhiddenword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670482203574272
+    m_Key: help_findneedword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670509009371136
+    m_Key: help_findallowword
+    m_Metadata:
+      m_Items: []
+  - m_Id: 673687025123328
+    m_Key: help_index
+    m_Metadata:
+      m_Items: []
+  - m_Id: 767991596875776
+    m_Key: letter_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768016548790272
+    m_Key: letter_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 902854652100608
+    m_Key: letter_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919320084512768
+    m_Key: bonus_flask_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919386207715328
+    m_Key: bonus_flask_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 993418810654720
+    m_Key: help_flask_hiddenboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995098834927616
+    m_Key: help_flask_allow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995663333720064
+    m_Key: help_flask_hidden
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041446275809280
+    m_Key: help_choose_error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1095655025180672
+    m_Key: foundwords_dialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1302359725735936
+    m_Key: generator_message_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1302415187017728
+    m_Key: generator_message_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1315924641742848
+    m_Key: savehintletter_t
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1315961916522496
+    m_Key: savehintletter_d
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1481997978599424
+    m_Key: openletterbyads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1663601170612224
+    m_Key: completesection_dialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1699857803935744
+    m_Key: request_error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2019490872328192
+    m_Key: help_dod_dialog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2028775245250560
+    m_Key: dialog_rategame_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2266024218099712
+    m_Key: endheadprogress
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 366248018188435480
+  references:
+    version: 2
+    RefIds:
+    - rid: 366248018188435480
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1688142417928

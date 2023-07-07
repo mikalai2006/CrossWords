@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35974bb0cc8ee974892209109b7321d1, type: 3}
+  m_Name: level_4_en_41-48
+  m_EditorClassIdentifier: 
+  idLevel: 4_en
+  text:
+    title:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  minRate: 500
+  locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+  levelWords:
+  - absent
+  - captor
+  - market
+  - repack
+  - strain
+  - airport
+  - catfish
+  - formula
+  - herbage
+  - limiter
+  - skyline
+  - sunspot
+  - audience
+  - cassette
+  - filter
+  - mister
+  - search
+  - sprite
+  - stripe
+  - tandem
+  - tinder
+  - freedom
+  - manager
+  - epilepsy
+  - ascent
+  - father
+  - racket
+  - realty
+  - tacker
+  - taster
+  - bedpost
+  - copilot
+  - pitfall
+  - product
+  - sneaker
+  - snooper
+  - spacing
+  - carnival
+  - hologram
+  - denial
+  - nature
+  - planer
+  - tasting
+  - verdict
+  - airliner
+  - ballroom
+  - corvette
+  - database
+  - deceiver
+  - diaper
+  - downer
+  - garble
+  - mailer
+  - pedlar
+  - auditor
+  - caramel
+  - country
+  - crystal
+  - machine
+  - pioneer
+  - shopper
+  - tornado
+  - prioress
+  - collector
+  - violinist
+  - accountant
+  - castle
+  - loader
+  - faction
+  - feature
+  - mustang
+  - patriot
+  - rampage
+  - seducer
+  - skillet
+  - agitator
+  - billiard
+  - football
+  - mountain
+  - overflow
+  - positive
+  - scientist
+  - anther
+  - archive
+  - sticker
+  - backbone
+  - contract
+  - interior
+  - caprice
+  - florist
+  - stepson
+  - trouper
+  - artistry
+  - ethology
+  - pharmacy
+  - divination
+  - confession
+  - deodorizer
+  - bonfire
+  - copyist
+  references:
+    version: 2
+    RefIds: []

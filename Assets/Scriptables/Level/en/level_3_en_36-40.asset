@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35974bb0cc8ee974892209109b7321d1, type: 3}
+  m_Name: level_3_en_36-40
+  m_EditorClassIdentifier: 
+  idLevel: 3_en
+  text:
+    title:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  minRate: 100
+  locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+  levelWords:
+  - blonde
+  - mentor
+  - caravel
+  - eclipse
+  - process
+  - slicker
+  - freebase
+  - recorder
+  - reporter
+  - trillion
+  - invention
+  - invective
+  - applet
+  - crater
+  - morale
+  - patrol
+  - serial
+  - toiler
+  - washer
+  - aerosol
+  - begonia
+  - blinker
+  - crustal
+  - potshot
+  - pretest
+  - raceway
+  - prowess
+  - regatta
+  - salvage
+  - station
+  - tourist
+  - toddler
+  - valence
+  - handbook
+  - highland
+  - showdown
+  - beater
+  - costar
+  - heater
+  - cradle
+  - magnet
+  - peanut
+  - android
+  - broiler
+  - company
+  - crawler
+  - drifter
+  - gobbler
+  - grouper
+  - locator
+  - pension
+  - sanctum
+  - shipper
+  - spinner
+  - swagger
+  - artifact
+  - diskette
+  - elegance
+  - fastball
+  - hardtack
+  - homepage
+  - language
+  - mapmaker
+  - progress
+  - moonwalk
+  - scaffold
+  - skylight
+  - throttle
+  - antiquity
+  - basket
+  - butane
+  - dancer
+  - danger
+  - editor
+  - pallet
+  - garden
+  - pedant
+  - rotate
+  - sample
+  - shower
+  - tavern
+  - dasher
+  - ceramic
+  - leaflet
+  - scooter
+  - airline
+  - shocker
+  - village
+  - hardwood
+  - angler
+  - daemon
+  - patron
+  - piston
+  - tanker
+  - desktop
+  - graphic
+  - matador
+  - overage
+  - problem
+  - conflict
+  references:
+    version: 2
+    RefIds: []

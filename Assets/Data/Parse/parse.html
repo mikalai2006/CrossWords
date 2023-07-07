@@ -1,0 +1,110 @@
+<script type="text/javascript" async>
+  function compare(a, b) {
+    if (a.anagram.length > b.anagram.length) {
+      return -1;
+    }
+    if (a.anagram.length < b.anagram.length) {
+      return 1;
+    }
+    return 0;
+  }
+  function compareSimple(a, b) {
+    if (a.length > b.length) {
+      return 1;
+    }
+    if (a.length < b.length) {
+      return -1;
+    }
+    return 0;
+  }
+  const charsCount = (str) =>
+    str
+      .toLowerCase()
+      .split("")
+      .reduce((acc, c) => {
+        if (!acc[c]) {
+          acc[c] = 1;
+        } else {
+          acc[c]++;
+        }
+
+        return acc;
+      }, {});
+
+  const logFileText = async (file) => {
+    console.time();
+    const response = await fetch(file);
+    const text = await response.text();
+
+    console.log("type text = ", typeof text);
+
+    var allWords = text.split("\n");
+
+    const hashMap = new Map();
+    const jsonDataSmallWords = [];
+    allWords.forEach((word) => {
+      var w = word.replace(/['"]+/g, "").trim();
+      if (w.indexOf("-") > 0 || hashMap.has(w) || w.length <= 2) {
+        if (w.length <= 2) jsonDataSmallWords.push(w);
+      } else {
+        if (!hashMap.has(w)) {
+          hashMap.set(w, w);
+        }
+      }
+    });
+
+    console.group("Small Words");
+    console.log(jsonDataSmallWords);
+    console.groupEnd();
+
+    var jsonDataWords = [...hashMap.keys()];
+    console.group("Normal Words");
+    console.log(jsonDataWords.sort(compareSimple));
+
+    var allowWords = jsonDataWords.filter((t) => t.length < 12);
+    var allowWordsObj = [];
+    for (let i = 0; i < allowWords.length; i++) {
+      allowWordsObj.push({
+        word: allowWords[i],
+        obj: charsCount(allowWords[i]),
+      });
+    }
+    console.log(allowWordsObj);
+
+    // let arrayWords = [];
+    // for (let i = 0; i < allowWordsObj.length; i++) {
+    //   var word = allowWordsObj[i].word;
+    //   const str1Chars = allowWordsObj[i].obj;
+    //   var anagram = [];
+
+    //   var allWordForCompare = allowWordsObj.filter(
+    //     (t) => t.word.length <= word.length
+    //   );
+
+    //   for (let j = 0; j < allWordForCompare.length; j++) {
+    //     var word2 = allWordForCompare[j].word;
+    //     const str2Chars = allWordForCompare[j].obj;
+
+    //     if (word2.length <= word.length) {
+    //       if (
+    //         Object.keys(str2Chars).every((c) => str1Chars[c] >= str2Chars[c])
+    //       ) {
+    //         anagram.push(allWordForCompare[j].word);
+    //       }
+    //     }
+    //   }
+    //   arrayWords.push({
+    //     word,
+    //     anagram,
+    //   });
+    // }
+    // var arrayWords2 = arrayWords.sort(compare);
+    // console.log(arrayWords2);
+    console.groupEnd();
+
+    console.timeEnd();
+    return text;
+  };
+
+  logFileText("rawdata_en.csv");
+</script>

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f98800b25763bc4390521410efbd523, type: 3}
+  m_Name: GameAudio
+  m_EditorClassIdentifier: 
+  volumeEffect: 0.34
+  volumeMusic: 1
+  addChar: {fileID: 8300000, guid: 5f36543e18973554bbdf6272379c0f24, type: 3}
+  removeChar: {fileID: 8300000, guid: 23507a3f8a9bce8429ee92aa8b02f27b, type: 3}
+  openHiddenChar: {fileID: 8300000, guid: 5cca643be75e1bd4cbf7ab29fbbcc845, type: 3}
+  openHintChar: {fileID: 8300000, guid: 23507a3f8a9bce8429ee92aa8b02f27b, type: 3}
+  existWord: {fileID: 8300000, guid: 961dc83f132b8f54f8f2afcb2352133b, type: 3}
+  noWord: {fileID: 8300000, guid: 0345d2e79bc863148b49403e802cbb9f, type: 3}
+  addToFlask: {fileID: 8300000, guid: 4aa5db4d0648e6141816267e412b7a73, type: 3}
+  addCoin: {fileID: 8300000, guid: 843840fd70844104b9f1289b2d033589, type: 3}
+  calculateCoin: {fileID: 8300000, guid: e2bb669590cb53945b4309cf8239787f, type: 3}
+  clickButton: {fileID: 8300000, guid: bf08fff122693784aa46b50c00a8172f, type: 3}
+  openWord: {fileID: 8300000, guid: 82bc95f33a916684197380bd76461aef, type: 3}
+  addBonus: {fileID: 8300000, guid: 1226f0bc7fc74fc41b5f8b592b4ea636, type: 3}

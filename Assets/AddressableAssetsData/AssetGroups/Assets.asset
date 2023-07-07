@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Assets
+  m_EditorClassIdentifier: 
+  m_GroupName: Assets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6786ad68c56bdab45914e8d44d5898fd
+  m_SerializeEntries:
+  - m_GUID: a5bea38c3aa06bd4b9d6805ac538f14a
+    m_Address: UILoaderScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 291c30463dfb7584aaaad41e43b17a02
+    m_Address: UIApp
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12015030f25d57f4d8bb3d35b6a824bc
+    m_Address: GameScene
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93f69927866868b47976e83ca5cc9bc9
+    m_Address: UIInitUser
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aadeeb93a78b5e44db66b27fdf248e53
+    m_Address: UIDialog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21e5e7837540eb5448f00546b45bbdc1
+    m_Address: UIShop
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cec71cc8fa8f6b479ecf2bfe2862884
+    m_Address: Assets/Scriptables/Entity
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - entity
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5eec450ba45afda4fbb9299b3bde83a3
+    m_Address: Assets/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76be3eeb295e0db43a38749fec661f12
+    m_Address: UIDirectory
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba4927e25aa9e4d4b99ea0643f7a5d2f
+    m_Address: Assets/Scriptables/Bonus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - bonus
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63ea74474329f7e4993eb497f7f78efd
+    m_Address: Assets/Scriptables/Themes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abae52a9a31accb49a12ca3bca0b1ba9
+    m_Address: UISettings
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1be91df87efbd4b43938a006405f3669
+    m_Address: UIDashboard
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 912e5358d86a0b7449e455fba5359f6c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6f25570c8d977d444be8d533534ccfb3, type: 2}
+    - {fileID: 11400000, guid: 4656a8e9e630a064ea03db68ea11e1aa, type: 2}

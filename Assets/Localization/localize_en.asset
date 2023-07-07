@@ -1,0 +1,573 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: localize_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: f9a9052fe3a3e0948889bf1b4a32b1ae, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 366248018379538446
+  m_TableData:
+  - m_Id: 4188194111488
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25112389779456
+    m_Localized: Close
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27265573486592
+    m_Localized: Volume effect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27321571639296
+    m_Localized: Volume sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33680207806464
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70858921115648
+    m_Localized: Start game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 70874469400576
+    m_Localized: Continue game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 74181401280512
+    m_Localized: Start menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87222457106432
+    m_Localized: Loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 197804439011328
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 197849909460992
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 587069316562944
+    m_Localized: '{count} {count:word|words} of {count2}'
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 662165112651776
+    m_Localized: Load config game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1550790163595264
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1563663732473856
+    m_Localized: Found {count} bonus {count:word|words} of {count2}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 1568783467708416
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1569602485256192
+    m_Localized: Not start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1584892828876800
+    m_Localized: "\u0421ompleted"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1596861162094592
+    m_Localized: Looking for words
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2874372776951808
+    m_Localized: Achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2878022177947648
+    m_Localized: Double the number of coins by watching ads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3187166948786176
+    m_Localized: 'Actual progress:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189624831901696
+    m_Localized: Newbie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189652749189120
+    m_Localized: Journalist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189693752705024
+    m_Localized: Writer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189713814061056
+    m_Localized: Poet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3189738174578688
+    m_Localized: Poet Laureate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3213003978866688
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3236358320717824
+    m_Localized: Time delay (ms)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3424084047331328
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3431009346551808
+    m_Localized: 'Get
+
+      for {cost} coin{cost:|s}'
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3431140439523328
+    m_Localized: Would you like to receive bonus {name} by viewing ads?
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3448300033441792
+    m_Localized: "\u0412\u0430\u043C \u0431\u0443\u0434\u0435\u0442 \u043D\u0430\u0447\u0438\u0441\u043B\u0435\u043D\u043E
+      {count} \u043F\u043E\u0434\u0441\u043A\u0430\u0437{count:\u043E\u043A|\u043A\u0430|\u043A\u0438}
+      {name} \u0437\u0430 {cost} \u043C\u043E\u043D\u0435\u0442{cost:|\u0430|\u044B}. "
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3451102625431552
+    m_Localized: Star
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3451218186895360
+    m_Localized: Frequency
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3451377402675200
+    m_Localized: Bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3452249054543872
+    m_Localized: coin{count:|s|}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3458438974832640
+    m_Localized: Lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458590401789952
+    m_Localized: When used, selects a hidden letter on the field and reveals it,
+      and then all hidden letters vertically
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458919637876736
+    m_Localized: When used, reveals the most common letter in a field with hidden
+      words
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459213977354240
+    m_Localized: When used, selects a hidden letter on the field and reveals it,
+      and then all adjacent hidden letters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3459454394859520
+    m_Localized: When used, reveals one random letter in a random word in a hidden
+      word field
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3460500663992320
+    m_Localized: Lacks coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476356110385152
+    m_Localized: Neighbours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3476387282452480
+    m_Localized: When opening words on the scoreboard, the vertical neighbors of
+      each letter are opened if they contain the same letter. It's an effect! If
+      it is available, it is applied immediately. Validity - 1 round. Has no penalty
+      - the prompted letter still produces a coin.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3730866485493760
+    m_Localized: Complete round successfully!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3731728058449920
+    m_Localized: '{count} word{count:|s} found during the round!'
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3766257527717888
+    m_Localized: Round conditions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3766582691135488
+    m_Localized: 'It is necessary to find {count} word{count:|s|} from {count2} possible. '
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3767132480503808
+    m_Localized: Result of {value} round
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3769140453212160
+    m_Localized: Round
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3806642551554048
+    m_Localized: You will be given {count} hint{count:|s}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 3806768712024064
+    m_Localized: You start this round without prompts.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4121322570547200
+    m_Localized: Information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4131258318880768
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4151194764345344
+    m_Localized: Coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4151229912612864
+    m_Localized: The main currency of the game, which allows you to purchase various
+      tips and effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4186970411663360
+    m_Localized: No hidden letters found to apply this effect. All letters on the
+      field are open or busy with bonuses!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4495698834915328
+    m_Localized: '{count} word{count:|s} already found! It remains to find {count2}
+      word{count2:|s}.'
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 4517829861867520
+    m_Localized: Unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523303260815360
+    m_Localized: New rank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4523397003509760
+    m_Localized: Congratulations! You receive a new honorary title {name}! Now more
+      complex words are available to you.
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 4600095082446848
+    m_Localized: Directory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4600829513465856
+    m_Localized: Go read
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4652926063599616
+    m_Localized: No Internet access! This functionality is not available without
+      internet access.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4653720194416640
+    m_Localized: There is currently no resource found for this request.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4667022840594432
+    m_Localized: Leaderboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4968534221422592
+    m_Localized: Bonus coefficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4968681890283520
+    m_Localized: All coins received in the current round will be multiplied by the
+      bonus coefficient. This coefficient increases by 1 for each new field filled
+      with hidden words in each round. It resets at the beginning of the round.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5209502396874752
+    m_Localized: Theme
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5290888118042624
+    m_Localized: You don't have a hint {name}, but you can always get hints in the
+      shop window. Do you want to open a window?
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 5294099914719232
+    m_Localized: Successfully received {count} hint{count:|s}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 5984530734415872
+    m_Localized: Total found {count} of {count2} possible word{count2:|s}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 6374939935539200
+    m_Localized: English dictionary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6699709965172736
+    m_Localized: Random gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6700294437240832
+    m_Localized: As a thank you for visiting the game, you receive a random gift.
+      The next gift will be ready in {count} hour{count:|s}
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 6713619946569728
+    m_Localized: Show confirmation dialogs before performing actions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6741078280667136
+    m_Localized: Do you really want to use the hint - {name}?
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 6741702284050432
+    m_Localized: Action confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6748302013005824
+    m_Localized: Are you sure you want to buy a {count} hint{count:|s} ({name}) with
+      {count2} coin{count2:|s}?
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 6751560454537216
+    m_Localized: Are you sure you want to buy {count} effect{count:|s} ({name}) for
+      {count2} coin{count2:|s}?
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 6780731931131904
+    m_Localized: Russian Words
+    m_Metadata:
+      m_Items: []
+  - m_Id: 604976465477632
+    m_Localized: Successfully received {count} bonus{count:|es}!
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 673687025123328
+    m_Localized: 'All hidden words on the field have been found! The bonus accrual
+      coefficient increases by 1.
+
+
+      At the end of the round, the coins received
+      in this round will be multiplied by the value of this coefficient.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670509009371136
+    m_Localized: A word is found that can be formed, but it is not a bonus, which
+      gives a coin (at the end of the round) for this word.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670482203574272
+    m_Localized: 'A bonus word is found that is not on the field, which gives a coin
+      (at the end of the round) for this word and +1 point to all hints.
+
+
+      When
+      tips reach the maximum number of points, a specific type of hint will be added.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 670107916468224
+    m_Localized: Found a bonus word that is on the field, which gives a coin for
+      each letter in this word.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 669462014623744
+    m_Localized: Click on the first letter and without releasing your finger, swipe
+      sequentially through the letters from the prompted word.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 767991596875776
+    m_Localized: Letter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 768016548790272
+    m_Localized: The number of open letters on the field with hidden words.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 902854652100608
+    m_Localized: 'This is the score for the current round.
+
+
+
+      It works as follows:
+      If a word was found on the field, it is replenished by the number of letters
+      in this word, if a word was found that is not on the field, it is replenished
+      by 1.
+
+
+
+      If a letter is opened with a hint, it does not count towards
+      this score (unless the save hint effect is active).'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1095655025180672
+    m_Localized: The <b>{name}</b> section is {procent}% complete
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 1315961916522496
+    m_Localized: 'This bonus removes the penalty for suggesting letters.
+
+
+
+      When
+      this bonus works, all existing rewards (coins and points for bonuses) are credited
+      for the prompted letters.
+
+
+
+      This bonus is applied automatically. Validity
+      - 1 round.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1041446275809280
+    m_Localized: 'The test word is not in the dictionary. An attempt is counted as
+      an error.
+
+
+
+      If the number of consecutive errors exceeds the limit set
+      by the game difficulty level, all points for bonuses and tips are reset to
+      zero.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995663333720064
+    m_Localized: 'If a bonus word was found and it is not on the field - this action
+      adds 1 point to the bonus generator.
+
+
+
+      When the generator reaches the
+      limit, a random bonus is created!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 995098834927616
+    m_Localized: 'If a word was found that can be formed, but it is not a bonus -
+      this action adds 1 point to the bonus generator.
+
+
+
+      When the generator
+      reaches the limit, a random bonus is created!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 993418810654720
+    m_Localized: 'If a bonus word was found that is on the field - each letter of
+      this word adds 1 point to the bonus generator.
+
+
+
+      When the generator
+      reaches the limit, a random bonus is created!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919386207715328
+    m_Localized: Generates bonuses when filled. Filled by searching for words. Each
+      word adds 1 point to this generator, and if the word is bonus and is on the
+      field, then each letter of this word adds 1 point to the generator.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 919320084512768
+    m_Localized: Bonus generator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1302359725735936
+    m_Localized: Bonus from the generator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1302415187017728
+    m_Localized: The bonus generator has reached its limit and is generating a random
+      bonus - {name}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1481997978599424
+    m_Localized: Do you want to open this letter by watching ads?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1663601170612224
+    m_Localized: You have successfully completed section {name}!
+    m_Metadata:
+      m_Items:
+      - rid: 366248018379538446
+  - m_Id: 1699857803935744
+    m_Localized: The request returned an error! Apologize!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2019490872328192
+    m_Localized: The setting is active in the game - show windows to confirm actions.
+      If you want to perform actions without confirmation, uncheck the checkbox in
+      the settings so that all your actions are performed immediately after clicking,
+      without asking for confirmation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2028775245250560
+    m_Localized: 'You can leave a review on the game and get a gift.
+
+
+
+      Want
+      to leave a review?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2266024218099712
+    m_Localized: The main stage of the game has been successfully completed! You
+      can increase your ranking by completing random word search tasks.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 366248018379538446
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 008012091f860d00008052e12f620d0000801274d0f80f000080926f011210000080d2e208cc12000080d2b0f4ce120000809224e64215000080d2dde1cd170000805298f9f21700008052808bf917000080922a82fc1700008012baef150200008052d5248e05000080d2ebf1590b000080521d7c300c00008012a39a300c00008092ea35400c000080925ecd430c00008052a5fc410d00008052dfaf610d000080520f392602000080d2b5f0d80300008092107ee403000080d25409e90500

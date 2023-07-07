@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35974bb0cc8ee974892209109b7321d1, type: 3}
+  m_Name: level_1_en_10-30
+  m_EditorClassIdentifier: 
+  idLevel: 1_en
+  text:
+    title:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    description:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  minRate: 0
+  locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+  levelWords:
+  - ante
+  - done
+  - race
+  - batch
+  - cause
+  - cover
+  - exist
+  - genre
+  - graph
+  - green
+  - honey
+  - panic
+  - prosy
+  - beat
+  - beta
+  - pale
+  - seat
+  - broom
+  - dance
+  - flint
+  - force
+  - lemon
+  - month
+  - mouth
+  - night
+  - shirt
+  - stick
+  - titan
+  - part
+  - bound
+  - crash
+  - fiber
+  - front
+  - pear
+  - rate
+  - bonus
+  - eagle
+  - glace
+  - lotus
+  - graft
+  - plant
+  - shied
+  - abode
+  - badge
+  - motel
+  - comedy
+  - corona
+  - fabric
+  - canary
+  - climax
+  - digger
+  - family
+  - genius
+  - lesson
+  - adept
+  - camel
+  - stamp
+  - bream
+  - media
+  - point
+  - animal
+  - banner
+  - agent
+  - place
+  - plait
+  - acumen
+  - board
+  - credo
+  - delta
+  - medal
+  - condor
+  - opera
+  - party
+  - stone
+  - water
+  - accent
+  - cotter
+  - lavage
+  - litter
+  - cream
+  - drone
+  - maple
+  - tenor
+  - ballot
+  - ideal
+  - amount
+  - amount
+  - campus
+  - domain
+  - metal
+  - chrome
+  - payer
+  - bread
+  - client
+  - minute
+  - averse
+  - trace
+  - battle
+  - meteor
+  - packet
+  references:
+    version: 2
+    RefIds: []

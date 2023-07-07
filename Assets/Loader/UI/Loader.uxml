@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/Loader/UI/Loader.uss?fileID=7433441132597879392&amp;guid=f3bdaf12f4a36a54f8000475d879db68&amp;type=3#Loader" />
+    <Style src="project://database/Assets/UI%20Toolkit/File/Base.uss?fileID=7433441132597879392&amp;guid=47ab2fccdf66be0488c7b62162e81d51&amp;type=3#Base" />
+    <ui:VisualElement name="Loader" class="loader font">
+        <ui:VisualElement name="OverBG" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.9);" />
+        <ui:VisualElement name="ProgressBarSection" class="progress-bar__section" style="font-size: 20px;">
+            <ui:Label tabindex="-1" display-tooltip-when-elided="true" name="ProgressBarText" text="..." class="text-md" style="color: rgb(0, 0, 0);" />
+            <ui:VisualElement name="ProgressBarBox" class="progress-bar__box">
+                <ui:VisualElement name="ProgressBar" class="progress-bar" style="background-color: rgb(245, 242, 242);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

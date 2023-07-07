@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ab369d9f7c175498a033c6688b4df2, type: 3}
+  m_Name: NeutralDark
+  m_EditorClassIdentifier: 
+  bgHiddenWord: {r: 0.4245283, g: 0.42252582, b: 0.42252582, a: 1}
+  bgOpentHiddenWord: {r: 0.13333334, g: 0.13333334, b: 0.14117648, a: 1}
+  textOpentHiddenWord: {r: 0.3207547, g: 0.31016374, b: 0.31016374, a: 1}
+  bgImageHiddenWord: {fileID: 21300000, guid: 81bc87243f22f9747bf7cbd46d867efe, type: 3}
+  bgOpenNeiHiddenWord: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
+  textOpenNeiHiddenWord: {r: 0.26415092, g: 0.25542894, b: 0.25542894, a: 1}
+  bgChoosedWord: {r: 0.6392157, g: 0.6392157, b: 0.6392157, a: 1}
+  textChoosedWord: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  bgFindAllowWord: {r: 0.9843138, g: 0.7490196, b: 0.14117648, a: 1}
+  textFindAllowWord: {r: 0, g: 0, b: 0, a: 1}
+  bgFindHiddenWord: {r: 0.49019608, g: 0.6156863, b: 0.21960784, a: 1}
+  textFindHiddenWord: {r: 0.07058824, g: 0.09411765, b: 0, a: 1}
+  bgNotFoundWord: {r: 0.9245283, g: 0.5140829, b: 0.3794055, a: 1}
+  textNotFoundWord: {r: 0.3584906, g: 0.08215409, b: 0.045656823, a: 1}
+  colorTextChar: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+  bgColorChar: {r: 1, g: 1, b: 1, a: 0.03137255}
+  colorTextChooseChar: {r: 0.09019608, g: 0.09019608, b: 0.09019608, a: 1}
+  bgColorChooseChar: {r: 0.42352945, g: 0.42352945, b: 0.42352945, a: 1}
+  bgImageChar: {fileID: 21300000, guid: fa408dd91870427418a486a26bcbd33d, type: 3}
+  bgImageCharChoose: {fileID: 21300000, guid: fa408dd91870427418a486a26bcbd33d, type: 3}
+  bgColor: {r: 0.15294118, g: 0.15294118, b: 0.16470589, a: 1}
+  colorBgGrid: {r: 0.13149695, g: 0.13149695, b: 0.14150941, a: 1}
+  colorLine: {r: 0.8313726, g: 0.8313726, b: 0.8470589, a: 0.7490196}
+  colorPrimary: {r: 0.8313726, g: 0.8313726, b: 0.8470589, a: 1}
+  colorSecondary: {r: 0.6313726, g: 0.6313726, b: 0.6666667, a: 1}
+  colorAccent: {r: 0.8666667, g: 0.64705884, b: 0, a: 0.87058824}
+  entityColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
+  colorDisable: {r: 0.2509804, g: 0.2509804, b: 0.2509804, a: 1}
+  entityColorAsBonus: {r: 0.8666667, g: 0.64705884, b: 0, a: 0.87058824}
+  colorBgHint: {r: 0.23669456, g: 0.23669456, b: 0.254717, a: 1}
+  colorTextHint: {r: 0.8313726, g: 0.8313726, b: 0.8470589, a: 1}
+  colorBgButton: {r: 0, g: 0, b: 0, a: 0}
+  colorBgInput: {r: 0.121568635, g: 0.121568635, b: 0.12941177, a: 1}
+  colorTextInput: {r: 0.83137256, g: 0.83137256, b: 0.84705883, a: 1}
