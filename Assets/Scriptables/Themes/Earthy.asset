@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Earthy
   m_EditorClassIdentifier: 
   bgHiddenWord: {r: 0.69803923, g: 0.54509807, b: 0.47058824, a: 1}
-  bgOpentHiddenWord: {r: 0.18039216, g: 0.16078432, b: 0.15686275, a: 1}
-  textOpentHiddenWord: {r: 0.4117647, g: 0.35686275, b: 0.34901962, a: 0.44705883}
+  bgOpentHiddenWord: {r: 0.5, g: 0.4009434, b: 0.3514151, a: 1}
+  textOpentHiddenWord: {r: 1, g: 1, b: 1, a: 1}
   bgImageHiddenWord: {fileID: 21300000, guid: 81bc87243f22f9747bf7cbd46d867efe, type: 3}
   bgOpenNeiHiddenWord: {r: 0.69803923, g: 0.54509807, b: 0.47058824, a: 1}
   textOpenNeiHiddenWord: {r: 0.4117647, g: 0.35686275, b: 0.34901962, a: 1}

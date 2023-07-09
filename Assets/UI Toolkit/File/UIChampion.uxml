@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="Leader" src="project://database/Assets/UI%20Toolkit/File/Leader.uxml?fileID=9197481963319205126&amp;guid=9757e6dc2949782429ee42fb4930b862&amp;type=3#Leader" />
+    <Style src="project://database/Assets/UI%20Toolkit/File/Base.uss?fileID=7433441132597879392&amp;guid=47ab2fccdf66be0488c7b62162e81d51&amp;type=3#Base" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+        <ui:VisualElement name="UserInfoBlok" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 15px; align-self: center; width: 300px;" />
+        <ui:VisualElement name="LeaderBoard" class="b-rounded p-1" style="background-color: rgba(0, 0, 0, 0.05); width: 300px;">
+            <ui:Label tabindex="-1" text="#leaderboard" display-tooltip-when-elided="true" name="NameBoard" class="m-0 text-primary text-md" style="-unity-font-style: bold; padding-top: 10px; padding-bottom: 10px;" />
+            <ui:VisualElement name="LeaderList" class="text-md" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: stretch; display: flex;">
+                <ui:Instance template="Leader" name="Leader" />
+                <ui:Instance template="Leader" name="Leader" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

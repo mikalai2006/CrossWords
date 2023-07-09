@@ -11,6 +11,7 @@ public enum StateNode
   Word = 1 << 6,
   Hint = 1 << 7,
   Bonus = 1 << 8,
+  Use = 1 << 9
 }
 
 
@@ -21,12 +22,11 @@ public class GridNode
   public StateNode StateNode = StateNode.Empty;
   GridHelper _gridHelper;
   Grid<GridNode> _grid;
-  public Vector2Int arrKey => new Vector2Int(x, y);
+  public Vector3Int arrKey => new Vector3Int(x, -y);
   public Vector2 position;
   public int countVacantRight;
 
-  public HiddenCharMB OccupiedChar;
-  public HiddenWordMB OccupiedWord;
+  public CharHidden OccupiedChar;
   public BaseEntity OccupiedEntity;
   public BaseEntity BonusEntity;
 
@@ -42,28 +42,44 @@ public class GridNode
   {
     _grid = grid;
     _gridHelper = gridHelper;
-    position = new Vector2(x * _grid.cellSize, y * _grid.cellSize);
+    position = new Vector2(x * _grid.cellSize, -y * _grid.cellSize);
     countVacantRight = _grid.GetWidth() - x;
     this.x = x;
     this.y = y;
   }
 
-  public void SetOccupiedChar(HiddenCharMB _occupiedChar, HiddenWordMB _word)
+
+  public void SetBusy()
   {
+    StateNode &= ~StateNode.Empty;
+  }
+
+
+  public void SetUse()
+  {
+    StateNode |= StateNode.Use;
+  }
+
+
+  public void SetOccupiedChar(CharHidden _occupiedChar)
+  {
+    SetBusy();
+
     OccupiedChar = _occupiedChar;
-    OccupiedWord = _word;
     StateNode |= StateNode.Occupied;
     _occupiedChar.OccupiedNode = this;
   }
+
+  public void SetDisable()
+  {
+    StateNode |= StateNode.Disable;
+  }
+
   public void SetOpen()
   {
     StateNode |= StateNode.Open;
-
-    // if (StateNode.HasFlag(StateNode.Hint))
-    // {
-    //   StateNode &= ~StateNode.Hint;
-    // }
   }
+
 
   public GridNode SetOccupiedEntity(BaseEntity _entity)
   {
@@ -79,6 +95,7 @@ public class GridNode
     return this;
   }
 
+
   public GridNode SetBonusEntity(BaseEntity _entity)
   {
     BonusEntity = _entity;
@@ -92,6 +109,7 @@ public class GridNode
     }
     return this;
   }
+
 
   public void SetHint(bool status = true)
   {
@@ -114,7 +132,6 @@ public class GridNode
         "[arrKey " + arrKey + "] \n" +
         "[position " + position + "] \n" +
         "OccupiedUnit=" + OccupiedChar?.ToString() + ",\n" +
-        "GuestedUnit=" + OccupiedWord?.ToString() + ",\n" +
         "Entity=" + OccupiedEntity?.ToString() + ",\n" +
         "StateNode=" + StateNode + ",\n" +
         "StateNode=" + System.Convert.ToString((int)StateNode, 2) + ",\n";

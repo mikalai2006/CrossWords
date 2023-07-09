@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 11400000, guid: 8f34d19db11906f4b8a97ad95ea85df1, type: 2}
   PrefabSymbol: {fileID: 7149879278780047571, guid: e7419d168977efa48a744d43a95bae4e, type: 3}
+  prefabHiddenChar:
+    m_AssetGUID: acf1a1a20e1c9b2499c8e2705f455f58
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
   ThemeDefault: {fileID: 11400000, guid: 523cefe3a73243e47b0457cff73ee60b, type: 2}
   PlayerSettings:
   - {fileID: 11400000, guid: b57b9e953e14d084dbf1e284147084c7, type: 2}
@@ -41,6 +46,8 @@ MonoBehaviour:
   spriteInfo: {fileID: 21300000, guid: 4650a140dc17cae45bd840ee53efe598, type: 3}
   spriteDouble: {fileID: 21300000, guid: 2450c012d2d6c24468b89adeb1918e62, type: 3}
   spriteUser: {fileID: 21300000, guid: d94185b46cb54c14f94d79544f773b22, type: 3}
+  spriteChamp: {fileID: 21300000, guid: 989fe642f9af52c45baa3a6b47a3af6f, type: 3}
+  spriteClose: {fileID: 21300000, guid: 9a3530af4cb9cd247a0758f1fcba8711, type: 3}
   debounceTime: 1000
   timeDelayOverChar: 47
   GameLevels:
@@ -57,23 +64,14 @@ MonoBehaviour:
   ShopItems:
   - entity: {fileID: 11400000, guid: 2be5099a5ef97d84db2786c20dfcafde, type: 2}
     count: 1
-    cost: 100
-  - entity: {fileID: 11400000, guid: 4029cdca5db16194890ed31906de574b, type: 2}
-    count: 1
-    cost: 500
-  - entity: {fileID: 11400000, guid: 44b0831f1b50a3e45a0355ae33c073c2, type: 2}
-    count: 1
-    cost: 500
+    cost: 0
   - entity: {fileID: 11400000, guid: 7dd3f4fc6b9f65840a29682e241374d7, type: 2}
     count: 1
     cost: 1000
   ShopItemsBonus:
-  - entity: {fileID: 11400000, guid: 257080754fd05bf478e8de6f8b9b610b, type: 2}
-    count: 1
-    cost: 300
   - entity: {fileID: 11400000, guid: a01ec9408590b6b4f8ff0abb0aa4f9a1, type: 2}
     count: 1
-    cost: 300
+    cost: 500
   noName:
     title:
       m_TableReference:

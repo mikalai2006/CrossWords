@@ -1,69 +1,45 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using Loader;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIShop : UILocaleBase
+public class UIShop : UIBase
 {
-  [SerializeField] private UIDocument _uiDoc;
   [SerializeField] private VisualTreeAsset _shopItem;
   [SerializeField] private VisualTreeAsset _userBalanceItem;
-  [SerializeField] private VisualElement _root;
-  private GameObject _enviromnment;
   [SerializeField] private VisualElement _listItems;
   private TaskCompletionSource<DataDialogResult> _processCompletionSource;
   private DataDialogResult _result;
 
-  private void Awake()
+  public override async void Start()
   {
+    base.Start();
 
-    LevelManager.OnInitLevel += Hide;
-    GameManager.OnChangeTheme += ChangeTheme;
-  }
+    Title.text = await Helpers.GetLocaledString("shop");
 
-  private void OnDestroy()
-  {
+    CloseButton.clickable.clicked += () => ClickClose();
 
-    LevelManager.OnInitLevel -= Hide;
-    GameManager.OnChangeTheme -= ChangeTheme;
-  }
-
-  public virtual void Start()
-  {
-    _root = _uiDoc.rootVisualElement;
-
-    var exitBtn = _root.Q<Button>("ExitBtn");
-    exitBtn.clickable.clicked += () => ClickClose();
-
-    _listItems = _root.Q<VisualElement>("ListItems");
-
-    ChangeTheme();
-
-  }
-
-
-  private void ChangeTheme()
-  {
-    _root.Q<VisualElement>("ShopBlokWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.bgColor);
+    _listItems = Wrapper.Q<VisualElement>("ListItems");
 
     FillItems();
     DrawBalance();
-
-    base.Initialize(_root);
+    // ChangeTheme();
+    base.Initialize(Wrapper);
   }
 
 
-  private void Hide()
-  {
-    _root.style.display = DisplayStyle.None;
-  }
+  // private void ChangeTheme()
+  // {
+  //   FillItems();
+  //   DrawBalance();
+
+  //   base.Initialize(Wrapper);
+  // }
 
   private void DrawBalance()
   {
-    var wrapperBalance = _root.Q<VisualElement>("WrapperBalance");
+    var wrapperBalance = Wrapper.Q<VisualElement>("WrapperBalance");
     wrapperBalance.Clear();
     var blokBalance = _userBalanceItem.Instantiate();
     var configCoin = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);

@@ -38,7 +38,7 @@ public class Grid<T>
   {
     return _gridArray;
   }
-  public T GetGridObject(Vector2Int pos)
+  public T GetGridObject(Vector3Int pos)
   {
     //Debug.Log($"GetGrid {x},{z}: {GetWorldPosition(x, z)}");
     return pos.x >= 0 && pos.y >= 0 && pos.x < _width && pos.y < _height ? _gridArray[pos.x, pos.y] : default;

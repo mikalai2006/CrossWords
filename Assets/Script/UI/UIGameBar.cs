@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using Cysharp.Threading.Tasks;
-using Loader;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UIElements;
 
 public class UIGameBar : UILocaleBase
@@ -26,6 +21,9 @@ public class UIGameBar : UILocaleBase
   private VisualElement _cogImg;
   private VisualElement _shopImg;
   private VisualElement _avaImg;
+  private VisualElement _championImg;
+  private Label _championText;
+  private Button _championButton;
   private Button _settingsButton;
   private Button _shopButton;
   private Button _letterButton;
@@ -83,9 +81,16 @@ public class UIGameBar : UILocaleBase
   public virtual void Start()
   {
     _root = _uiDoc.rootVisualElement;
+
+    _championImg = _root.Q<VisualElement>("ChampionImg");
+    _championText = _root.Q<Label>("ChampionText");
+
     _userShortInfo = _root.Q<VisualElement>("UserShortInfo");
     _letterButton = _root.Q<Button>("BtnLetter");
     _letterButton.clickable.clicked += ShowInfoLetter;
+
+    _championButton = _root.Q<Button>("ChampionBtn");
+    _championButton.clickable.clicked += ShowChampion;
 
     _letterCount = _root.Q<Label>("LetterCount");
     _letterImg = _root.Q<VisualElement>("LetterImg");
@@ -189,19 +194,35 @@ public class UIGameBar : UILocaleBase
     _gameManager.InputManager.Enable();
   }
 
+
+  private async void ShowChampion()
+  {
+    _gameManager.InputManager.Disable();
+
+    var dialogChampion = new UIChampionOperation();
+    await dialogChampion.ShowAndHide();
+
+    _gameManager.InputManager.Enable();
+  }
+
+
   private async void ChangeTheme()
   {
     var configCoin = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
     var configLetter = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Letter);
 
     _letterImg.style.backgroundImage = new StyleBackground(configLetter.sprite);
-    _letterImg.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.colorSecondary);
+    _letterImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
     _letterCount.style.color = _gameManager.Theme.colorSecondary;
+
+    _championImg.style.backgroundImage = new StyleBackground(_gameSetting.spriteChamp);
+    _championImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
+    _championText.style.color = _gameManager.Theme.colorPrimary;
 
     _userCoinImg.style.backgroundImage = new StyleBackground(configCoin.sprite);
     _userRateImg.style.backgroundImage = new StyleBackground(_gameSetting.spriteRate);
     _cogImg.style.backgroundImage = new StyleBackground(base._gameSetting.spriteCog);
-    _cogImg.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.colorSecondary);
+    _cogImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
 
     //     // load avatar
     //     string placeholder = _gameManager.AppInfo.UserInfo.photo;
@@ -216,11 +237,11 @@ public class UIGameBar : UILocaleBase
     //   _avaImg.style.backgroundImage = new StyleBackground(_gameSetting.spriteUser);
     // }
 
-    _userCoinImg.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.colorSecondary);
-    _userRateImg.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.colorSecondary);
+    _userCoinImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
+    _userRateImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
 
     _shopImg.style.backgroundImage = new StyleBackground(base._gameSetting.spriteShop);
-    _shopImg.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.colorSecondary);
+    _shopImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
 
     _userName.text = await Helpers.GetName();
 

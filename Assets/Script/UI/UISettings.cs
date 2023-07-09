@@ -1,19 +1,15 @@
 using System;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UIElements;
 
-public class UISettings : UILocaleBase
+public class UISettings : UIBase
 {
-  [SerializeField] private UIDocument _uiDoc;
   public static event Action OnChangeLocale;
-  private VisualElement _root;
   private VisualElement _languageBlock;
   private Toggle _doDialog;
-  private Button _closeButton;
   private Button _toMenuAppButton;
   private Button _okButton;
   private DropdownField _dropdownLanguage;
@@ -25,13 +21,15 @@ public class UISettings : UILocaleBase
   private TaskCompletionSource<DataDialogResult> _processCompletionSource;
   private DataDialogResult _result;
 
-  public virtual void Start()
+  public override async void Start()
   {
-    _root = _uiDoc.rootVisualElement.Q<VisualElement>("SettingsBlok");
+    base.Start();
 
-    _languageBlock = _root.Q<VisualElement>("LanguageBlock");
+    Title.text = await Helpers.GetLocaledString("settings");
 
-    var menuBlok = _root.Q<VisualElement>("Menu");
+    _languageBlock = Wrapper.Q<VisualElement>("LanguageBlock");
+
+    var menuBlok = Wrapper.Q<VisualElement>("Menu");
     _dropdownLanguage = menuBlok.Q<DropdownField>("Language");
     _sliderTimeDelay = menuBlok.Q<SliderInt>("TimeDelay");
     _sliderVolumeMusic = menuBlok.Q<Slider>("VolumeMusic");
@@ -39,20 +37,19 @@ public class UISettings : UILocaleBase
     _dropdownTheme = menuBlok.Q<DropdownField>("Theme");
     _doDialog = menuBlok.Q<Toggle>("DoDialog");
 
-    _okButton = _root.Q<Button>("Ok");
-    _closeButton = _root.Q<Button>("CloseMenuBtn");
+    _okButton = Wrapper.Q<Button>("Ok");
 
     _okButton.clickable.clicked += () =>
     {
       CloseSettings();
     };
 
-    _closeButton.clickable.clicked += () =>
+    CloseButton.clickable.clicked += () =>
     {
       CloseSettings();
     };
 
-    _toMenuAppButton = _root.Q<Button>("ToStartMenuBtn");
+    _toMenuAppButton = Wrapper.Q<Button>("ToStartMenuBtn");
     _toMenuAppButton.clickable.clicked += () =>
     {
       ClickToStartMenuButton();
@@ -71,7 +68,7 @@ public class UISettings : UILocaleBase
 
     ChangeTheme(null);
 
-    base.Initialize(_uiDoc.rootVisualElement);
+    base.Initialize(Wrapper);
   }
 
 
@@ -95,9 +92,7 @@ public class UISettings : UILocaleBase
       _gameManager.AppInfo.SaveSettings();
     }
 
-    _root.Q<VisualElement>("MenuBlokWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.bgColor);
-
-    base.Theming(_uiDoc.rootVisualElement);
+    base.Theming(Wrapper);
   }
 
   private void ClickToStartMenuButton()
@@ -209,7 +204,7 @@ public class UISettings : UILocaleBase
       LocalizationSettings.SelectedLocale = currentLocale;//LocalizationSettings.AvailableLocales.Locales[indexLocale];
       userSettings.lang = currentLocale.Identifier.Code;
       _gameManager.AppInfo.SaveSettings();
-      base.Initialize(_uiDoc.rootVisualElement);
+      base.Initialize(Wrapper);
       // Words words = _gameManager.WordsAll.Find(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code);
       await _gameManager.SetActiveWords();
 

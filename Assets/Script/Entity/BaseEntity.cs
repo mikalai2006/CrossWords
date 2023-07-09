@@ -65,7 +65,7 @@ public class BaseEntity : MonoBehaviour, IPointerDownHandler
     this.asset = asset;
 
     OccupiedNode = node;
-    transform.localPosition = initPosition = node.arrKey + new Vector2(.5f, .5f); //  = _position
+    transform.localPosition = initPosition = node.arrKey + new Vector3(.5f, .5f); //  = _position
     initScale = transform.localScale;
 
     if (asBonus)
@@ -98,7 +98,7 @@ public class BaseEntity : MonoBehaviour, IPointerDownHandler
   {
 
   }
-  public virtual void AddLetter(char _char)
+  public virtual void AddLetter(string _char)
   {
 
   }
@@ -212,7 +212,7 @@ public class BaseEntity : MonoBehaviour, IPointerDownHandler
         {
           _gameManager.audioManager.PlayClipEffect(configEntity.soundRunEntity);
           this.nodesForCascade = nodesForEffect;
-          await OccupiedNode.OccupiedChar.ShowCharAsHint(true);
+          await OccupiedNode.OccupiedChar.CharGameObject.ShowCharAsHint(true);
         }
       });
 
@@ -243,7 +243,7 @@ public class BaseEntity : MonoBehaviour, IPointerDownHandler
 
     // });
     await UniTask.Delay((int)(duration * 1000));
-    await OccupiedNode.OccupiedChar.ShowCharAsHint(true);
+    await OccupiedNode.OccupiedChar.CharGameObject.ShowCharAsHint(true);
   }
 
   public virtual void SetDefault()

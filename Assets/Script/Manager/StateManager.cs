@@ -111,7 +111,7 @@ public class StateManager : MonoBehaviour
 
     dataGame.activeLevel.word = managerHiddenWords.WordForChars;
 
-    dataGame.activeLevel.countDopWords = managerHiddenWords.OpenWords.Count - managerHiddenWords.OpenNeedWords.Count;
+    // dataGame.activeLevel.countDopWords = managerHiddenWords.OpenWords.Count - managerHiddenWords.crossWords.Count;
 
     dataGame.activeLevel.openChars.Clear();
     foreach (var item in managerHiddenWords.OpenChars)
@@ -126,11 +126,12 @@ public class StateManager : MonoBehaviour
     }
     dataGame.activeLevel.openWords = managerHiddenWords.OpenWords.Keys.ToList();
     // dataGame.activeLevel.countOpenWords = managerHiddenWords.OpenWords.Count;
-    dataGame.activeLevel.needWords = managerHiddenWords.NeedWords.Keys.ToList();
-    dataGame.activeLevel.countNeedWords = managerHiddenWords.NeedWords.Count;
-    dataGame.activeLevel.hiddenWords = dataGame.activeLevel.openWords.Count == dataGame.activeLevel.countNeedWords
-      ? new()
-      : managerHiddenWords.HiddenWords.Keys.ToList();
+    // dataGame.activeLevel.needWords = managerHiddenWords.NeedWords.Keys.ToList();
+    dataGame.activeLevel.countCrossWords = managerHiddenWords.crossWords.Count;
+    dataGame.activeLevel.crossWords = managerHiddenWords.crossWords.Keys.ToList();
+    // dataGame.activeLevel.openWords.Count == dataGame.activeLevel.countNeedWords
+    //   ? new()
+    //   : managerHiddenWords.HiddenWords.Keys.ToList();
     dataGame.activeLevel.countOpenChars = managerHiddenWords.OpenWords.Select(t => t.Key.Length).Sum();
 
     _gameManager.DataManager.Save(saveDb);
@@ -205,7 +206,7 @@ public class StateManager : MonoBehaviour
   }
 
 
-  public void OpenCharAllowWord(char textChar)
+  public void OpenCharAllowWord(string textChar)
   {
     // dataGame.activeLevel.bonusCount.charInOrder += 1;
     dataGame.activeLevel.bonusCount.charBonus += 1;
@@ -255,7 +256,7 @@ public class StateManager : MonoBehaviour
     RefreshData(false);
   }
 
-  public void OpenCharHiddenWord(char _char)
+  public void OpenCharHiddenWord(string _char)
   {
     dataGame.activeLevel.bonusCount.charCoin += 1;
     dataGame.activeLevel.bonusCount.charInOrder += 1;
@@ -429,7 +430,7 @@ public class StateManager : MonoBehaviour
   public string GetNextWord()
   {
     // check completed level.
-    if (dataGame.activeLevel.openWords.Count >= dataGame.activeLevel.countNeedWords)
+    if (dataGame.activeLevel.openWords.Count >= dataGame.activeLevel.countCrossWords)
     {
       if (!dataGame.completed.Contains(dataGame.activeLevel.id))
       {

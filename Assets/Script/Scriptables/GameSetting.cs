@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu]
@@ -8,6 +9,7 @@ public class GameSetting : ScriptableObject
 {
   public GameAudio Audio;
   public CharMB PrefabSymbol;
+  [SerializeField] public AssetReferenceGameObject prefabHiddenChar;
 
   public GameTheme ThemeDefault;
 
@@ -57,6 +59,8 @@ public class GameSetting : ScriptableObject
   public Sprite spriteInfo;
   public Sprite spriteDouble;
   public Sprite spriteUser;
+  public Sprite spriteChamp;
+  public Sprite spriteClose;
 
   [Space(5)]
   [Header("System")]

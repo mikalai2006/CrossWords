@@ -14,7 +14,7 @@ public class GamePlayerSetting : ScriptableObject
   [Tooltip("Количество слов для перехода на новый уровень сложности")]
   public int countFindWordsForUp;
   [Tooltip("Максимальная длина слов, которые будут использоваться для табло")]
-  public int maxLengthWord;
+  // public int maxLengthWord;
   // [Tooltip("Максимальная длина слова для набора символов")]
   // public int maxLengthWordForChars;
   // [Tooltip("Минимальная длина слова для набора символов")]

@@ -7,7 +7,7 @@ public class ChoosedCharMB : MonoBehaviour
   [SerializeField] private TMPro.TextMeshProUGUI _charText;
   [SerializeField] public RectTransform RectTransform;
 
-  [HideInInspector] public char textChar;
+  [HideInInspector] public string textChar;
   private GameManager _gameManager => GameManager.Instance;
   private LevelManager _levelManager => GameManager.Instance.LevelManager;
   private StateManager _stateManager => GameManager.Instance.StateManager;
@@ -24,7 +24,7 @@ public class ChoosedCharMB : MonoBehaviour
     SetDefault();
   }
 
-  public void SetChar(char currentChar)
+  public void SetChar(string currentChar)
   {
     _charText.text = currentChar.ToString();
     textChar = currentChar;
@@ -36,7 +36,7 @@ public class ChoosedCharMB : MonoBehaviour
     RectTransform.sizeDelta = new Vector2(size, size);
   }
 
-  public async UniTask OpenCharHiddenWord(HiddenCharMB needHiddenChar, int delay)
+  public async UniTask OpenCharHiddenWord(CharHidden needHiddenChar, int delay)
   {
     _image.color = _gameManager.Theme.bgFindHiddenWord;
     _charText.color = _gameManager.Theme.textFindHiddenWord;
@@ -53,13 +53,13 @@ public class ChoosedCharMB : MonoBehaviour
     while (elapsedTime < duration)
     {
       // The center of the arc
-      Vector3 center = (initialPosition + needHiddenChar.gameObject.transform.position) * 0.5F;
+      Vector3 center = (initialPosition + needHiddenChar.CharGameObject.gameObject.transform.position) * 0.5F;
 
       // move the center a bit downwards to make the arc vertical
       center -= new Vector3(0, 1, 0);
       // Interpolate over the arc relative to center
       Vector3 riseRelCenter = initialPosition - center;
-      Vector3 setRelCenter = needHiddenChar.gameObject.transform.position - center;
+      Vector3 setRelCenter = needHiddenChar.CharGameObject.gameObject.transform.position - center;
 
       float progress = (Time.time - startTime) / duration; //elapsedTime / duration;
       transform.localScale = Vector3.Lerp(initialScale, upScale, progress);
@@ -72,7 +72,7 @@ public class ChoosedCharMB : MonoBehaviour
     // transform.localScale = initialScale;
     // AudioManager.Instance.PlayClipEffect(GameManager.Instance.GameSettings.Audio.openWord);
 
-    await needHiddenChar.ShowChar(true, needHiddenChar.charTextValue); //.Forget();
+    await needHiddenChar.CharGameObject.ShowChar(true, needHiddenChar.CharValue); //.Forget();
   }
 
   public async UniTask OpenCharAllowWord(int delay)

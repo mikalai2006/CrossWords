@@ -26,16 +26,16 @@ public class GridHelper
       {
         for (int y = 0; y < _grid.GetHeight(); y++)
         {
-          list.Add(_grid.GetGridObject(new Vector2Int(x, y)));
+          list.Add(_grid.GetGridObject(new Vector3Int(x, y)));
         }
       }
     }
     return list;
   }
 
-  public SerializableDictionary<char, List<GridNode>> GetGroupNodeChars()
+  public SerializableDictionary<string, List<GridNode>> GetGroupNodeChars()
   {
-    var result = new SerializableDictionary<char, List<GridNode>>();
+    var result = new SerializableDictionary<string, List<GridNode>>();
     var allNodes = GetAllGridNodes()
       .Where(t =>
         t.StateNode.HasFlag(StateNode.Occupied)
@@ -47,7 +47,7 @@ public class GridHelper
 
     for (int i = 0; i < allNodes.Count; i++)
     {
-      var charText = allNodes.ElementAt(i).OccupiedChar.charTextValue;
+      var charText = allNodes.ElementAt(i).OccupiedChar.CharValue;
       if (result.ContainsKey(charText))
       {
         result[charText].Add(allNodes.ElementAt(i));
@@ -63,15 +63,15 @@ public class GridHelper
 
   public GridNode GetNode(int x, int y)
   {
-    return _grid.GetGridObject(new Vector2Int(x, y));
+    return _grid.GetGridObject(new Vector3Int(Math.Abs(x), Math.Abs(y)));
   }
-  public GridNode GetNode(Vector2 pos)
+  public GridNode GetNode(Vector3 pos)
   {
-    return _grid.GetGridObject(new Vector2Int((int)pos.x, (int)pos.y));
+    return _grid.GetGridObject(new Vector3Int((int)Math.Abs(pos.x), (int)Math.Abs(pos.y)));
   }
-  public GridNode GetNode(Vector2Int pos)
+  public GridNode GetNode(Vector3Int pos)
   {
-    return _grid.GetGridObject(pos);
+    return _grid.GetGridObject(new Vector3Int(Math.Abs(pos.x), Math.Abs(pos.y)));
   }
 
   public List<GridNode> FindNodeForSpawnWord(string word, int index)
@@ -87,6 +87,19 @@ public class GridHelper
     if (chooseNode != null) result = GetLineNodesByCount(chooseNode, countChars);
     return result;
   }
+
+
+  public List<GridNode> FindNodeForSpawnBonusWord(string word)
+  {
+    var countChars = word.Length;
+    List<GridNode> result = new();
+    var potentialNodes = GetAllGridNodes()
+      .Where(t => t.x == 1 && t.y < countChars && t.StateNode.HasFlag(StateNode.Empty))
+      .OrderBy(t => -t.y)
+      .ToList();
+    return potentialNodes;
+  }
+
 
   private List<GridNode> GetLineNodesByCount(GridNode startNode, int count)
   {
@@ -136,7 +149,7 @@ public class GridHelper
         && !startNode.TopNode.StateNode.HasFlag(StateNode.Open)
         && !startNode.TopNode.StateNode.HasFlag(StateNode.Hint)
         && startNode.TopNode.OccupiedChar != null
-        && startNode.OccupiedChar.charTextValue == startNode.TopNode.OccupiedChar.charTextValue
+        && startNode.OccupiedChar.CharValue == startNode.TopNode.OccupiedChar.CharValue
       )
     {
       result.Add(startNode.TopNode);
@@ -147,7 +160,7 @@ public class GridHelper
         && !startNode.BottomNode.StateNode.HasFlag(StateNode.Open)
         && !startNode.BottomNode.StateNode.HasFlag(StateNode.Hint)
         && startNode.BottomNode.OccupiedChar != null
-        && startNode.OccupiedChar.charTextValue == startNode.BottomNode.OccupiedChar.charTextValue
+        && startNode.OccupiedChar.CharValue == startNode.BottomNode.OccupiedChar.CharValue
       )
     {
       result.Add(startNode.BottomNode);
@@ -313,4 +326,334 @@ public class GridHelper
     return result;
   }
 
+  public BaseWord SetWord(string word, GridNode startNode, DirectionWord directionWord)
+  {
+    List<char> chars = word.ToCharArray().ToList();
+
+    // Create word.
+    var newWord = new WordHidden();
+    newWord.Init(word, directionWord);
+
+    // Close start and end node.
+    GridNode prevStartNode = GetPrevNode(startNode, directionWord);
+    if (prevStartNode != null)
+    {
+      prevStartNode.SetDisable();
+    }
+    GridNode nextLastNode = GetNextNode(startNode, directionWord);
+    if (nextLastNode != null)
+    {
+      nextLastNode.SetDisable();
+    }
+
+    // check exist node with char.
+    var newChar = startNode.OccupiedChar;
+
+    // create new char for node.
+    if (newChar == null)
+    {
+      newChar = new CharHidden();
+      newChar.Init(chars.ElementAt(0).ToString(), startNode, newWord);
+    }
+    else
+    {
+      newChar.SetAsLinkAsset();
+    }
+
+    newWord.AddChar(newChar, startNode);
+
+    chars.RemoveAt(0);
+
+    int x = startNode.x;
+    int y = startNode.y;
+
+    while (chars.Count > 0)
+    {
+      string currentChar = chars.ElementAt(0).ToString();
+
+      switch (directionWord)
+      {
+        case DirectionWord.Horizontal:
+          x++;
+          break;
+        default:
+          y++;
+          break;
+      }
+
+      GridNode node = GetNode(x, y);
+      // Debug.Log($"Add Node {node}");
+      if (node != null)
+      {
+        // check exist node with char.
+        var newCharNode = node.OccupiedChar;
+
+        // create new char for node.
+        if (newCharNode == null)
+        {
+          newCharNode = new CharHidden();
+          newCharNode.Init(currentChar, node, newWord);
+        }
+        else
+        {
+          newCharNode.SetAsLinkAsset();
+        }
+
+        newWord.AddChar(newCharNode, node);
+      }
+
+      chars.RemoveAt(0);
+    }
+
+    return newWord;
+  }
+
+  public WordItemStartNode FindStartNodeForWord(string word)
+  {
+    Debug.Log($"FindStartNodeForWord::: {word}");
+    WordItemStartNode result = new()
+    {
+      directionWord = DirectionWord.Horizontal,
+      node = null
+    };
+
+    List<GridNode> allEmptyNodes = GetAllGridNodes()
+      .Where(t => !t.StateNode.HasFlag(StateNode.Disable))
+      // .OrderBy(t => UnityEngine.Random.value)
+      .ToList();
+
+    for (int j = 0; j < allEmptyNodes.Count; j++)
+    {
+      GridNode potentialNode = allEmptyNodes.ElementAt(j);
+
+      // if (potentialNode.StateNode.HasFlag(StateNode.Use)) continue;
+      // if (potentialNode == null) return result;
+
+      GridNode firstNode = CheckNodesHorizontal(word, potentialNode);
+      if (firstNode == null)
+      {
+        result.directionWord = DirectionWord.Vertical;
+        firstNode = CheckNodesVertical(word, potentialNode);
+      }
+      else
+      {
+        result.directionWord = DirectionWord.Horizontal;
+      }
+
+      if (firstNode == null) continue;
+
+      result.node = firstNode;
+      result.node.SetUse();
+      if (result.node != null) return result;
+    }
+    return result;
+  }
+
+  public GridNode CheckNodesVertical(string word, GridNode startNode)
+  {
+    GridNode resultStartNode = null;
+
+    List<GridNode> listNodes = GetListNodeForPotentialStarNode(startNode, word, DirectionWord.Vertical);
+
+    // cancel, if not exist occupied node for list potential nodes or count nodes less word length
+    if (listNodes.Count < word.Length) return resultStartNode;
+    if (listNodes.Where(t => t.StateNode.HasFlag(StateNode.Occupied)).Count() == 0) return resultStartNode;
+
+    List<GridNode> checkedNodes = new();
+    for (int i = 0; i < listNodes.Count; i++)
+    {
+      string c = word.ElementAt(i).ToString();
+      GridNode checkedNode = listNodes.ElementAt(i);
+
+      if (
+        (
+          (checkedNode.RightNode == null || (checkedNode.RightNode != null && checkedNode.RightNode.StateNode.HasFlag(StateNode.Empty)))
+          && (checkedNode.LeftNode == null || (checkedNode.LeftNode != null && checkedNode.LeftNode.StateNode.HasFlag(StateNode.Empty)))
+          && checkedNode.StateNode.HasFlag(StateNode.Empty)
+        )
+        ||
+        (
+          checkedNode.StateNode.HasFlag(StateNode.Occupied)
+          && checkedNode.OccupiedChar.CharValue == c.ToString()
+        )
+      )
+      {
+        checkedNodes.Add(checkedNode);
+        // return resultStartNode;
+      }
+      // else {
+      //   return resultStartNode;
+      // }
+    }
+    if (checkedNodes.Count != listNodes.Count) return resultStartNode;
+
+    // Check prev next
+    GridNode prevStartNode = GetPrevNode(startNode, DirectionWord.Vertical);
+    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied)))
+    {
+      return resultStartNode;
+    }
+
+    GridNode lastNode = GetNode(startNode.x, startNode.y + word.Length - 1);
+    GridNode nextLastNode = GetNextNode(lastNode, DirectionWord.Vertical);
+    if (nextLastNode != null && (nextLastNode.StateNode.HasFlag(StateNode.Disable) || nextLastNode.StateNode.HasFlag(StateNode.Occupied)))
+    {
+      return resultStartNode;
+    }
+
+    resultStartNode = startNode;
+
+    return resultStartNode;
+  }
+
+
+  public GridNode CheckNodesHorizontal(string word, GridNode startNode) //, DirectionCheck dirCheck
+  {
+    GridNode resultStartNode = null;
+
+    List<GridNode> listNodes = GetListNodeForPotentialStarNode(startNode, word, DirectionWord.Horizontal);
+
+    // cancel, if not exist occupied node for list potential nodes or count nodes less word length
+    if (listNodes.Count < word.Length) return resultStartNode;
+    if (listNodes.Where(t => t.StateNode.HasFlag(StateNode.Occupied)).Count() == 0) return resultStartNode;
+
+    List<GridNode> checkedNodes = new();
+    for (int i = 0; i < listNodes.Count; i++)
+    {
+      string c = word.ElementAt(i).ToString();
+      GridNode checkedNode = listNodes.ElementAt(i);
+
+      if (
+        (
+          (checkedNode.TopNode == null || (checkedNode.TopNode != null && checkedNode.TopNode.StateNode.HasFlag(StateNode.Empty)))
+          && (checkedNode.BottomNode == null || (checkedNode.BottomNode != null && checkedNode.BottomNode.StateNode.HasFlag(StateNode.Empty)))
+          && checkedNode.StateNode.HasFlag(StateNode.Empty)
+        )
+        ||
+        (
+          checkedNode.StateNode.HasFlag(StateNode.Occupied)
+          && checkedNode.OccupiedChar.CharValue == c.ToString()
+        )
+      )
+      {
+        checkedNodes.Add(checkedNode);
+        // return resultStartNode;
+      }
+      // else {
+      //   return resultStartNode;
+      // }
+    }
+    if (checkedNodes.Count != listNodes.Count) return resultStartNode;
+
+    // Check prev next
+    GridNode prevStartNode = GetPrevNode(startNode, DirectionWord.Horizontal);
+    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied)))
+    {
+      return resultStartNode;
+    }
+
+    GridNode lastNode = GetNode(startNode.x + word.Length - 1, startNode.y);
+    GridNode nextLastNode = GetNextNode(lastNode, DirectionWord.Horizontal);
+    if (nextLastNode != null && (nextLastNode.StateNode.HasFlag(StateNode.Disable) || nextLastNode.StateNode.HasFlag(StateNode.Occupied)))
+    {
+      return resultStartNode;
+    }
+
+    resultStartNode = startNode;
+
+    return resultStartNode;
+  }
+
+
+  private List<GridNode> GetListNodeForPotentialStarNode(GridNode startNode, string word, DirectionWord directionWord)
+  {
+    List<GridNode> result = new() { startNode };
+
+    for (int i = 1; i < word.Length; i++)
+    {
+      GridNode node = GetNode(
+        startNode.x + (directionWord == DirectionWord.Horizontal ? i : 0),
+        startNode.y + (directionWord == DirectionWord.Vertical ? i : 0)
+      );
+
+      if (node != null)
+      {
+        result.Add(node);
+      }
+    }
+
+    return result;
+  }
+
+
+  private GridNode GetPrevNode(GridNode startNode, DirectionWord directionWord)
+  {
+    return directionWord == DirectionWord.Horizontal
+      ? GetNode(startNode.x - 1, startNode.y)
+      : GetNode(startNode.x, startNode.y - 1);
+  }
+  private GridNode GetNextNode(GridNode startNode, DirectionWord directionWord)
+  {
+    return directionWord == DirectionWord.Horizontal
+      ? GetNode(startNode.x + 1, startNode.y)
+      : GetNode(startNode.x, startNode.y + 1);
+  }
+
+
+  // public bool CheckNodesRightHorizontal(string word, GridNode startNode)
+  // {
+  //   bool result = false;
+
+  //   int x = startNode.x;
+  //   int y = startNode.y;
+
+  //   foreach (char c in word)
+  //   {
+  //     x++;
+  //     GridNode node = GetNode(x, y);
+
+  //     if (
+  //       node.RightNode != null
+  //       && (node.TopNode == null || (node.TopNode != null && node.TopNode.StateNode.HasFlag(StateNode.Empty)))
+  //       && (node.BottomNode == null || (node.BottomNode != null && node.BottomNode.StateNode.HasFlag(StateNode.Empty)))
+  //       && (
+  //           node.StateNode.HasFlag(StateNode.Empty)
+  //           || (
+  //               node.BottomNode.StateNode.HasFlag(StateNode.Occupied)
+  //               && node.BottomNode.OccupiedChar.CharValue == c.ToString()
+  //             )
+  //           )
+  //     )
+  //     {
+  //       result = true;
+  //     }
+  //     else
+  //     {
+  //       return false;
+  //     }
+  //   }
+
+  //   return result;
+  // }
+
+  // public GridNode CheckNodeForChar(string word, GridNode startNode, DirectionWord directionWord)
+  // {
+  //   GridNode result = null;
+
+
+  //   return result;
+  // }
+}
+
+
+public enum DirectionWord
+{
+  Horizontal = 1,
+  Vertical = 2
+}
+
+public struct WordItemStartNode
+{
+  public GridNode node;
+  public DirectionWord directionWord;
 }

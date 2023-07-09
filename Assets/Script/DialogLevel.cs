@@ -407,8 +407,8 @@ public class DialogLevel : MonoBehaviour
         await Helpers.GetLocalizedPluralString(
           "roundconditdesc",
           new Dictionary<string, object> {
-          {"count", _stateManager.dataGame.activeLevel.countNeedWords},
-          {"count2", _levelManager.ManagerHiddenWords.AllowPotentialWords.Count}
+          {"count", _stateManager.dataGame.activeLevel.countCrossWords},
+          {"count2", _levelManager.ManagerHiddenWords.AllowlWords.Count}
           }
         )
       );
@@ -420,15 +420,15 @@ public class DialogLevel : MonoBehaviour
         await Helpers.GetLocalizedPluralString(
           "roundconditdesc",
           new Dictionary<string, object> {
-          {"count", _stateManager.dataGame.activeLevel.countNeedWords},
-          {"count2", _levelManager.ManagerHiddenWords.AllowPotentialWords.Count}
+          {"count", _stateManager.dataGame.activeLevel.countCrossWords},
+          {"count2", _levelManager.ManagerHiddenWords.AllowlWords.Count}
           }
         ),
         await Helpers.GetLocalizedPluralString(
           "currentprogress",
           new Dictionary<string, object> {
-          {"count", _stateManager.dataGame.activeLevel.openWords.Count - _stateManager.dataGame.activeLevel.countDopWords},
-          {"count2", _stateManager.dataGame.activeLevel.needWords.Count - _stateManager.dataGame.activeLevel.openWords.Count+ _stateManager.dataGame.activeLevel.countDopWords}
+          {"count", _stateManager.dataGame.activeLevel.openWords.Intersect(_stateManager.dataGame.activeLevel.crossWords).Count()},
+          {"count2", _stateManager.dataGame.activeLevel.crossWords.Count}
           }
         )
       );

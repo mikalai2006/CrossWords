@@ -35,7 +35,7 @@ public class Letter : BaseEntity
     spriteRenderer.color = color;
   }
 
-  public override void AddLetter(char _char)
+  public override void AddLetter(string _char)
   {
     // _stateManager.IncrementCoin(1);
 

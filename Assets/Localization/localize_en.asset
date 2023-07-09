@@ -316,13 +316,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4968534221422592
-    m_Localized: Bonus coefficient
+    m_Localized: Coin accrual ratio
     m_Metadata:
       m_Items: []
   - m_Id: 4968681890283520
-    m_Localized: All coins received in the current round will be multiplied by the
-      bonus coefficient. This coefficient increases by 1 for each new field filled
-      with hidden words in each round. It resets at the beginning of the round.
+    m_Localized: 'At the end of the round, the score will be multiplied by the bonus
+      accrual coefficient.
+
+
+
+      This coefficient increases as a series of error-free
+      word guesses is performed.
+
+
+
+      Each new round starts with the value -
+      x1.'
     m_Metadata:
       m_Items: []
   - m_Id: 5209502396874752

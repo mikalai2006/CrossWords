@@ -95,15 +95,20 @@ public class LevelManager : Singleton<LevelManager>
 
   public bool IsEndLevel()
   {
-    var currentLevel = _stateManager.dataGame.activeLevel; //dataGame.levels.Find(t => t.id == _stateManager.dataGame.lastWord);
+    var currentLevel = _stateManager.dataGame.activeLevel;
 
-    bool result = currentLevel.openWords.Count - currentLevel.countDopWords == currentLevel.countNeedWords && currentLevel.openWords.Count > 0;
+    bool result =
+      currentLevel.openWords.Intersect(currentLevel.crossWords).Count() == currentLevel.crossWords.Count()
+      && currentLevel.openWords.Count > 0;
+    // currentLevel.openWords.Count - currentLevel.countDopWords == currentLevel.countCrossWords
+    // && currentLevel.openWords.Count > 0;
+
     return result;
   }
 
   public void CreateChars(string str)
   {
-    // Debug.Log($"str={str}");
+    // Debug.Log($"CreateChars str={str}");
     float baseRadius = GameManager.Instance.GameSettings.radius;
     var countCharGO = str.ToArray();
     float radius = baseRadius + (countCharGO.Length / 2) * 0.1f;
@@ -136,7 +141,7 @@ public class LevelManager : Singleton<LevelManager>
     var activeLevel = _stateManager.dataGame.activeLevel;
     Pointer.SetActive(true);
 
-    string ranWordForHelp = activeLevel.hiddenWords
+    string ranWordForHelp = activeLevel.crossWords
       .Where(t => !activeLevel.openWords.Contains(t))
       .ElementAt(0);
 
@@ -250,7 +255,7 @@ public class LevelManager : Singleton<LevelManager>
   }
 
 
-  public async UniTask<BaseEntity> AddEntity(Vector2Int pos, TypeEntity typeEntity, bool asBonus)
+  public async UniTask<BaseEntity> AddEntity(Vector3 pos, TypeEntity typeEntity, bool asBonus)
   {
     var node = ManagerHiddenWords.GridHelper.GetNode(pos);
     // pos == Vector2Int.zero
@@ -369,7 +374,7 @@ public class LevelManager : Singleton<LevelManager>
   }
 
 
-  public async UniTask<GameObject> CreateLetter(Vector2 pos, Vector3 positionTo, char _char)
+  public async UniTask<GameObject> CreateLetter(Vector2 pos, Vector3 positionTo, string _char)
   {
     TaskCompletionSource<GameObject> _processCompletionSource = new();
 

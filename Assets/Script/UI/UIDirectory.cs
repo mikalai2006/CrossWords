@@ -44,7 +44,7 @@ public class UIDirectory : UILocaleBase
       "foundcountwordtotal",
         new Dictionary<string, object> {
         {"count", _gameManager.LevelManager.ManagerHiddenWords.OpenWords.Count},
-        {"count2", _gameManager.LevelManager.ManagerHiddenWords.AllowPotentialWords.Count},
+        {"count2", _gameManager.LevelManager.ManagerHiddenWords.AllowlWords.Count},
       }
     );
     _root.Q<Label>("TotalText").text = textCountWords;

@@ -53,21 +53,20 @@ public class DataLevel
   public float index;
   public int coins;
   public BonusCount bonusCount;
-  public SerializableDictionary<Vector2, string> openChars;
+  public SerializableDictionary<Vector3, string> openChars;
   public SerializableDictionary<TypeEntity, int> hints; // [System.NonSerialized]
   public SerializeEntity ent;
   public List<string> openWords;
-  public List<string> hiddenWords;
+  public List<string> crossWords;
   public string word;
-  public int countNeedWords;
-  public List<string> needWords;
+  public int countCrossWords;
   public int countOpenChars;
-  public int countDopWords;
+  // public int countDopWords;
 
   public DataLevel()
   {
     openWords = new();
-    hiddenWords = new();
+    crossWords = new();
     openChars = new();
     ent = new();
     hints = new();

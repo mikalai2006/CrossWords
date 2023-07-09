@@ -45,7 +45,7 @@ public class ChoosedWordMB : MonoBehaviour
     // gameObject.transform.localPosition = new Vector3(-choosedWord.Length / 2f + .5f, 0, 0);
     for (int i = 0; i < choosedWord.Length; i++)
     {
-      var currentChar = choosedWord.ElementAt(i);
+      var currentChar = choosedWord.ElementAt(i).ToString();
       var currentCharMB = _chars.ElementAt(i);
       _charsGameObject.Add(currentCharMB);
       currentCharMB.gameObject.SetActive(true);
@@ -54,7 +54,7 @@ public class ChoosedWordMB : MonoBehaviour
     }
   }
 
-  public async UniTask OpenHiddenWord(HiddenWordMB hiddenWordMB)
+  public async UniTask OpenHiddenWord(WordHidden hiddenWord)
   {
     await _levelManager.ShowHelp(Constants.Helps.HELP_FLASK_HIDDENBOARD);
 
@@ -63,7 +63,7 @@ public class ChoosedWordMB : MonoBehaviour
     {
       var currentCharMB = _charsGameObject.ElementAt(i);
 
-      var needHiddenChar = hiddenWordMB.Chars.ElementAt(i); //]Find(t => t.charTextValue == currentCharMB.charTextValue);
+      var needHiddenChar = hiddenWord.Chars.ElementAt(i); //]Find(t => t.charTextValue == currentCharMB.charTextValue);
 
       if (needHiddenChar == null) continue;
 
@@ -76,7 +76,7 @@ public class ChoosedWordMB : MonoBehaviour
     // _gameManager.StateManager.IncrementRate(1);
   }
 
-  public async UniTask ExistHiddenWord(HiddenWordMB hiddenWordMB)
+  public async UniTask ExistHiddenWord(WordHidden hiddenWordMB)
   {
     List<UniTask> listTasks = new();
     listTasks.Add(hiddenWordMB.FocusOpenWord());
@@ -99,7 +99,7 @@ public class ChoosedWordMB : MonoBehaviour
   public async UniTask OpenAllowWord()
   {
 
-    char lastOpenChar = new char();
+    string lastOpenChar = "";
     List<UniTask> listTasks = new();
 
     for (int i = 0; i < _charsGameObject.Count; i++)

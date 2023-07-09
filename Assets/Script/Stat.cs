@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,7 @@ public class Stat : MonoBehaviour
   private GameSetting _gameSetting => GameManager.Instance.GameSettings;
   private StateManager _stateManager => GameManager.Instance.StateManager;
   private GameManager _gameManager => GameManager.Instance;
-  private float maxWidthProgress = 10f;
+  private float maxWidthProgress => Camera.main.orthographicSize;
   [SerializeField] private RectTransform spriteProgress;
   [SerializeField] private Image _bar;
   [SerializeField] private GameObject _effectometer;
@@ -52,9 +52,9 @@ public class Stat : MonoBehaviour
   private void SetProgressValue(StateGame state)
   {
     float width = 0;
-    if (state.activeDataGame.activeLevel.countNeedWords > 0)
+    if (state.activeDataGame.activeLevel.countCrossWords > 0)
     {
-      width = ((state.activeDataGame.activeLevel.openWords.Count - state.activeDataGame.activeLevel.countDopWords) * 100f / state.activeDataGame.activeLevel.countNeedWords) * (maxWidthProgress / 100f);
+      width = (state.activeDataGame.activeLevel.openWords.Intersect(state.activeDataGame.activeLevel.crossWords).Count() * 100f / state.activeDataGame.activeLevel.countCrossWords) * (maxWidthProgress / 100f);
     }
 
     spriteProgress.DOSizeDelta(new Vector3(width, spriteProgress.rect.height), _gameSetting.timeGeneralAnimation);
@@ -68,8 +68,8 @@ public class Stat : MonoBehaviour
     var textCountWords = await Helpers.GetLocalizedPluralString(
           "foundcountword",
            new Dictionary<string, object> {
-            {"count",  _levelManager.ManagerHiddenWords.OpenNeedWords.Count},
-            {"count2", _gameManager.StateManager.dataGame.activeLevel.countNeedWords},
+            {"count",  _levelManager.ManagerHiddenWords.OpenWords.Count},
+            {"count2", _gameManager.StateManager.dataGame.activeLevel.countCrossWords},
             // {"count3", _levelManager.ManagerHiddenWords.AllowPotentialWords.Count},
             // {"count4", _levelManager.ManagerHiddenWords.OpenWords.Count},
           }

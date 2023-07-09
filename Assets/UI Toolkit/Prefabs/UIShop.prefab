@@ -49,6 +49,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
   _uiDoc: {fileID: 7423244571743716900}
+  _templateInsertBlok: {fileID: 9197481963319205126, guid: 307c795f8f8d2f14fb341a448d5bb159, type: 3}
   _shopItem: {fileID: 9197481963319205126, guid: d921a872ae6113748b5fe6edbe98167d, type: 3}
   _userBalanceItem: {fileID: 9197481963319205126, guid: 9648ce58a6190ed46a99bca20efe418b, type: 3}
 --- !u!1 &5357942093483452957
@@ -97,5 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 916087cba0ea93f49a56c8b2aa1fea78, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: 307c795f8f8d2f14fb341a448d5bb159, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9333355be6be49a44b395a07e7b71f8f, type: 3}
   m_SortingOrder: 10

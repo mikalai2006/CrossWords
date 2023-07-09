@@ -17,6 +17,7 @@ public class Constants
     public const string UI_DIRECTORY = "UIDirectory";
     public const string UI_DASHBOARD = "UIDashboard";
     public const string UI_APP = "UIApp";
+    public const string UI_CHAMPION = "UIChampion";
 
   }
 

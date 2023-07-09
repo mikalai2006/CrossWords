@@ -22,7 +22,7 @@ public class UIDashboard : UILocaleBase
   private VisualElement _userInfoBlok;
   private Label _userCoin;
   private Label _userRate;
-  private VisualElement _leaderBoard;
+  // private VisualElement _leaderBoard;
   // private Button _loadGameMenuButton;
   private TaskCompletionSource<DataDialogResult> _processCompletionSource;
   private DataDialogResult _result;
@@ -32,7 +32,7 @@ public class UIDashboard : UILocaleBase
     UISettings.OnChangeLocale += RefreshMenu;
     GameManager.OnChangeTheme += RefreshMenu;
     StateManager.OnChangeState += SetValue;
-    DataManager.OnLoadLeaderBoard += DrawLeaderListBlok;
+    // DataManager.OnLoadLeaderBoard += DrawLeaderListBlok;
   }
 
   private void OnDestroy()
@@ -40,7 +40,7 @@ public class UIDashboard : UILocaleBase
     UISettings.OnChangeLocale -= RefreshMenu;
     GameManager.OnChangeTheme -= RefreshMenu;
     StateManager.OnChangeState -= SetValue;
-    DataManager.OnLoadLeaderBoard -= DrawLeaderListBlok;
+    // DataManager.OnLoadLeaderBoard -= DrawLeaderListBlok;
   }
 
   public virtual void Start()
@@ -48,8 +48,8 @@ public class UIDashboard : UILocaleBase
     _menu = _uiDoc.rootVisualElement.Q<VisualElement>("MenuBlok");
     _userInfoBlok = _uiDoc.rootVisualElement.Q<VisualElement>("UserInfoBlok");
 
-    _leaderBoard = _uiDoc.rootVisualElement.Q<VisualElement>("LeaderBoard");
-    _leaderBoard.style.display = DisplayStyle.None;
+    // _leaderBoard = _uiDoc.rootVisualElement.Q<VisualElement>("LeaderBoard");
+    // _leaderBoard.style.display = DisplayStyle.None;
 
     _exitButton = _menu.Q<Button>("ExitBtn");
     _exitButton.clickable.clicked += () =>
@@ -58,13 +58,13 @@ public class UIDashboard : UILocaleBase
     };
 
 
-#if UNITY_EDITOR
-    _gameManager.DataManager.GetLeaderBoard("{\"leaderboard\":{\"title\":[{\"lang\":\"ru\",\"value\":\"Лидеры по количеству слов\"}]},\"userRank\":25,\"entries\":[{\"rank\":24,\"score\":90,\"name\":\"Tamara Ivanovna Semenovatoreva\",\"lang\":\"ru\",\"photo\":\"\"},{\"rank\":25,\"score\":80,\"name\":\"Mikalai P.2\",\"lang\":\"ru\",\"photo\":\"https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/66VOVRVF2GJAXS5VWT3X54YATTEZAJLGXTPIXJTG3465T5HXLNQFMZIOJ7WYALX2PEC2DIAHLM6FC7ABRLOA27IRF55DP6DXJU7JDS4IFW63KJWT4IFLT2I26N44GVCAAX6FGHPPVKQY65KZZOXXYODUUKJMK2Y25M2VUDFYRPJDR3TS4JVBUOZNWFE2QNABMFRQEVLJRRIODYNB2JKIIK76YMZEEA3VQHV3M6Q=/islands-retina-medium\"},{\"rank\":26,\"score\":70,\"name\":\"Mikalai P.3\",\"lang\":\"ru\",\"photo\":\"https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/66VOVRVF2GJAXS5VWT3X54YATTEZAJLGXTPIXJTG3465T5HXLNQFMZIOJ7WYALX2PEC2DIAHLM6FC7ABRLOA27IRF55DP6DXJU7JDS4IFW63KJWT4IFLT2I26N44GVCAAX6FGHPPVKQY65KZZOXXYODUUKJMK2Y25M2VUDFYRPJDR3TS4JVBUOZNWFE2QNABMFRQEVLJRRIODYNB2JKIIK76YMZEEA3VQHV3M6Q=/islands-retina-medium\"}]}");
-#endif
-#if ysdk
-    GetLeaderBoard();
-#endif
-    // await DrawLeaderListBlok();
+    // #if UNITY_EDITOR
+    //     _gameManager.DataManager.GetLeaderBoard("{\"leaderboard\":{\"title\":[{\"lang\":\"ru\",\"value\":\"Лидеры по количеству слов\"}]},\"userRank\":25,\"entries\":[{\"rank\":24,\"score\":90,\"name\":\"Tamara Ivanovna Semenovatoreva\",\"lang\":\"ru\",\"photo\":\"\"},{\"rank\":25,\"score\":80,\"name\":\"Mikalai P.2\",\"lang\":\"ru\",\"photo\":\"https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/66VOVRVF2GJAXS5VWT3X54YATTEZAJLGXTPIXJTG3465T5HXLNQFMZIOJ7WYALX2PEC2DIAHLM6FC7ABRLOA27IRF55DP6DXJU7JDS4IFW63KJWT4IFLT2I26N44GVCAAX6FGHPPVKQY65KZZOXXYODUUKJMK2Y25M2VUDFYRPJDR3TS4JVBUOZNWFE2QNABMFRQEVLJRRIODYNB2JKIIK76YMZEEA3VQHV3M6Q=/islands-retina-medium\"},{\"rank\":26,\"score\":70,\"name\":\"Mikalai P.3\",\"lang\":\"ru\",\"photo\":\"https://games-sdk.yandex.ru/games/api/sdk/v1/player/avatar/66VOVRVF2GJAXS5VWT3X54YATTEZAJLGXTPIXJTG3465T5HXLNQFMZIOJ7WYALX2PEC2DIAHLM6FC7ABRLOA27IRF55DP6DXJU7JDS4IFW63KJWT4IFLT2I26N44GVCAAX6FGHPPVKQY65KZZOXXYODUUKJMK2Y25M2VUDFYRPJDR3TS4JVBUOZNWFE2QNABMFRQEVLJRRIODYNB2JKIIK76YMZEEA3VQHV3M6Q=/islands-retina-medium\"}]}");
+    // #endif
+    // #if ysdk
+    //     GetLeaderBoard();
+    // #endif
+    //     // await DrawLeaderListBlok();
 
     RefreshMenu();
 
@@ -159,68 +159,68 @@ public class UIDashboard : UILocaleBase
   }
 
 
-  private async void DrawLeaderListBlok(LeaderBoard board)
-  {
-    LeaderBoard leaderBoard = _gameManager.DataManager.leaderBoard;
+  // private async void DrawLeaderListBlok(LeaderBoard board)
+  // {
+  //   LeaderBoard leaderBoard = _gameManager.DataManager.leaderBoard;
 
-    if (leaderBoard == null) return;
+  //   if (leaderBoard == null) return;
 
-    if (leaderBoard.entries.Count == 0)
-    {
-      _leaderBoard.style.display = DisplayStyle.None;
-      return;
-    }
-    else
-    {
-      _leaderBoard.style.display = DisplayStyle.Flex;
-    }
+  //   if (leaderBoard.entries.Count == 0)
+  //   {
+  //     _leaderBoard.style.display = DisplayStyle.None;
+  //     return;
+  //   }
+  //   else
+  //   {
+  //     _leaderBoard.style.display = DisplayStyle.Flex;
+  //   }
 
-    await LocalizationSettings.InitializationOperation.Task;
+  //   await LocalizationSettings.InitializationOperation.Task;
 
-    var dataState = _gameManager.StateManager.dataGame;
-    LeaderBoardInfoTitle titleBoard = leaderBoard.leaderboard.title.Find((t) => t.lang == LocalizationSettings.SelectedLocale.Identifier.Code);
-    if (string.IsNullOrEmpty(titleBoard.value))
-    {
-      _leaderBoard.Q<Label>("NameBoard").text = titleBoard.value;
-    }
-    var _leaderList = _leaderBoard.Q<VisualElement>("LeaderList");
-    _leaderList.Clear();
+  //   var dataState = _gameManager.StateManager.dataGame;
+  //   LeaderBoardInfoTitle titleBoard = leaderBoard.leaderboard.title.Find((t) => t.lang == LocalizationSettings.SelectedLocale.Identifier.Code);
+  //   if (string.IsNullOrEmpty(titleBoard.value))
+  //   {
+  //     _leaderBoard.Q<Label>("NameBoard").text = titleBoard.value;
+  //   }
+  //   var _leaderList = _leaderBoard.Q<VisualElement>("LeaderList");
+  //   _leaderList.Clear();
 
-    int countLeaderShow = leaderBoard.entries.Count > 5 ? 5 : leaderBoard.entries.Count;
+  //   int countLeaderShow = leaderBoard.entries.Count > 5 ? 5 : leaderBoard.entries.Count;
 
-    for (int i = 0; i < countLeaderShow; i++)
-    {
-      var blok = LeaderDoc.Instantiate();
+  //   for (int i = 0; i < countLeaderShow; i++)
+  //   {
+  //     var blok = LeaderDoc.Instantiate();
 
-      var leader = leaderBoard.entries[i];
+  //     var leader = leaderBoard.entries[i];
 
-      var rank = blok.Q<Label>("Rank");
-      rank.text = leader.rank.ToString();
+  //     var rank = blok.Q<Label>("Rank");
+  //     rank.text = leader.rank.ToString();
 
-      var name = blok.Q<Label>("Name");
-      name.text = leader.name;
+  //     var name = blok.Q<Label>("Name");
+  //     name.text = leader.name;
 
-      var ava = blok.Q<VisualElement>("Ava");
-      Texture2D avatarTexture = await Helpers.LoadTexture(leader.photo);
-      if (avatarTexture != null)
-      {
-        ava.style.backgroundImage = new StyleBackground(avatarTexture);
-      }
-      else
-      {
-        ava.style.backgroundImage = new StyleBackground(_gameSetting.spriteUser);
-        ava.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
-      }
+  //     var ava = blok.Q<VisualElement>("Ava");
+  //     Texture2D avatarTexture = await Helpers.LoadTexture(leader.photo);
+  //     if (avatarTexture != null)
+  //     {
+  //       ava.style.backgroundImage = new StyleBackground(avatarTexture);
+  //     }
+  //     else
+  //     {
+  //       ava.style.backgroundImage = new StyleBackground(_gameSetting.spriteUser);
+  //       ava.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
+  //     }
 
-      var score = blok.Q<Label>("Score");
-      score.text = leader.score.ToString();
+  //     var score = blok.Q<Label>("Score");
+  //     score.text = leader.score.ToString();
 
-      // blok.Q<Label>("Ava").style.backgroundImage = new StyleBackground(avaSprite);
-      _leaderList.Add(blok);
-    }
+  //     // blok.Q<Label>("Ava").style.backgroundImage = new StyleBackground(avaSprite);
+  //     _leaderList.Add(blok);
+  //   }
 
-    base.Initialize(_leaderBoard);
-  }
+  //   base.Initialize(_leaderBoard);
+  // }
 
   private async UniTask DrawUserInfoBlok()
   {

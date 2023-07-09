@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SerializeEntity : Dictionary<Vector2Int, TypeEntity>, ISerializationCallbackReceiver
+public class SerializeEntity : Dictionary<Vector3Int, TypeEntity>, ISerializationCallbackReceiver
 {
   [SerializeField] private List<string> values = new List<string>();
   [System.NonSerialized] private List<TypeEntity> keys = new List<TypeEntity>();
@@ -12,7 +12,7 @@ public class SerializeEntity : Dictionary<Vector2Int, TypeEntity>, ISerializatio
   {
     keys.Clear();
     values.Clear();
-    foreach (KeyValuePair<Vector2Int, TypeEntity> pair in this)
+    foreach (KeyValuePair<Vector3Int, TypeEntity> pair in this)
     {
       values.Add($"{pair.Key.x}:{pair.Key.y}:{(int)pair.Value}");
       keys.Add(pair.Value);
@@ -33,7 +33,7 @@ public class SerializeEntity : Dictionary<Vector2Int, TypeEntity>, ISerializatio
     {
       // this.Add(keys[i], values[i]);
       string[] arStr = values[i].Split(":");
-      this.Add(new Vector2Int(int.Parse(arStr[0]), int.Parse(arStr[1])), (TypeEntity)int.Parse(arStr[2]));
+      this.Add(new Vector3Int(int.Parse(arStr[0]), int.Parse(arStr[1])), (TypeEntity)int.Parse(arStr[2]));
     }
   }
 

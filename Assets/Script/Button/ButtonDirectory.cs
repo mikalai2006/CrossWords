@@ -56,7 +56,7 @@ public class ButtonDirectory : BaseButton
 
   public override void SetValueProgressBar(StateGame state)
   {
-    var newPosition = (progressBasePositionY + 1.2f) + progressBasePositionY - progressBasePositionY * (float)state.activeDataGame.activeLevel.openWords.Count / (float)_levelManager.ManagerHiddenWords.AllowPotentialWords.Count;
+    var newPosition = (progressBasePositionY + 1.2f) + progressBasePositionY - progressBasePositionY * (float)state.activeDataGame.activeLevel.openWords.Count / (float)_levelManager.ManagerHiddenWords.AllowlWords.Count;
     spriteProgress.transform
       .DOLocalMoveY(newPosition, _gameSetting.timeGeneralAnimation * 2)
       .SetEase(Ease.OutBounce);
