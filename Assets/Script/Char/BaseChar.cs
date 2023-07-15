@@ -8,24 +8,20 @@ public abstract class CharBase
   protected LevelManager _levelManager => GameManager.Instance.LevelManager;
   protected GameManager _gameManager => GameManager.Instance;
   protected UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> _asset;
-  protected bool onlyLinkAsset = false;
 
   protected string charValue;
   public string CharValue => charValue;
   public GridNode OccupiedNode;
   private WordHidden _occupiedWord;
   public WordHidden OccupiedWord => _occupiedWord;
+  public bool isOpen => OccupiedNode.StateNode.HasFlag(StateNode.Open);
+  public bool isHinted => OccupiedNode.StateNode.HasFlag(StateNode.Hint);
 
 
   public virtual void Init(string _char, GridNode node, WordHidden wordHidden)
   {
     charValue = _char;
     _occupiedWord = wordHidden;
-  }
-
-  public void SetAsLinkAsset()
-  {
-    onlyLinkAsset = true;
   }
 
   public virtual async UniTask Draw()

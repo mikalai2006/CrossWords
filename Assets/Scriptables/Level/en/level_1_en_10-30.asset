@@ -35,10 +35,10 @@ MonoBehaviour:
   minRate: 0
   locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
   levelWords:
-  - ante
   - done
   - race
   - batch
+  - ante
   - cause
   - cover
   - exist

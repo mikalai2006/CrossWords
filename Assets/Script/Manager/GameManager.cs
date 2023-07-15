@@ -13,6 +13,9 @@ public class GameManager : StaticInstance<GameManager>
   public static event Action OnChangeTheme;
   public static event Action<GameState> OnBeforeStateChanged;
   public static event Action<GameState> OnAfterStateChanged;
+  [SerializeField] private UnityEngine.UI.Image _imageBg;
+  [SerializeField] private UnityEngine.UI.Image _imageWrapper;
+  [SerializeField] private UnityEngine.UI.Image _imageShadow;
   [SerializeField] private string namePlayPref;
   private string langCodePlayPref;
   public string KeyPlayPref => string.Format("{0}_{1}", namePlayPref, langCodePlayPref);
@@ -41,9 +44,14 @@ public class GameManager : StaticInstance<GameManager>
   [SerializeField] private ProgressManager _progressManager;
   public ProgressManager Progress => _progressManager;
 
+
   protected override void Awake()
   {
     base.Awake();
+
+    Theme = GameSettings.ThemeDefault;
+
+    ChangeTheme();
   }
 
   // private void OnDestroy()
@@ -62,8 +70,6 @@ public class GameManager : StaticInstance<GameManager>
     // ChangeState(GameState.StartApp);
 
     AppInfo = new AppInfoContainer();
-
-    Theme = GameSettings.ThemeDefault;
 
     LoadingScreenProvider = new LoadingScreenProvider();
 
@@ -128,6 +134,10 @@ public class GameManager : StaticInstance<GameManager>
   private void ChangeTheme()
   {
     Camera.main.backgroundColor = Theme.bgColor;
+
+    _imageBg.color = Theme.bgColor;
+    _imageShadow.color = Theme.colorBgGrid;
+    _imageWrapper.sprite = Theme.bgImage;
   }
 
   private async void HandleRunLevel()

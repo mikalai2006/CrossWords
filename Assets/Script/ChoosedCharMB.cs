@@ -42,12 +42,15 @@ public class ChoosedCharMB : MonoBehaviour
     _charText.color = _gameManager.Theme.textFindHiddenWord;
     await UniTask.Delay(delay); // UniTask.Delay(delay, ignoreTimeScale: false);
 
+    // if (_gameManager.AppInfo.setting.animation)
+    // {
+
     Vector3 initialScale = transform.localScale;
     Vector3 initialPosition = transform.position;
     Vector3 upScale = new Vector3(0.5f, 0.5f, 0);
 
     float elapsedTime = 0f;
-    float duration = .5f;
+    float duration = _gameSetting.timeGeneralAnimation;
     float startTime = Time.time;
 
     while (elapsedTime < duration)
@@ -59,7 +62,7 @@ public class ChoosedCharMB : MonoBehaviour
       center -= new Vector3(0, 1, 0);
       // Interpolate over the arc relative to center
       Vector3 riseRelCenter = initialPosition - center;
-      Vector3 setRelCenter = needHiddenChar.CharGameObject.gameObject.transform.position - center;
+      Vector3 setRelCenter = needHiddenChar.CharGameObject.gameObject.transform.position - center + new Vector3(.5f, .5f, 0);
 
       float progress = (Time.time - startTime) / duration; //elapsedTime / duration;
       transform.localScale = Vector3.Lerp(initialScale, upScale, progress);
@@ -68,10 +71,11 @@ public class ChoosedCharMB : MonoBehaviour
       await UniTask.Yield();
       elapsedTime += Time.deltaTime;
     }
-    transform.localScale = new Vector3(0, 0, 0);
     // transform.localScale = initialScale;
     // AudioManager.Instance.PlayClipEffect(GameManager.Instance.GameSettings.Audio.openWord);
+    // }
 
+    transform.localScale = new Vector3(0, 0, 0);
     await needHiddenChar.CharGameObject.ShowChar(true, needHiddenChar.CharValue); //.Forget();
   }
 
@@ -89,7 +93,7 @@ public class ChoosedCharMB : MonoBehaviour
     Vector3 upScale = new Vector3(0.5f, 0.5f, 0);
 
     float elapsedTime = 0f;
-    float duration = .5f;
+    float duration = _gameSetting.timeGeneralAnimation;
     float startTime = Time.time;
 
     while (elapsedTime < duration)

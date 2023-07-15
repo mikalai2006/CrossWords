@@ -49,15 +49,15 @@ public class UIGameBar : UILocaleBase
   {
     if (state.activeDataGame.activeLevel != null)
     {
-      if (_letterCount.text != state.activeDataGame.activeLevel.coins.ToString())
-      {
-        RunAnimateCoin(new Vector3(3, 9.2f));
-      }
+      // if (_letterCount.text != state.activeDataGame.activeLevel.coins.ToString())
+      // {
+      //   RunAnimateCoin(new Vector3(3, 9.2f));
+      // }
 
-      if (_userCoin.text != state.coins.ToString())
-      {
-        RunAnimateCoin(new Vector3(-3, 9.2f)); // _userCoinImg.worldTransform.GetPosition()
-      }
+      // if (_userCoin.text != state.coins.ToString())
+      // {
+      //   RunAnimateCoin(new Vector3(-3, 9.2f)); // _userCoinImg.worldTransform.GetPosition()
+      // }
 
       _letterCount.text = string.Format("{0}", state.activeDataGame.activeLevel.coins);
       _userCoin.text = string.Format("{0}", state.coins);
@@ -80,7 +80,7 @@ public class UIGameBar : UILocaleBase
 
   public virtual void Start()
   {
-    _root = _uiDoc.rootVisualElement;
+    _root = _uiDoc.rootVisualElement.Q<VisualElement>("GameBar");
 
     _championImg = _root.Q<VisualElement>("ChampionImg");
     _championText = _root.Q<Label>("ChampionText");
@@ -210,6 +210,8 @@ public class UIGameBar : UILocaleBase
   {
     var configCoin = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
     var configLetter = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Letter);
+
+    _root.style.backgroundColor = _gameManager.Theme.colorBgTopSide;
 
     _letterImg.style.backgroundImage = new StyleBackground(configLetter.sprite);
     _letterImg.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;

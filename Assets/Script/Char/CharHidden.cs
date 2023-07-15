@@ -45,6 +45,19 @@ public class CharHidden : CharBase
       // await OpenNeighbours(runEffect);
     }
 
+    // // open crosswords if exists.
+    // foreach (var crossWordItem in OccupiedWord.Crosswords)
+    // {
+    //   WordHidden crossWord = (WordHidden)crossWordItem.Key;
+    //   bool isAlreadyOpenCrossWord = crossWordItem.Value;
+
+    //   if (!isAlreadyOpenCrossWord && crossWord.isOpen)
+    //   {
+    //     crossWord.AutoOpenWord().Forget();
+
+    //   }
+    // }
+
     await UniTask.Yield();
   }
 
@@ -70,6 +83,10 @@ public class CharHidden : CharBase
     if (OccupiedNode.StateNode.HasFlag(StateNode.Open))
     {
       Open(false).Forget();
+    }
+    if (_levelManager.ManagerHiddenWords.OpenChars.ContainsKey(OccupiedNode.arrKey))
+    {
+      CharGameObject.ShowCharAsHint(false).Forget();
     }
   }
 

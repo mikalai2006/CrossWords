@@ -32,13 +32,8 @@ public class Constants
   {
     public const string HELP_CHOOSE_CHAR = "help_choosechar";
     public const string HELP_FIND_HIDDEN_WORD = "help_findhiddenword";
-    public const string HELP_FIND_NEED_WORD = "help_findneedword";
     public const string HELP_FIND_ALLOW_WORD = "help_findallowword";
-    public const string HELP_INDEX = "help_index";
     public const string HELP_DOD_DIALOG = "help_dod_dialog";
-    public const string HELP_FLASK_HIDDENBOARD = "help_flask_hiddenboard";
-    public const string HELP_FLASK_ALLOW = "help_flask_allow";
-    public const string HELP_FLASK_HIDDEN = "help_flask_hidden";
     public const string HELP_CHOOSE_ERROR = "help_choose_error";
   }
 

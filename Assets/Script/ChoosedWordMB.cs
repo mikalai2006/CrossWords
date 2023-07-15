@@ -56,7 +56,7 @@ public class ChoosedWordMB : MonoBehaviour
 
   public async UniTask OpenHiddenWord(WordHidden hiddenWord)
   {
-    await _levelManager.ShowHelp(Constants.Helps.HELP_FLASK_HIDDENBOARD);
+    // await _levelManager.ShowHelp(Constants.Helps.HELP_FLASK_HIDDENBOARD);
 
     List<UniTask> listTasks = new();
     for (int i = 0; i < _charsGameObject.Count; i++)
@@ -120,13 +120,14 @@ public class ChoosedWordMB : MonoBehaviour
 
     _gameManager.StateManager.IncrementCoin(1);
 
-    _levelManager.CreateLetter(
-      _levelManager.buttonDirectory.transform.position,
-      _levelManager.buttonFlask.transform.position,
-      lastOpenChar
-    ).Forget();
-    // _gameManager.StateManager.OpenCharHiddenWord(lastOpenChar);
-    // _gameManager.StateManager.IncrementRate(1);
+    _gameManager.StateManager.OpenCharHiddenWord(lastOpenChar);
+    // _levelManager.CreateLetter(
+    //   _levelManager.buttonDirectory.transform.position,
+    //   _levelManager.buttonFlask.transform.position,
+    //   lastOpenChar
+    // ).Forget();
+    // // _gameManager.StateManager.OpenCharHiddenWord(lastOpenChar);
+    // // _gameManager.StateManager.IncrementRate(1);
   }
 
 

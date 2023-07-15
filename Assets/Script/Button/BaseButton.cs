@@ -89,7 +89,7 @@ public abstract class BaseButton : MonoBehaviour, IPointerDownHandler
     counterImage.color = _gameManager.Theme.colorBgHint;
     counterText.color = _gameManager.Theme.colorTextHint;
     spriteProgress.color = _gameManager.Theme.colorAccent;
-    button.image.color = _gameManager.Theme.colorBgButton;
+    button.image.color = _gameManager.Theme.entityBgButton;
 
     if (!pointer.enabled)
     {

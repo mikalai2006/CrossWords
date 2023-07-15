@@ -83,6 +83,7 @@ namespace User
     public int td;
     public string theme;
     public bool dod;
+    public bool animation;
   }
 
   // [System.Serializable]

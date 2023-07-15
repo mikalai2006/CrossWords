@@ -16,7 +16,7 @@ public class UIDashboard : UILocaleBase
   [SerializeField] private UIDocument _uiDoc;
   [SerializeField] private VisualTreeAsset UserInfoDoc;
   [SerializeField] private VisualTreeAsset LeaderDoc;
-  private VisualElement _menu;
+  private VisualElement _root;
   private Button _exitButton;
   // private Button _newGameButton;
   private VisualElement _userInfoBlok;
@@ -45,13 +45,13 @@ public class UIDashboard : UILocaleBase
 
   public virtual void Start()
   {
-    _menu = _uiDoc.rootVisualElement.Q<VisualElement>("MenuBlok");
+    _root = _uiDoc.rootVisualElement.Q<VisualElement>("DashBoard");
     _userInfoBlok = _uiDoc.rootVisualElement.Q<VisualElement>("UserInfoBlok");
 
     // _leaderBoard = _uiDoc.rootVisualElement.Q<VisualElement>("LeaderBoard");
     // _leaderBoard.style.display = DisplayStyle.None;
 
-    _exitButton = _menu.Q<Button>("ExitBtn");
+    _exitButton = _root.Q<Button>("ExitBtn");
     _exitButton.clickable.clicked += () =>
     {
       ClickExitButton();
@@ -104,7 +104,7 @@ public class UIDashboard : UILocaleBase
       { "count", _gameSetting.countHoursDailyGift },
     });
     var configCoin = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
-    var configStar = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Star);
+    var configStar = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.RandomLetter);
     var entities = new List<ShopItem<GameEntity>>() {
           new ShopItem<GameEntity>(){
             entity = configCoin,
@@ -231,16 +231,21 @@ public class UIDashboard : UILocaleBase
     if (string.IsNullOrEmpty(dataGame.rank)) return;
 
 
+    _root.Q<Label>("AppNameLabel").style.color = _gameManager.Theme.colorAccent;
+
+
     var blok = UserInfoDoc.Instantiate();
+
+    blok.Q<VisualElement>("Blok").style.backgroundColor = _gameManager.Theme.colorBgDialog;
 
     var progressBlok = blok.Q<VisualElement>("ProgressBlok");
 
     var playerSetting = _gameManager.PlayerSetting;
     _gameManager.Progress.Refresh();
 
-    var nameFile = blok.Q<Label>("NameFile");
-    var titleFile = _gameManager.GameSettings.wordFiles.Find(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code);
-    nameFile.text = await Helpers.GetLocaledString(titleFile.text.title);
+    // var nameFile = blok.Q<Label>("NameFile");
+    // var titleFile = _gameManager.GameSettings.wordFiles.Find(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code);
+    // nameFile.text = await Helpers.GetLocaledString(titleFile.text.title);
 
 
     var allPlayerSetting = _gameSetting.PlayerSettings.OrderBy(t => -t.countFindWordsForUp).First();
@@ -301,7 +306,7 @@ public class UIDashboard : UILocaleBase
     var _newGameButton = blok.Q<Button>("NewGameBtn");
     _newGameButton.clickable.clicked += () =>
     {
-      ClickNewGameButton();
+      ClickLoadGameButton();
     };
     _newGameButton.style.display = DisplayStyle.None;
 
@@ -362,7 +367,7 @@ public class UIDashboard : UILocaleBase
     _userInfoBlok.Add(blok);
     base.Initialize(_userInfoBlok);
 
-    nameFile.style.color = new StyleColor(_gameManager.Theme.colorAccent);
+    // nameFile.style.color = new StyleColor(_gameManager.Theme.colorAccent);
   }
 
 
@@ -370,50 +375,66 @@ public class UIDashboard : UILocaleBase
   {
     AudioManager.Instance.Click();
 
+    await LocalizationSettings.InitializationOperation.Task;
+
     StateManager.OnChangeState -= SetValue;
 
     var operations = new Queue<ILoadingOperation>();
     operations.Enqueue(new GameInitOperation());
     await _gameManager.LoadingScreenProvider.LoadAndDestroy(operations);
+
 
     var activeLastWord = _gameManager.StateManager.dataGame.lastWord;
 
-    _gameManager.LevelManager.InitLevel(activeLastWord);
-
-    _gameManager.ChangeState(GameState.LoadLevel);
-
-    _result.isOk = true;
-
-    _processCompletionSource.SetResult(_result);
-  }
-
-  private async void ClickNewGameButton()
-  {
-    AudioManager.Instance.Click();
-
-    StateManager.OnChangeState -= SetValue;
-
-    await LocalizationSettings.InitializationOperation.Task;
-
-    var operations = new Queue<ILoadingOperation>();
-    operations.Enqueue(new GameInitOperation());
-    await _gameManager.LoadingScreenProvider.LoadAndDestroy(operations);
-
-    GameLevel firstLevel = _gameSetting.GameLevels.Where(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code).OrderBy(t => t.minRate).FirstOrDefault();
-    string activeLastLevelWord = "";
-    if (firstLevel != null)
+    if (string.IsNullOrEmpty(activeLastWord))
     {
-      activeLastLevelWord = firstLevel.levelWords.ElementAt(0);
+      GameLevel firstLevel = _gameManager.GameSettings.GameLevels.Where(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code).OrderBy(t => t.minRate).FirstOrDefault();
+
+      activeLastWord = firstLevel != null && firstLevel.levelWords.Count > 0 ? firstLevel.levelWords.ElementAt(0) : "";
     }
 
-    _gameManager.LevelManager.InitLevel(activeLastLevelWord);
-
     _gameManager.ChangeState(GameState.LoadLevel);
+
+    _gameManager.LevelManager.InitLevel(activeLastWord).Forget();
+
+    // var activeLastWord = _gameManager.StateManager.dataGame.lastWord;
+
+    // _gameManager.LevelManager.InitLevel(activeLastWord);
+
+    // _gameManager.ChangeState(GameState.LoadLevel);
 
     _result.isOk = true;
 
     _processCompletionSource.SetResult(_result);
   }
+
+  // private async void ClickNewGameButton()
+  // {
+  //   AudioManager.Instance.Click();
+
+  //   StateManager.OnChangeState -= SetValue;
+
+  //   await LocalizationSettings.InitializationOperation.Task;
+
+  //   var operations = new Queue<ILoadingOperation>();
+  //   operations.Enqueue(new GameInitOperation());
+  //   await _gameManager.LoadingScreenProvider.LoadAndDestroy(operations);
+
+  //   // GameLevel firstLevel = _gameSetting.GameLevels.Where(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code).OrderBy(t => t.minRate).FirstOrDefault();
+  //   // string activeLastLevelWord = "";
+  //   // if (firstLevel != null)
+  //   // {
+  //   //   activeLastLevelWord = firstLevel.levelWords.ElementAt(0);
+  //   // }
+
+  //   // _gameManager.LevelManager.InitLevel(activeLastLevelWord);
+
+  //   // _gameManager.ChangeState(GameState.LoadLevel);
+
+  //   _result.isOk = true;
+
+  //   _processCompletionSource.SetResult(_result);
+  // }
 
   private void ClickExitButton()
   {

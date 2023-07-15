@@ -125,6 +125,7 @@ public class StateManager : MonoBehaviour
       dataGame.activeLevel.ent.Add(item.Key, item.Value);
     }
     dataGame.activeLevel.openWords = managerHiddenWords.OpenWords.Keys.ToList();
+    dataGame.activeLevel.openCrossWords = managerHiddenWords.OpenCrossWords.Keys.ToList();
     // dataGame.activeLevel.countOpenWords = managerHiddenWords.OpenWords.Count;
     // dataGame.activeLevel.needWords = managerHiddenWords.NeedWords.Keys.ToList();
     dataGame.activeLevel.countCrossWords = managerHiddenWords.crossWords.Count;
@@ -134,6 +135,7 @@ public class StateManager : MonoBehaviour
     //   : managerHiddenWords.HiddenWords.Keys.ToList();
     dataGame.activeLevel.countOpenChars = managerHiddenWords.OpenWords.Select(t => t.Key.Length).Sum();
 
+    stateGame.countRound = stateGame.items.Select(t => t.dataGame.completed.Count).Sum();
     _gameManager.DataManager.Save(saveDb);
     OnChangeState.Invoke(stateGame);
   }
@@ -210,10 +212,10 @@ public class StateManager : MonoBehaviour
   {
     // dataGame.activeLevel.bonusCount.charInOrder += 1;
     dataGame.activeLevel.bonusCount.charBonus += 1;
-    dataGame.activeLevel.bonusCount.charHint += 1;
+    dataGame.activeLevel.bonusCount.charFrequency += 1;
     dataGame.activeLevel.bonusCount.charStar += 1;
-    dataGame.activeLevel.bonusCount.charBomb += 1;
-    dataGame.activeLevel.bonusCount.charLighting += 1;
+    // dataGame.activeLevel.bonusCount.charBomb += 1;
+    // dataGame.activeLevel.bonusCount.charLighting += 1;
 
     // Add bonus index.
     if (dataGame.activeLevel.bonusCount.charBonus >= _gameManager.PlayerSetting.bonusCount.charBonus)
@@ -223,9 +225,9 @@ public class StateManager : MonoBehaviour
     }
 
     // Add hint.
-    if (dataGame.activeLevel.bonusCount.charHint >= _gameManager.PlayerSetting.bonusCount.charHint)
+    if (dataGame.activeLevel.bonusCount.charFrequency >= _gameManager.PlayerSetting.bonusCount.charFrequency)
     {
-      dataGame.activeLevel.bonusCount.charHint -= _gameManager.PlayerSetting.bonusCount.charHint;
+      dataGame.activeLevel.bonusCount.charFrequency -= _gameManager.PlayerSetting.bonusCount.charFrequency;
       // dataGame.hints[TypeEntity.Hint]++;
       UseHint(1, TypeEntity.Frequency);
     }
@@ -235,23 +237,23 @@ public class StateManager : MonoBehaviour
     {
       dataGame.activeLevel.bonusCount.charStar -= _gameManager.PlayerSetting.bonusCount.charStar;
       // dataGame.hints[TypeEntity.Star]++;
-      UseHint(1, TypeEntity.Star);
+      UseHint(1, TypeEntity.RandomLetter);
     }
 
-    // Add bomb.
-    if (dataGame.activeLevel.bonusCount.charBomb >= _gameManager.PlayerSetting.bonusCount.charBomb)
-    {
-      dataGame.activeLevel.bonusCount.charBomb -= _gameManager.PlayerSetting.bonusCount.charBomb;
-      // dataGame.hints[TypeEntity.Bomb]++;
-      UseHint(1, TypeEntity.Bomb);
-    }
+    // // Add bomb.
+    // if (dataGame.activeLevel.bonusCount.charBomb >= _gameManager.PlayerSetting.bonusCount.charBomb)
+    // {
+    //   dataGame.activeLevel.bonusCount.charBomb -= _gameManager.PlayerSetting.bonusCount.charBomb;
+    //   // dataGame.hints[TypeEntity.Bomb]++;
+    //   UseHint(1, TypeEntity.Bomb);
+    // }
 
-    // Add Lighting.
-    if (dataGame.activeLevel.bonusCount.charLighting >= _gameManager.PlayerSetting.bonusCount.charLighting)
-    {
-      dataGame.activeLevel.bonusCount.charLighting -= _gameManager.PlayerSetting.bonusCount.charLighting;
-      UseHint(1, TypeEntity.Lighting);
-    }
+    // // Add Lighting.
+    // if (dataGame.activeLevel.bonusCount.charLighting >= _gameManager.PlayerSetting.bonusCount.charLighting)
+    // {
+    //   dataGame.activeLevel.bonusCount.charLighting -= _gameManager.PlayerSetting.bonusCount.charLighting;
+    //   UseHint(1, TypeEntity.Lighting);
+    // }
 
     RefreshData(false);
   }
@@ -298,10 +300,10 @@ public class StateManager : MonoBehaviour
       dataGame.activeLevel.bonusCount.charInOrder = 0;
       dataGame.activeLevel.bonusCount.charBonus = 0;
       dataGame.activeLevel.bonusCount.charCoin = 0;
-      dataGame.activeLevel.bonusCount.charHint = 0;
+      dataGame.activeLevel.bonusCount.charFrequency = 0;
       dataGame.activeLevel.bonusCount.charStar = 0;
-      dataGame.activeLevel.bonusCount.charBomb = 0;
-      dataGame.activeLevel.bonusCount.charLighting = 0;
+      // dataGame.activeLevel.bonusCount.charBomb = 0;
+      // dataGame.activeLevel.bonusCount.charLighting = 0;
       dataGame.activeLevel.bonusCount.errorNullBonus = 0;
     }
     RefreshData(false);
@@ -430,7 +432,7 @@ public class StateManager : MonoBehaviour
   public string GetNextWord()
   {
     // check completed level.
-    if (dataGame.activeLevel.openWords.Count >= dataGame.activeLevel.countCrossWords)
+    if (dataGame.activeLevel.openCrossWords.Count >= dataGame.activeLevel.countCrossWords)
     {
       if (!dataGame.completed.Contains(dataGame.activeLevel.id))
       {

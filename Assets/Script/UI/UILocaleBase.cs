@@ -25,9 +25,9 @@ public abstract class UILocaleBase : MonoBehaviour
     Theming(_box);
   }
 
-  public void Theming(VisualElement root)
+  public void Theming(VisualElement _root)
   {
-    _box = root;
+    _box = _root;
 
     UQueryBuilder<VisualElement> builder = new UQueryBuilder<VisualElement>(_box);
     List<VisualElement> list = builder.Class("text-primary").ToList();
@@ -37,7 +37,7 @@ public abstract class UILocaleBase : MonoBehaviour
     }
 
     UQueryBuilder<VisualElement> builderSecondary = new UQueryBuilder<VisualElement>(_box);
-    List<VisualElement> listSecondary = builderSecondary.Class("text-secondary").ToList();
+    List<VisualElement> listSecondary = builderSecondary.Where(t => t.ClassListContains("text-secondary")).ToList();
     foreach (var item in listSecondary)
     {
       item.style.color = _gameManager.Theme.colorSecondary;
@@ -79,6 +79,27 @@ public abstract class UILocaleBase : MonoBehaviour
       item.style.backgroundColor = _gameManager.Theme.colorBgInput;
       item.style.unityBackgroundImageTintColor = _gameManager.Theme.colorTextInput;
       item.style.color = _gameManager.Theme.colorTextInput;
+    }
+
+    UQueryBuilder<VisualElement> builderBtn = new UQueryBuilder<VisualElement>(_box);
+    List<VisualElement> listBtnEl = builderBtn.Class("btn").ToList();
+    foreach (var item in listBtnEl)
+    {
+      item.style.backgroundColor = _gameManager.Theme.colorBgButton;
+    }
+
+    UQueryBuilder<VisualElement> builderLowBtns = new UQueryBuilder<VisualElement>(_box);
+    List<VisualElement> listLowBtns = builderLowBtns.Class("unity-scroller__low-button").ToList();
+    foreach (var item in listLowBtns)
+    {
+      item.style.unityBackgroundImageTintColor = _gameManager.Theme.colorTextInput;
+    }
+
+    UQueryBuilder<VisualElement> builderHighBtns = new UQueryBuilder<VisualElement>(_box);
+    List<VisualElement> listHighBtns = builderHighBtns.Class("unity-scroller__high-button").ToList();
+    foreach (var item in listHighBtns)
+    {
+      item.style.unityBackgroundImageTintColor = _gameManager.Theme.colorTextInput;
     }
   }
 

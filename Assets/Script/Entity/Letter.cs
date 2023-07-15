@@ -35,16 +35,16 @@ public class Letter : BaseEntity
     spriteRenderer.color = color;
   }
 
-  public override void AddLetter(string _char)
-  {
-    // _stateManager.IncrementCoin(1);
+  // public override void AddLetter(string _char)
+  // {
+  //   // _stateManager.IncrementCoin(1);
 
-    _stateManager.OpenCharHiddenWord(_char);
+  //   _stateManager.OpenCharHiddenWord(_char);
 
-    _levelManager.buttonFlask.AddChar().Forget();
-    // _stateManager.OpenCharHiddenWord(_char);
-    Destroy(gameObject);
-  }
+  //   _levelManager.buttonFlask.AddChar().Forget();
+  //   // _stateManager.OpenCharHiddenWord(_char);
+  //   Destroy(gameObject);
+  // }
 
   public async override UniTask Run()
   {

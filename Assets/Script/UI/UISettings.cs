@@ -205,6 +205,7 @@ public class UISettings : UIBase
       userSettings.lang = currentLocale.Identifier.Code;
       _gameManager.AppInfo.SaveSettings();
       base.Initialize(Wrapper);
+      Title.text = await Helpers.GetLocaledString("settings");
       // Words words = _gameManager.WordsAll.Find(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code);
       await _gameManager.SetActiveWords();
 

@@ -48,6 +48,8 @@ public class InitUserWindow : UILocaleBase
     OnValidFormField();
     // _form.style.display = DisplayStyle.None;
 
+    _form.style.backgroundColor = _gameManager.Theme.bgColor;
+
     base.Initialize(_uiDoc.rootVisualElement);
 
   }

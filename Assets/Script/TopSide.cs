@@ -21,8 +21,8 @@ public class TopSide : MonoBehaviour
   // [SerializeField] public GameObject targetTotalCoinObject;
   [SerializeField] public GameObject bonusObject;
   // [SerializeField] private TMPro.TextMeshProUGUI _coins;
-  [SerializeField] private Image _imageGridBg;
-  [SerializeField] private Image _imageBonusesBg;
+  [SerializeField] private Image _imageControl;
+  // [SerializeField] private Image _imageBg;
   [SerializeField] private List<BaseBonus> bonusObjects;
   public Dictionary<TypeBonus, BaseBonus> Bonuses = new();
   // [SerializeField] private GridLayoutGroup layoutGroupBonus;
@@ -66,8 +66,11 @@ public class TopSide : MonoBehaviour
 
   private void ChangeTheme()
   {
-    _imageGridBg.color = _gameManager.Theme.colorBgGrid;
-    _imageBonusesBg.color = _gameManager.Theme.colorBgGrid;
+    // _imageWrapper.color = _gameManager.Theme.colorBgGrid;
+    // _imageBonusesBg.color = _gameManager.Theme.colorBgGrid;
+    _imageControl.color = _gameManager.Theme.colorBgControl;
+    // _imageShadow.color = _gameManager.Theme.colorBgGrid;
+    // _imageWrapper.sprite = _gameManager.Theme.bgImage;
     // _statusText.color = _gameManager.Theme.colorPrimary;
     // _rate.color = _gameManager.Theme.colorPrimary;
     // _coins.color = _gameManager.Theme.colorPrimary;

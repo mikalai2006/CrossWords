@@ -75,32 +75,32 @@ public class ButtonFlask : BaseButton
 
   private async void GenerateBonus()
   {
-    int rand = UnityEngine.Random.Range(0, 100);
+    // int rand = UnityEngine.Random.Range(0, 100);
 
     if (_gameManager.LevelManager.IsEndLevel()) return;
 
     Sprite sprite;
     TextLocalize localizeObj;
-    if (rand <= 50)
-    {
-      var allBonuses = _gameManager.ResourceSystem.GetAllBonus().Where(t => t.isMybeGenerate);
-      var randBonus = allBonuses.OrderBy(t => UnityEngine.Random.value).ElementAt(0);
-      _gameManager.StateManager.UseBonus(1, randBonus.typeBonus);
+    // if (rand <= 50)
+    // {
+    //   var allBonuses = _gameManager.ResourceSystem.GetAllBonus().Where(t => t.isMybeGenerate);
+    //   var randBonus = allBonuses.OrderBy(t => UnityEngine.Random.value).ElementAt(0);
+    //   _gameManager.StateManager.UseBonus(1, randBonus.typeBonus);
 
-      sprite = randBonus.sprite;
-      localizeObj = randBonus.text;
-    }
-    else
-    {
-      var allEntity = _gameManager.ResourceSystem.GetAllEntity().Where(t => t.isUseGenerator);
-      var randEntity = allEntity.OrderBy(t => UnityEngine.Random.value).ElementAt(0);
+    //   sprite = randBonus.sprite;
+    //   localizeObj = randBonus.text;
+    // }
+    // else
+    // {
+    var allEntity = _gameManager.ResourceSystem.GetAllEntity().Where(t => t.isUseGenerator);
+    var randEntity = allEntity.OrderBy(t => UnityEngine.Random.value).ElementAt(0);
 
-      _gameManager.audioManager.PlayClipEffect(randEntity.soundAddEntity);
-      _gameManager.StateManager.UseHint(1, randEntity.typeEntity);
+    _gameManager.audioManager.PlayClipEffect(randEntity.soundAddEntity);
+    _gameManager.StateManager.UseHint(1, randEntity.typeEntity);
 
-      sprite = randEntity.sprite;
-      localizeObj = randEntity.text;
-    }
+    sprite = randEntity.sprite;
+    localizeObj = randEntity.text;
+    // }
 
     if (!localizeObj.title.IsEmpty && _gameManager.AppInfo.setting.dod)
     {

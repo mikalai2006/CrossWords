@@ -9,6 +9,7 @@ public class StateGame
   [System.NonSerialized] public DataGame activeDataGame;
   public int coins;
   public string lastTime;
+  public int countRound;
 
   public StateGame()
   {
@@ -61,12 +62,15 @@ public class DataLevel
   public string word;
   public int countCrossWords;
   public int countOpenChars;
+  public List<string> openCrossWords;
+
   // public int countDopWords;
 
   public DataLevel()
   {
     openWords = new();
     crossWords = new();
+    openCrossWords = new();
     openChars = new();
     ent = new();
     hints = new();

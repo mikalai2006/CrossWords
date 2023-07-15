@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Events;
-using System.Collections.Generic;
 
 public class UIDialog : UILocaleBase
 {
@@ -56,7 +55,7 @@ public class UIDialog : UILocaleBase
 
   private void ChangeTheme()
   {
-    _root.Q<VisualElement>("DialogWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.bgColor);
+    _root.Q<VisualElement>("DialogWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.colorBgDialog);
     _sprite.style.unityBackgroundImageTintColor = new StyleColor(_gameManager.Theme.entityColor);
   }
 

@@ -74,6 +74,7 @@ public class DialogLevel : MonoBehaviour
   private Dictionary<BaseEntity, int> _hintsRound = new();
   // private int _valueTotalHintCoin;
   // private int _valueTotalStarCoin;
+  private GameEntity _coinConfig;
 
   private void Awake()
   {
@@ -94,14 +95,17 @@ public class DialogLevel : MonoBehaviour
 
   private void ChangeTheme()
   {
+    _coinConfig = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
+
     _buttonDouble.GetComponentInChildren<TMPro.TextMeshProUGUI>().color = _gameManager.Theme.colorPrimary;
     _buttonNext.GetComponentInChildren<TMPro.TextMeshProUGUI>().color = _gameManager.Theme.colorPrimary;
     _buttonOk.GetComponentInChildren<TMPro.TextMeshProUGUI>().color = _gameManager.Theme.colorPrimary;
 
     _textTotalCoin.color = _gameManager.Theme.colorPrimary;
     spriteCoin.color = _gameManager.Theme.colorPrimary;
+    spriteCoin.sprite = _coinConfig.sprite;
 
-    _wrapperSprite.color = _gameManager.Theme.bgColor;
+    _wrapperSprite.color = _gameManager.Theme.colorBgDialog;
 
     _textMessageSmall.color = _gameManager.Theme.colorSecondary;
 
@@ -122,6 +126,8 @@ public class DialogLevel : MonoBehaviour
 
   public async UniTask<DataDialogResult> ShowDialogEndRound()
   {
+    _gameManager.InputManager.Disable();
+
     OnShowDialog?.Invoke();
     _gameManager.ChangeState(GameState.StartEffect);
 
@@ -168,16 +174,18 @@ public class DialogLevel : MonoBehaviour
     .DOMove(visiblePositionWrapper, duration)
     .From(defaultPositionWrapper, true)
     .SetEase(Ease.OutCubic)
-    .OnComplete(async () =>
+    .OnComplete(() =>
     {
 
       int countCoinLevel = _countTotalCoins + _stateManager.dataGame.activeLevel.coins;
 
-      for (int i = _countTotalCoins; i <= countCoinLevel; i++)
-      {
-        _textTotalCoin.text = i.ToString();// _countTotalCoins.ToString();
-        await UniTask.DelayFrame(1);
-      }
+      // for (int i = _countTotalCoins; i <= countCoinLevel; i++)
+      // {
+      //   _textTotalCoin.text = i.ToString();// _countTotalCoins.ToString();
+      //   await UniTask.DelayFrame(1);
+      // }
+      _textTotalCoin.text = countCoinLevel.ToString();
+
       AudioManager.Instance.PlayClipEffect(GameManager.Instance.GameSettings.Audio.calculateCoin);
 
       var indexBonus = _levelManager.topSide.Bonuses.Where(t => t.Key == TypeBonus.Index).FirstOrDefault().Value;
@@ -192,19 +200,21 @@ public class DialogLevel : MonoBehaviour
       {
         indexBonus.SetSortOrder(60);
         indexBonus.bonusObject.gameObject.transform
-          .DOMove(spriteCoin.transform.position + new Vector3(0.3f, 0, 0), duration) // new Vector3(-2.9f, 6.13f, 0)
-          .OnComplete(async () =>
+          .DOMove(spriteCoin.transform.position + new Vector3(0.5f, 0, 0), duration) // new Vector3(-2.9f, 6.13f, 0)
+          .OnComplete(() =>
           {
-            for (int i = countCoinLevel; i <= _countTotalOfByIndex; i++)
-            {
-              _textTotalCoin.text = i.ToString();
-              await UniTask.DelayFrame(1);
-            }
+            // for (int i = countCoinLevel; i <= _countTotalOfByIndex; i++)
+            // {
+            //   _textTotalCoin.text = i.ToString();
+            //   await UniTask.DelayFrame(1);
+            // }
+            _textTotalCoin.text = _countTotalOfByIndex.ToString();
 
             AudioManager.Instance.PlayClipEffect(GameManager.Instance.GameSettings.Audio.calculateCoin);
 
             SetProgressValue(_gameManager.Progress.currentRate + _stateManager.stateGame.activeDataGame.activeLevel.openWords.Count, _gameSetting.timeGeneralAnimation);
 
+            indexBonus.SetSortOrder(60);
           });
       }
 
@@ -263,23 +273,24 @@ public class DialogLevel : MonoBehaviour
     // OnDoubleCoins();
   }
 
-  public async void OnDoubleCoins(int value)
+  public void OnDoubleCoins(int value)
   {
     int startCoins = _countTotalCoins;
 
     _countTotalCoins *= 2;
 
-    for (int i = startCoins; i <= _countTotalCoins; i++)
-    {
-      _textTotalCoin.text = i.ToString();
+    // for (int i = startCoins; i <= _countTotalCoins; i++)
+    // {
+    //   _textTotalCoin.text = i.ToString();
 
-      await UniTask.Delay(1);
-    }
+    //   await UniTask.Delay(1);
+    // }
+    _textTotalCoin.text = _countTotalCoins.ToString();
   }
 
   private void GoCoins()
   {
-    GameEntity configEntity = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
+    // GameEntity configEntity = _gameManager.ResourceSystem.GetAllEntity().Find(t => t.typeEntity == TypeEntity.Coin);
 
     _stateManager.IncrementTotalCoin(_countTotalCoins);
     // await _levelManager.CreateCoin(
@@ -337,6 +348,8 @@ public class DialogLevel : MonoBehaviour
         OnHideDialog?.Invoke();
         _gameManager.ChangeState(GameState.StopEffect);
 
+        // SetDefault();
+
         _result.isOk = true;
         _processCompletionSource.SetResult(_result);
       });
@@ -368,9 +381,9 @@ public class DialogLevel : MonoBehaviour
       // Create hint entity.
       var countHints = 0;
 
-      if (_stateManager.dataGame.activeLevel.hints.ContainsKey(TypeEntity.Star))
+      if (_stateManager.dataGame.activeLevel.hints.ContainsKey(TypeEntity.RandomLetter))
       {
-        var valueStar = _stateManager.dataGame.activeLevel.hints.GetValueOrDefault(TypeEntity.Star);
+        var valueStar = _stateManager.dataGame.activeLevel.hints.GetValueOrDefault(TypeEntity.RandomLetter);
         var newEntityStar = await _levelManager.buttonStar.CreateEntity(Vector3.zero, _hintObject);
         _hintsRound.Add(newEntityStar, valueStar);
         newEntityStar.counterObject.transform.DOScale(1, duration);
@@ -427,8 +440,8 @@ public class DialogLevel : MonoBehaviour
         await Helpers.GetLocalizedPluralString(
           "currentprogress",
           new Dictionary<string, object> {
-          {"count", _stateManager.dataGame.activeLevel.openWords.Intersect(_stateManager.dataGame.activeLevel.crossWords).Count()},
-          {"count2", _stateManager.dataGame.activeLevel.crossWords.Count}
+          {"count", _stateManager.dataGame.activeLevel.openCrossWords.Count},
+          {"count2", _stateManager.dataGame.activeLevel.crossWords.Count - _stateManager.dataGame.activeLevel.openCrossWords.Count}
           }
         )
       );
@@ -457,7 +470,7 @@ public class DialogLevel : MonoBehaviour
       GameObject targetMoveHint = null;
       switch (item.Key.configEntity.typeEntity)
       {
-        case TypeEntity.Star:
+        case TypeEntity.RandomLetter:
           targetMoveHint = _levelManager.buttonStar.gameObject;
           break;
         case TypeEntity.Frequency:

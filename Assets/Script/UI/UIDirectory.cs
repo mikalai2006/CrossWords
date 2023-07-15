@@ -7,35 +7,23 @@ using UnityEngine.Localization.Settings;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
 
-public class UIDirectory : UILocaleBase
+public class UIDirectory : UIBase
 {
-  [SerializeField] private UIDocument _uiDoc;
   [SerializeField] private VisualTreeAsset _directoryItem;
-  [SerializeField] private VisualElement _root;
-  // private GameObject _enviromnment;
   [SerializeField] private ScrollView _listItems;
   private TaskCompletionSource<DataDialogResult> _processCompletionSource;
   private DataDialogResult _result;
   private string _activeWord;
 
-  private void Awake()
+  public override async void Start()
   {
-    GameManager.OnChangeTheme += ChangeTheme;
-  }
+    base.Start();
 
-  private void OnDestroy()
-  {
-    GameManager.OnChangeTheme -= ChangeTheme;
-  }
+    Title.text = await Helpers.GetLocaledString("directory");
 
-  public async void Start()
-  {
-    _root = _uiDoc.rootVisualElement;
+    CloseButton.clickable.clicked += () => ClickClose();
 
-    var exitBtn = _root.Q<Button>("ExitBtn");
-    exitBtn.clickable.clicked += () => ClickClose();
-
-    _listItems = _root.Q<ScrollView>("ListItems");
+    _listItems = Wrapper.Q<ScrollView>("ListItems");
 
     FillItems();
 
@@ -47,23 +35,18 @@ public class UIDirectory : UILocaleBase
         {"count2", _gameManager.LevelManager.ManagerHiddenWords.AllowlWords.Count},
       }
     );
-    _root.Q<Label>("TotalText").text = textCountWords;
+    Wrapper.Q<Label>("TotalText").text = textCountWords;
 
     ChangeTheme();
   }
 
   private void ChangeTheme()
   {
-    _root.Q<VisualElement>("DirectoryBlokWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.bgColor);
+    // Wrapper.Q<VisualElement>("DirectoryBlokWrapper").style.backgroundColor = new StyleColor(_gameManager.Theme.bgColor);
 
     FillItems();
 
-    base.Initialize(_root);
-  }
-
-  private void Hide()
-  {
-    _root.style.display = DisplayStyle.None;
+    base.Initialize(Wrapper);
   }
 
   private void FillItems()
@@ -75,7 +58,7 @@ public class UIDirectory : UILocaleBase
     foreach (var item in reverse)
     {
       var blokItem = _directoryItem.Instantiate();
-      blokItem.Q<VisualElement>("DirectoryItem").style.backgroundColor = _gameManager.Theme.bgColor;
+      // blokItem.Q<VisualElement>("DirectoryItem").style.backgroundColor = _gameManager.Theme.bgColor;
       blokItem.Q<Label>("Word").text = item;
 
       // Button request.

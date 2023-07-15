@@ -357,7 +357,7 @@ public class GridHelper
     }
     else
     {
-      newChar.SetAsLinkAsset();
+      newWord.AddCrossWord(newChar.OccupiedWord);
     }
 
     newWord.AddChar(newChar, startNode);
@@ -396,7 +396,7 @@ public class GridHelper
         }
         else
         {
-          newCharNode.SetAsLinkAsset();
+          newWord.AddCrossWord(newCharNode.OccupiedWord);
         }
 
         newWord.AddChar(newCharNode, node);
@@ -410,7 +410,7 @@ public class GridHelper
 
   public WordItemStartNode FindStartNodeForWord(string word)
   {
-    Debug.Log($"FindStartNodeForWord::: {word}");
+    // Debug.Log($"FindStartNodeForWord::: {word}");
     WordItemStartNode result = new()
     {
       directionWord = DirectionWord.Horizontal,
@@ -421,6 +421,7 @@ public class GridHelper
       .Where(t => !t.StateNode.HasFlag(StateNode.Disable))
       // .OrderBy(t => UnityEngine.Random.value)
       .ToList();
+    // Debug.Log($"FindStartNodeForWord::: allEmptyNodes={allEmptyNodes.Count}");
 
     for (int j = 0; j < allEmptyNodes.Count; j++)
     {
@@ -475,6 +476,8 @@ public class GridHelper
         (
           checkedNode.StateNode.HasFlag(StateNode.Occupied)
           && checkedNode.OccupiedChar.CharValue == c.ToString()
+          && (checkedNode.TopNode == null || (checkedNode.TopNode != null && checkedNode.TopNode.StateNode.HasFlag(StateNode.Empty)))
+          && (checkedNode.BottomNode == null || (checkedNode.BottomNode != null && checkedNode.BottomNode.StateNode.HasFlag(StateNode.Empty)))
         )
       )
       {
@@ -489,14 +492,22 @@ public class GridHelper
 
     // Check prev next
     GridNode prevStartNode = GetPrevNode(startNode, DirectionWord.Vertical);
-    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied)))
+    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied) || prevStartNode.StateNode.HasFlag(StateNode.Use)))
     {
       return resultStartNode;
     }
 
     GridNode lastNode = GetNode(startNode.x, startNode.y + word.Length - 1);
     GridNode nextLastNode = GetNextNode(lastNode, DirectionWord.Vertical);
-    if (nextLastNode != null && (nextLastNode.StateNode.HasFlag(StateNode.Disable) || nextLastNode.StateNode.HasFlag(StateNode.Occupied)))
+    if (
+      nextLastNode != null
+      &&
+      (
+        nextLastNode.StateNode.HasFlag(StateNode.Disable)
+        || nextLastNode.StateNode.HasFlag(StateNode.Occupied)
+        || nextLastNode.StateNode.HasFlag(StateNode.Use)
+      )
+    )
     {
       return resultStartNode;
     }
@@ -533,6 +544,8 @@ public class GridHelper
         (
           checkedNode.StateNode.HasFlag(StateNode.Occupied)
           && checkedNode.OccupiedChar.CharValue == c.ToString()
+          && (checkedNode.LeftNode == null || (checkedNode.LeftNode != null && checkedNode.LeftNode.StateNode.HasFlag(StateNode.Empty)))
+          && (checkedNode.RightNode == null || (checkedNode.RightNode != null && checkedNode.RightNode.StateNode.HasFlag(StateNode.Empty)))
         )
       )
       {
@@ -547,14 +560,14 @@ public class GridHelper
 
     // Check prev next
     GridNode prevStartNode = GetPrevNode(startNode, DirectionWord.Horizontal);
-    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied)))
+    if (prevStartNode != null && (prevStartNode.StateNode.HasFlag(StateNode.Disable) || prevStartNode.StateNode.HasFlag(StateNode.Occupied) || prevStartNode.StateNode.HasFlag(StateNode.Use)))
     {
       return resultStartNode;
     }
 
     GridNode lastNode = GetNode(startNode.x + word.Length - 1, startNode.y);
     GridNode nextLastNode = GetNextNode(lastNode, DirectionWord.Horizontal);
-    if (nextLastNode != null && (nextLastNode.StateNode.HasFlag(StateNode.Disable) || nextLastNode.StateNode.HasFlag(StateNode.Occupied)))
+    if (nextLastNode != null && (nextLastNode.StateNode.HasFlag(StateNode.Disable) || nextLastNode.StateNode.HasFlag(StateNode.Occupied) || nextLastNode.StateNode.HasFlag(StateNode.Use)))
     {
       return resultStartNode;
     }

@@ -18,6 +18,10 @@ public class UIShop : UIBase
 
     Title.text = await Helpers.GetLocaledString("shop");
 
+    Panel.style.flexGrow = 1;
+
+    Wrapper.style.flexGrow = 1;
+
     CloseButton.clickable.clicked += () => ClickClose();
 
     _listItems = Wrapper.Q<VisualElement>("ListItems");
@@ -62,7 +66,7 @@ public class UIShop : UIBase
       var blokItem = _shopItem.Instantiate();
       blokItem.style.flexGrow = 1;
       blokItem.AddToClassList("w-50");
-      blokItem.Q<VisualElement>("ShopItem").style.backgroundColor = _gameManager.Theme.bgColor;
+      blokItem.Q<VisualElement>("ShopItem").style.backgroundColor = _gameManager.Theme.colorBgDialog;
       // blokItem.Q<VisualElement>("ImgWrapper").style.backgroundColor = _gameSettings.Theme.colorPrimary;
       // blokItem.Q<VisualElement>("ImgWrapper").Q<VisualElement>("Img").style.unityBackgroundImageTintColor = _gameSettings.Theme.bgColor;
       var title = await Helpers.GetLocaledString(item.entity.text.title);

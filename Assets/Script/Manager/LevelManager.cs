@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Loader;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.UI;
 
 public class LevelManager : Singleton<LevelManager>
 {
-  public static event Action OnInitLevel;
+  // public static event Action OnInitLevel;
   private GameManager _gameManager => GameManager.Instance;
   private GameSetting _gameSetting => GameManager.Instance.GameSettings;
   private StateManager _stateManager => GameManager.Instance.StateManager;
@@ -24,13 +24,13 @@ public class LevelManager : Singleton<LevelManager>
   public GameObject Pointer;
   public TopSide topSide;
   public DialogLevel dialogLevel;
-  public ButtonStar buttonStar;
+  public ButtonRandom buttonStar;
   public ButtonFrequency buttonFrequency;
-  public ButtonBomb buttonBomb;
+  // public ButtonBomb buttonBomb;
+  // public ButtonLighting buttonLighting;
   public ButtonDirectory buttonDirectory;
-  public ButtonLighting buttonLighting;
   public ButtonShuffle buttonShuffle;
-  public ButtonFlask buttonFlask;
+  // public ButtonFlask buttonFlask;
   public Stat stat;
 
   protected override void Awake()
@@ -41,13 +41,13 @@ public class LevelManager : Singleton<LevelManager>
     Pointer.SetActive(false);
   }
 
-  public async void InitLevel(string wordConfig)
+  public async UniTask InitLevel(string wordConfig)
   {
     _gameManager.InputManager.Disable();
 
     ResetLevel();
 
-    OnInitLevel?.Invoke();
+    // OnInitLevel?.Invoke();
 
 #if UNITY_EDITOR
     System.Diagnostics.Stopwatch stopWatch = new System.Diagnostics.Stopwatch();
@@ -55,6 +55,10 @@ public class LevelManager : Singleton<LevelManager>
 #endif
 
     GameManager.Instance.StateManager.SetActiveLevel(wordConfig);
+
+    // var operations = new Queue<ILoadingOperation>();
+    // operations.Enqueue(new CreateCrossWordOperation());
+    // await _gameManager.LoadingScreenProvider.LoadAndDestroy(operations);
 
     await ManagerHiddenWords.Init(); // levelConfig, wordConfig
 
@@ -124,7 +128,7 @@ public class LevelManager : Singleton<LevelManager>
          SymbolsField.transform
      );
       symbolGO.Init(countCharGO.ElementAt(i));
-      var size = radius - ((radius - baseRadius) * baseRadius) - .5f;
+      var size = radius - ((radius - baseRadius) * baseRadius) - .8f;
       symbolGO.SetSize(size);
       _symbols.Add(symbolGO);
     }
@@ -362,7 +366,7 @@ public class LevelManager : Singleton<LevelManager>
         };
 
     newObj.gameObject.transform
-      .DOPath(waypoints, 1f, PathType.CatmullRom)
+      .DOPath(waypoints, _gameSetting.timeGeneralAnimation * 2, PathType.CatmullRom)
       .SetEase(Ease.OutCubic)
       .OnComplete(() =>
       {
@@ -403,7 +407,7 @@ public class LevelManager : Singleton<LevelManager>
         };
 
     newObj.gameObject.transform
-      .DOPath(waypoints, 1f, PathType.CatmullRom)
+      .DOPath(waypoints, _gameSetting.timeGeneralAnimation * 2, PathType.CatmullRom)
       .SetEase(Ease.OutCubic)
       .OnComplete(() =>
       {

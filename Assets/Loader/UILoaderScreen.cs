@@ -36,13 +36,21 @@ public class UILoaderScreen : MonoBehaviour
   {
     try
     {
-      Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundColor
-        = new StyleColor(GameManager.Instance.Theme.bgColor);
+      // Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundColor
+      //   = new StyleColor(GameManager.Instance.Theme.bgColor);
+      var settings = GameManager.Instance.Theme;
+      if (settings == null)
+      {
+        settings = GameManager.Instance.GameSettings.ThemeDefault;
+      }
+      Camera.main.backgroundColor = settings.bgColor;
+      Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundImage
+        = new StyleBackground(settings.bgImage);
       progressBarSection = Root.rootVisualElement.Q<VisualElement>(NameProgressBarSection);
       progressBar = Root.rootVisualElement.Q<VisualElement>(NameProgressBar);
-      progressBar.style.backgroundColor = new StyleColor(GameManager.Instance.Theme.colorAccent);
+      progressBar.style.backgroundColor = new StyleColor(settings.colorAccent);
       progressBarText = Root.rootVisualElement.Q<Label>(NameProgressBarText);
-      progressBarText.style.color = new StyleColor(GameManager.Instance.Theme.colorPrimary);
+      progressBarText.style.color = new StyleColor(settings.colorPrimary);
       SetProgressValue(0);
       //buttonsSection = MenuApp.rootVisualElement.Q<VisualElement>("ButtonsSection");
 

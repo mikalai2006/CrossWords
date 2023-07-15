@@ -21,9 +21,9 @@ public class GameEntity : ScriptableObject
 public enum TypeEntity
 {
   None = 0,
-  Bomb = 1,
-  Lighting = 2,
-  Star = 3,
+  // Bomb = 1,
+  // Lighting = 2,
+  RandomLetter = 3,
   Coin = 4,
   OpenWord = 5,
   Frequency = 6,

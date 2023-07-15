@@ -50,6 +50,6 @@ public class UIBase : UILocaleBase
     imgCloseButton.style.backgroundImage = new StyleBackground(_gameSetting.spriteClose);
     imgCloseButton.style.unityBackgroundImageTintColor = _gameManager.Theme.colorSecondary;
 
-    Panel.style.backgroundColor = _gameManager.Theme.bgColor;
+    Panel.style.backgroundColor = _gameManager.Theme.colorBgDialog;
   }
 }

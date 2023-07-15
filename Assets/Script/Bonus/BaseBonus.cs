@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public abstract class BaseBonus : MonoBehaviour
 {
@@ -20,10 +21,11 @@ public abstract class BaseBonus : MonoBehaviour
   public GameBonus Config => configBonus;
   [SerializeField] public GameObject bonusObject;
   [SerializeField] protected Canvas canvasObject;
-  [SerializeField] protected SpriteRenderer spriteBg;
-  [SerializeField] protected SpriteMask spriteMask;
-  [SerializeField] protected SpriteRenderer spriteProgress;
+  [SerializeField] protected Image spriteBg;
+  // [SerializeField] protected SpriteMask spriteMask;
+  [SerializeField] protected Image spriteProgress;
   [SerializeField] protected TMPro.TextMeshProUGUI counterText;
+  [SerializeField] protected TMPro.TextMeshProUGUI counterTextBlack;
   [SerializeField] protected SortingGroup order;
   protected float progressBasePositionY = -1.25f;
   protected bool statusShowCounter = false;
@@ -49,6 +51,7 @@ public abstract class BaseBonus : MonoBehaviour
 
     initScaleCounterObject = counterText.gameObject.transform.localScale;
     counterText.text = "";
+    counterTextBlack.text = "";
 
     // gameObject.SetActive(false);
 
@@ -57,7 +60,7 @@ public abstract class BaseBonus : MonoBehaviour
     if (configBonus != null)
     {
       spriteBg.sprite = configBonus.sprite;
-      spriteMask.sprite = configBonus.sprite;
+      // spriteMask.sprite = configBonus.sprite;
     }
 
     // StateManager.OnChangeState += SetValue;
@@ -82,7 +85,7 @@ public abstract class BaseBonus : MonoBehaviour
     {
       spriteBg.color = _gameManager.Theme.colorDisable;
     }
-    counterText.color = _gameManager.Theme.bgColor;
+    counterText.color = _gameManager.Theme.colorBgControl;
     spriteProgress.color = _gameManager.Theme.colorAccent;
   }
 
@@ -143,8 +146,10 @@ public abstract class BaseBonus : MonoBehaviour
 
   public virtual void ResetProgressBar()
   {
-    spriteProgress.transform
-      .DOMoveY(progressBasePositionY, _gameSetting.timeGeneralAnimation)
+    RectTransform rectT = spriteProgress.GetComponent<RectTransform>();
+    rectT
+      .DOSizeDelta(new Vector3(rectT.rect.width, 0), _gameSetting.timeGeneralAnimation)
+      // .DOMoveY(progressBasePositionY, _gameSetting.timeGeneralAnimation)
       .SetEase(Ease.OutBack);
   }
 

@@ -13,13 +13,18 @@ public abstract class BaseWord
   // public WordHiddenMB GameObjectHiddeWord;
   private DirectionWord _directionWord;
   public DirectionWord DirectionWord => _directionWord;
+  private Dictionary<BaseWord, bool> _crosswords;
+  public Dictionary<BaseWord, bool> Crosswords => _crosswords;
+  public bool isOpen => _chars.Find(t => !t.isOpen) == null;
+  public bool isMayBeOpen => _chars.Find(t => !t.isOpen && !t.isHinted) == null;
 
   protected string _word;
   public string Word => _word;
 
   public BaseWord()
   {
-    _chars = new List<CharHidden>();
+    _chars = new();
+    _crosswords = new();
   }
 
   public virtual void Init(string word, DirectionWord dir)
@@ -57,19 +62,35 @@ public abstract class BaseWord
 
   public async UniTask AutoOpenWord()
   {
-    if (!_levelManager.ManagerHiddenWords.OpenWords.ContainsKey(_word)) _levelManager.ManagerHiddenWords.OpenWords.Add(_word, 1);
+    // UnityEngine.Debug.Log($"AutoOpen word::: {Word}|[{_word}]|[{_levelManager.ManagerHiddenWords.OpenCrossWords.Count}]");
+    if (!_levelManager.ManagerHiddenWords.OpenCrossWords.ContainsKey(_word))
+      _levelManager.ManagerHiddenWords.OpenCrossWords.Add(_word, 1);
+    // UnityEngine.Debug.Log($"AutoOpen word:::[{_levelManager.ManagerHiddenWords.OpenCrossWords.Count}]");
     // if (!_levelManager.ManagerHiddenWords.OpenNeedWords.ContainsKey(_word)) _levelManager.ManagerHiddenWords.OpenNeedWords.Add(_word, 1);
 
-    // List<UniTask> tasks = new();
-    // foreach (var charObj in Chars)
-    // {
-    //   tasks.Add(charObj.ShowChar(true, charObj.charTextValue));
-    // }
-    // await UniTask.WhenAll(tasks);
+    List<UniTask> tasks = new();
+    foreach (var charObj in Chars)
+    {
+      if (charObj.OccupiedNode.StateNode.HasFlag(StateNode.Hint))
+        tasks.Add(charObj.CharGameObject.ShowChar(true, charObj.CharValue));
+    }
+    await UniTask.WhenAll(tasks);
 
-    await _levelManager.ManagerHiddenWords.CheckStatusRound();
+    _levelManager.ManagerHiddenWords.CheckStatusRound();
 
   }
+
+
+  public void AddCrossWord(BaseWord wordHidden)
+  {
+    string crossWord = wordHidden.Word;
+    if (!_crosswords.ContainsKey(wordHidden))
+    {
+      _crosswords.Add(wordHidden, false);
+      wordHidden.AddCrossWord(this);
+    }
+  }
+
 
   public virtual void Destroy()
   {

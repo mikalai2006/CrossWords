@@ -7,15 +7,17 @@ using UnityEngine.UI;
 public class Stat : MonoBehaviour
 {
   [SerializeField] private TMPro.TextMeshProUGUI _countWords;
+  [SerializeField] private TMPro.TextMeshProUGUI _countWordsMask;
   private LevelManager _levelManager => GameManager.Instance.LevelManager;
   private GameSetting _gameSetting => GameManager.Instance.GameSettings;
   private StateManager _stateManager => GameManager.Instance.StateManager;
   private GameManager _gameManager => GameManager.Instance;
-  private float maxWidthProgress => Camera.main.orthographicSize;
+  private float maxWidthProgress;
+  [SerializeField] private RectTransform _bgProgress;
   [SerializeField] private RectTransform spriteProgress;
   [SerializeField] private Image _bar;
-  [SerializeField] private GameObject _effectometer;
-  [SerializeField] private RectTransform _spriteProgressOrderChar;
+  // [SerializeField] private GameObject _effectometer;
+  // [SerializeField] private RectTransform _spriteProgressOrderChar;
   [SerializeField] private Image _barOrderChar;
 
   private void Awake()
@@ -25,6 +27,8 @@ public class Stat : MonoBehaviour
     StateManager.OnChangeState += SetValue;
     UISettings.OnChangeLocale += Localize;
     GameManager.OnChangeTheme += ChangeTheme;
+
+    maxWidthProgress = _bgProgress.rect.width;
   }
 
   private void OnDestroy()
@@ -54,7 +58,7 @@ public class Stat : MonoBehaviour
     float width = 0;
     if (state.activeDataGame.activeLevel.countCrossWords > 0)
     {
-      width = (state.activeDataGame.activeLevel.openWords.Intersect(state.activeDataGame.activeLevel.crossWords).Count() * 100f / state.activeDataGame.activeLevel.countCrossWords) * (maxWidthProgress / 100f);
+      width = (state.activeDataGame.activeLevel.openCrossWords.Count * 100f / state.activeDataGame.activeLevel.countCrossWords) * (maxWidthProgress / 100f);
     }
 
     spriteProgress.DOSizeDelta(new Vector3(width, spriteProgress.rect.height), _gameSetting.timeGeneralAnimation);
@@ -68,13 +72,14 @@ public class Stat : MonoBehaviour
     var textCountWords = await Helpers.GetLocalizedPluralString(
           "foundcountword",
            new Dictionary<string, object> {
-            {"count",  _levelManager.ManagerHiddenWords.OpenWords.Count},
+            {"count",  _levelManager.ManagerHiddenWords.OpenCrossWords.Count},
             {"count2", _gameManager.StateManager.dataGame.activeLevel.countCrossWords},
             // {"count3", _levelManager.ManagerHiddenWords.AllowPotentialWords.Count},
             // {"count4", _levelManager.ManagerHiddenWords.OpenWords.Count},
           }
         );
     _countWords.text = textCountWords;
+    _countWordsMask.text = textCountWords;
   }
 
   public void Hide()

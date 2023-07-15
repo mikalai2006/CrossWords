@@ -134,14 +134,15 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
     int valueBonusSaveHintLetter;
     _stateManager.dataGame.bonus.TryGetValue(TypeBonus.SaveHintLetter, out valueBonusSaveHintLetter);
 
-    _charInstance.OccupiedNode.SetOpen();
-
-    Open(runEffect);
-
-    ChangeTheme();
-
     // Add coin.
-    if (runEffect && (!_charInstance.OccupiedNode.StateNode.HasFlag(StateNode.Hint) || valueBonusSaveHintLetter > 0))
+    if (
+      runEffect
+      && (
+        !_charInstance.isHinted
+        || valueBonusSaveHintLetter > 0
+      )
+    && !_charInstance.isOpen
+    )
     {
       // play sound.
       _gameManager.audioManager.PlayClipEffect(_gameSetting.Audio.openHiddenChar);
@@ -153,15 +154,23 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
       // ).Forget();
       _stateManager.IncrementCoin(1);
 
-      _levelManager.CreateLetter(transform.position, _levelManager.buttonFlask.transform.position, _charInstance.CharValue).Forget();
+      _stateManager.OpenCharHiddenWord(_char);
+      // _levelManager.CreateLetter(transform.position, _levelManager.buttonDirectory.transform.position, _charInstance.CharValue).Forget();
     }
+
+    _charInstance.OccupiedNode.SetOpen();
+
+    Open(runEffect);
+
+    ChangeTheme();
+
 
     _charInstance.OccupiedNode.SetHint(false);
 
-    if (runEffect)
-    {
-      await OpenNeighbours(runEffect);
-    }
+    // if (runEffect)
+    // {
+    //   await OpenNeighbours(runEffect);
+    // }
 
     await UniTask.Yield();
   }
@@ -182,33 +191,34 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
     // play sound.
     _gameManager.audioManager.PlayClipEffect(_gameSetting.Audio.openHintChar);
 
-    // Check hinted all chars of by word.
-    int countOpenChar = 0;
-    foreach (var hiddenChar in _charInstance.OccupiedWord.Chars)
-    {
-      if (
-        hiddenChar.OccupiedNode.StateNode.HasFlag(StateNode.Hint)
-        || hiddenChar.OccupiedNode.StateNode.HasFlag(StateNode.Open)
-        )
-      {
-        countOpenChar++;
-      }
-    }
-    if (countOpenChar == _charInstance.OccupiedWord.Word.Length)
+    // Check open all chars of by word.
+    // int countOpenChar = 0;
+    // foreach (var hiddenChar in _charInstance.OccupiedWord.Chars)
+    // {
+    //   if (
+    //     hiddenChar.OccupiedNode.StateNode.HasFlag(StateNode.Hint)
+    //     || hiddenChar.OccupiedNode.StateNode.HasFlag(StateNode.Open)
+    //     )
+    //   {
+    //     countOpenChar++;
+    //   }
+    // }
+    // if (countOpenChar == _charInstance.OccupiedWord.Word.Length)
+    if (_charInstance.OccupiedWord.isMayBeOpen && runEffect)
     {
       _charInstance.OccupiedWord.AutoOpenWord().Forget();
     }
 
-    if (_stateManager.dataGame.bonus.ContainsKey(TypeBonus.OpenNeighbours))
-    {
-      await OpenNeighbours(runEffect);
-    }
+    // if (_stateManager.dataGame.bonus.ContainsKey(TypeBonus.OpenNeighbours))
+    // {
+    //   await OpenNeighbours(runEffect);
+    // }
     await UniTask.Yield();
   }
 
   public void Open(bool runEffect)
   {
-    if (runEffect)
+    if (runEffect) //  && _gameManager.AppInfo.setting.animation
     {
       RunOpenEffect();
     }
@@ -217,7 +227,7 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
     if (
       _stateManager.dataGame.activeLevel.openChars.ContainsKey(_charInstance.OccupiedNode.arrKey)
       &&
-      _levelManager.ManagerHiddenWords.OpenWords.ContainsKey(_charInstance.OccupiedWord.Word)
+      _levelManager.ManagerHiddenWords.OpenCrossWords.ContainsKey(_charInstance.OccupiedWord.Word)
       )
     {
       _levelManager.ManagerHiddenWords.RemoveOpenChar(_charInstance);
@@ -234,23 +244,6 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
     {
       _charInstance.OccupiedNode.OccupiedEntity.Run().Forget();
     }
-  }
-
-
-  public async UniTask OpenNeighbours(bool runEffect)
-  {
-    int valueBonusOpenNeighbours;
-    _stateManager.dataGame.bonus.TryGetValue(TypeBonus.OpenNeighbours, out valueBonusOpenNeighbours);
-
-    if (valueBonusOpenNeighbours <= 0) return;
-
-    // open equals chars.
-    List<GridNode> equalsCharNodes = GameManager.Instance.LevelManager.ManagerHiddenWords.GridHelper.FindNeighboursNodesOfByEqualChar(_charInstance.OccupiedNode);
-    foreach (var equalCharNode in equalsCharNodes)
-    {
-      await equalCharNode.OccupiedChar.CharGameObject.ShowCharAsHint(runEffect);
-    }
-    //await UniTask.Yield();
   }
 
 
@@ -324,6 +317,25 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
 
     DataManager.OnOpenCharExtern -= OpenByAds;
   }
+
+
+  // public async UniTask OpenNeighbours(bool runEffect)
+  // {
+  //   int valueBonusOpenNeighbours;
+  //   _stateManager.dataGame.bonus.TryGetValue(TypeBonus.OpenNeighbours, out valueBonusOpenNeighbours);
+
+  //   if (valueBonusOpenNeighbours <= 0) return;
+
+  //   // open equals chars.
+  //   List<GridNode> equalsCharNodes = GameManager.Instance.LevelManager.ManagerHiddenWords.GridHelper.FindNeighboursNodesOfByEqualChar(_charInstance.OccupiedNode);
+  //   foreach (var equalCharNode in equalsCharNodes)
+  //   {
+  //     await equalCharNode.OccupiedChar.CharGameObject.ShowCharAsHint(runEffect);
+  //   }
+  //   //await UniTask.Yield();
+  // }
+
+
 
 
 #if UNITY_EDITOR

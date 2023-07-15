@@ -13,14 +13,14 @@ public class Coin : BaseEntity
   }
   #endregion
 
-  public override void Init(GridNode node, UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> asset, bool asBonus)
-  {
-    base.Init(node, asset, asBonus);
+  // public override void Init(GridNode node, UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> asset, bool asBonus)
+  // {
+  //   base.Init(node, asset, asBonus);
 
-    // node.SetOccupiedEntity(this);
+  //   // node.SetOccupiedEntity(this);
 
-    SetColor(_gameManager.Theme.entityColor);
-  }
+  //   SetColor(_gameManager.Theme.entityColor);
+  // }
 
   public override void InitStandalone(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> asset)
   {
@@ -67,7 +67,7 @@ public class Coin : BaseEntity
   public override void Collect()
   {
     var positionFrom = initPosition;
-    Vector3 positionTo = _levelManager.ManagerHiddenWords.tilemap.WorldToCell(_levelManager.buttonFrequency.transform.position);
+    Vector3 positionTo = new Vector3(8.5f, 2);
     RunMoveEffect();
 
     Vector3[] waypoints = {

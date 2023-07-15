@@ -34,7 +34,6 @@ MonoBehaviour:
       m_LocalVariables: []
   coefDifficulty: 0.2
   countFindWordsForUp: 1000
-  maxLengthWord: 6
   maxFindWords: 20
   coefFrequency: 0.05
   coefStar: 0.1
@@ -45,15 +44,11 @@ MonoBehaviour:
     wordInOrder: 7
     charBonus: 100
     charStar: 30
-    charHint: 50
-    charBomb: 70
-    charLighting: 90
+    charFrequency: 60
     charCoin: 10
     errorNullBonus: 10
     errorNullOrderWord: 5
     maxStar: 10
-    maxBomb: 7
-    maxLighting: 7
     maxFrequency: 7
   references:
     version: 2

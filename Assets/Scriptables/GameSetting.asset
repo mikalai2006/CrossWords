@@ -19,7 +19,7 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  ThemeDefault: {fileID: 11400000, guid: 523cefe3a73243e47b0457cff73ee60b, type: 2}
+  ThemeDefault: {fileID: 11400000, guid: 0f339b6dd6dd46244ae9c9d8e6d537ab, type: 2}
   PlayerSettings:
   - {fileID: 11400000, guid: b57b9e953e14d084dbf1e284147084c7, type: 2}
   - {fileID: 11400000, guid: c74f5f99da2ab024b85faf3c9958078f, type: 2}
@@ -28,7 +28,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2aff9521db4364049844d3fd0ddc9096, type: 2}
   countHoursDailyGift: 6
   lineWidth: 0.15
-  radius: 2.5
+  radius: 2.7
   addinitiallyRow: 3
   maxCountHiddenChar: 200
   minCountHiddenChar: 20
@@ -46,7 +46,7 @@ MonoBehaviour:
   spriteInfo: {fileID: 21300000, guid: 4650a140dc17cae45bd840ee53efe598, type: 3}
   spriteDouble: {fileID: 21300000, guid: 2450c012d2d6c24468b89adeb1918e62, type: 3}
   spriteUser: {fileID: 21300000, guid: d94185b46cb54c14f94d79544f773b22, type: 3}
-  spriteChamp: {fileID: 21300000, guid: 989fe642f9af52c45baa3a6b47a3af6f, type: 3}
+  spriteChamp: {fileID: 21300000, guid: a4115398a4afa674cb6e36951ffaa164, type: 3}
   spriteClose: {fileID: 21300000, guid: 9a3530af4cb9cd247a0758f1fcba8711, type: 3}
   debounceTime: 1000
   timeDelayOverChar: 47
@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9dacdc8b7e2e41144adf717f57690399, type: 2}
   - {fileID: 11400000, guid: 54c516731a7f90140a849b4b71ef23dc, type: 2}
   - {fileID: 11400000, guid: b37a1ad0cae4fb3479ca530f94f76dfb, type: 2}
+  - {fileID: 11400000, guid: 7b1bedb563c99034eb112f8f70f14786, type: 2}
   ShopItems:
   - entity: {fileID: 11400000, guid: 2be5099a5ef97d84db2786c20dfcafde, type: 2}
     count: 1
@@ -68,10 +69,7 @@ MonoBehaviour:
   - entity: {fileID: 11400000, guid: 7dd3f4fc6b9f65840a29682e241374d7, type: 2}
     count: 1
     cost: 1000
-  ShopItemsBonus:
-  - entity: {fileID: 11400000, guid: a01ec9408590b6b4f8ff0abb0aa4f9a1, type: 2}
-    count: 1
-    cost: 500
+  ShopItemsBonus: []
   noName:
     title:
       m_TableReference:

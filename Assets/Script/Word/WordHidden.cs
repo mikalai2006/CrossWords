@@ -36,19 +36,34 @@ public class WordHidden : BaseWord
       charHidden.Draw().Forget();
     }
   }
-  public override void Open(bool runEffect)
-  {
-    foreach (CharHidden charHidden in _chars)
-    {
-      // Draw hidden char MonoBehaviour
-      charHidden.Open(runEffect).Forget();
-    }
-  }
+
+  // public override void Open(bool runEffect)
+  // {
+  //   // open all chars.
+  //   foreach (CharHidden charHidden in _chars)
+  //   {
+  //     // Draw hidden char MonoBehaviour
+  //     charHidden.Open(runEffect).Forget();
+  //   }
+
+  //   // open crosswords if exists.
+  //   foreach (var crossWordItem in Crosswords)
+  //   {
+  //     WordHidden crossWord = (WordHidden)crossWordItem.Key;
+  //     bool isAlreadyOpenCrossWord = crossWordItem.Value;
+
+  //     if (!isAlreadyOpenCrossWord && crossWord.isOpen)
+  //     {
+  //       crossWord.AutoOpenWord().Forget();
+  //     }
+  //   }
+  // }
 
   public void AddChar(CharHidden newChar, GridNode node)
   {
     _chars.Add(newChar);
     // node.SetOccupiedChar(newChar, this);
   }
+
 
 }

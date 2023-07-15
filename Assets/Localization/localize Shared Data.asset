@@ -355,16 +355,8 @@ MonoBehaviour:
     m_Key: help_findhiddenword
     m_Metadata:
       m_Items: []
-  - m_Id: 670482203574272
-    m_Key: help_findneedword
-    m_Metadata:
-      m_Items: []
   - m_Id: 670509009371136
     m_Key: help_findallowword
-    m_Metadata:
-      m_Items: []
-  - m_Id: 673687025123328
-    m_Key: help_index
     m_Metadata:
       m_Items: []
   - m_Id: 767991596875776
@@ -385,18 +377,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 919386207715328
     m_Key: bonus_flask_d
-    m_Metadata:
-      m_Items: []
-  - m_Id: 993418810654720
-    m_Key: help_flask_hiddenboard
-    m_Metadata:
-      m_Items: []
-  - m_Id: 995098834927616
-    m_Key: help_flask_allow
-    m_Metadata:
-      m_Items: []
-  - m_Id: 995663333720064
-    m_Key: help_flask_hidden
     m_Metadata:
       m_Items: []
   - m_Id: 1041446275809280

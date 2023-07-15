@@ -283,6 +283,10 @@
     height: 20px;
 }
 
+.h-full {
+    height: 100%;
+}
+
 .ava {
     width: 35px;
     height: 35px;
@@ -329,6 +333,7 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
+    overflow: visible;
 }
 
 .button_circle_long:active {
@@ -343,4 +348,7 @@
     scale: 0.9 0.9;
     transition-duration: 50ms;
     transition-property: scale;
+}
+
+.btn {
 }

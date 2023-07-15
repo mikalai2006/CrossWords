@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI%20Toolkit/File/Base.uss?fileID=7433441132597879392&amp;guid=47ab2fccdf66be0488c7b62162e81d51&amp;type=3#Base" />
     <ui:VisualElement class="font text-primary" style="background-color: rgba(0, 0, 0, 0.71); position: absolute; left: 0; top: 0; right: 0; bottom: 0; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; display: flex; flex-grow: 1;">
         <ui:VisualElement name="Panel" class="b-rounded" style="background-color: rgb(164, 164, 164); align-items: stretch; max-width: 600px; align-self: center; flex-grow: 0; width: 380px;">
-            <ui:VisualElement class="header" style="flex-grow: 1;">
+            <ui:VisualElement class="header" style="flex-grow: 0; flex-shrink: 0;">
                 <ui:VisualElement class="p-1" style="flex-shrink: 0; align-items: stretch; flex-grow: 1;">
                     <ui:Label tabindex="-1" text="#achievements" display-tooltip-when-elided="true" name="Title" class="p-2 text-primary" />
                 </ui:VisualElement>

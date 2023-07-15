@@ -77,7 +77,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1563663732473856
-    m_Localized: Found {count} bonus {count:word|words} of {count2}
+    m_Localized: Open {count} {count:word|words} of {count2}
     m_Metadata:
       m_Items:
       - rid: 366248018379538446
@@ -94,7 +94,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1596861162094592
-    m_Localized: Looking for words
+    m_Localized: "Looking for words.\n\u0421rosswords"
     m_Metadata:
       m_Items: []
   - m_Id: 2874372776951808
@@ -114,19 +114,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3189652749189120
-    m_Localized: Journalist
+    m_Localized: Knowing
     m_Metadata:
       m_Items: []
   - m_Id: 3189693752705024
-    m_Localized: Writer
+    m_Localized: Word-loving
     m_Metadata:
       m_Items: []
   - m_Id: 3189713814061056
-    m_Localized: Poet
+    m_Localized: Word master
     m_Metadata:
       m_Items: []
   - m_Id: 3189738174578688
-    m_Localized: Poet Laureate
+    m_Localized: Master of words
     m_Metadata:
       m_Items: []
   - m_Id: 3213003978866688
@@ -161,11 +161,11 @@ MonoBehaviour:
       m_Items:
       - rid: 366248018379538446
   - m_Id: 3451102625431552
-    m_Localized: Star
+    m_Localized: Random letter
     m_Metadata:
       m_Items: []
   - m_Id: 3451218186895360
-    m_Localized: Frequency
+    m_Localized: Frequent letter
     m_Metadata:
       m_Items: []
   - m_Id: 3451377402675200
@@ -187,8 +187,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3458919637876736
-    m_Localized: When used, reveals the most common letter in a field with hidden
-      words
+    m_Localized: When used, it opens (suggests) the most frequent letter in the crossword
+      puzzle
     m_Metadata:
       m_Items: []
   - m_Id: 3459213977354240
@@ -197,8 +197,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3459454394859520
-    m_Localized: When used, reveals one random letter in a random word in a hidden
-      word field
+    m_Localized: When used, it suggests one random letter in a random crossword word
     m_Metadata:
       m_Items: []
   - m_Id: 3460500663992320
@@ -281,7 +280,7 @@ MonoBehaviour:
       m_Items:
       - rid: 366248018379538446
   - m_Id: 4517829861867520
-    m_Localized: Unknown
+    m_Localized: Hidden user
     m_Metadata:
       m_Items: []
   - m_Id: 4523303260815360
@@ -316,7 +315,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4968534221422592
-    m_Localized: Coin accrual ratio
+    m_Localized: Account increase factor
     m_Metadata:
       m_Items: []
   - m_Id: 4968681890283520
@@ -402,32 +401,22 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 366248018379538446
-  - m_Id: 673687025123328
-    m_Localized: 'All hidden words on the field have been found! The bonus accrual
-      coefficient increases by 1.
-
-
-      At the end of the round, the coins received
-      in this round will be multiplied by the value of this coefficient.'
-    m_Metadata:
-      m_Items: []
   - m_Id: 670509009371136
-    m_Localized: A word is found that can be formed, but it is not a bonus, which
-      gives a coin (at the end of the round) for this word.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 670482203574272
-    m_Localized: 'A bonus word is found that is not on the field, which gives a coin
-      (at the end of the round) for this word and +1 point to all hints.
+    m_Localized: 'A word is found that can be formed, but it is not in the crossword.
 
+      
 
-      When
-      tips reach the maximum number of points, a specific type of hint will be added.'
+      You
+      get a coin and points to earn tips and bonuses.'
     m_Metadata:
       m_Items: []
   - m_Id: 670107916468224
-    m_Localized: Found a bonus word that is on the field, which gives a coin for
-      each letter in this word.
+    m_Localized: 'Found the word from the crossword puzzle!
+
+      
+
+      You
+      get a coin for each letter in this word and points for bonuses.'
     m_Metadata:
       m_Items: []
   - m_Id: 669462014623744
@@ -444,19 +433,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 902854652100608
-    m_Localized: 'This is the score for the current round.
+    m_Localized: 'This is the score of the current round - the base value of the
+      coins that will be received at the end of the round.
 
 
 
       It works as follows:
-      If a word was found on the field, it is replenished by the number of letters
-      in this word, if a word was found that is not on the field, it is replenished
-      by 1.
+      If a word from the crossword was found, it is replenished by the number of
+      letters in this word; if a word was found that is not in the crossword, it
+      is replenished by 1.
 
 
 
-      If a letter is opened with a hint, it does not count towards
-      this score (unless the save hint effect is active).'
+      If a letter is opened with a hint, it does not
+      count towards this score.'
     m_Metadata:
       m_Items: []
   - m_Id: 1095655025180672
@@ -483,47 +473,21 @@ MonoBehaviour:
     m_Localized: 'The test word is not in the dictionary. An attempt is counted as
       an error.
 
+      
 
-
-      If the number of consecutive errors exceeds the limit set
-      by the game difficulty level, all points for bonuses and tips are reset to
-      zero.'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 995663333720064
-    m_Localized: 'If a bonus word was found and it is not on the field - this action
-      adds 1 point to the bonus generator.
-
-
-
-      When the generator reaches the
-      limit, a random bonus is created!'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 995098834927616
-    m_Localized: 'If a word was found that can be formed, but it is not a bonus -
-      this action adds 1 point to the bonus generator.
-
-
-
-      When the generator
-      reaches the limit, a random bonus is created!'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 993418810654720
-    m_Localized: 'If a bonus word was found that is on the field - each letter of
-      this word adds 1 point to the bonus generator.
-
-
-
-      When the generator
-      reaches the limit, a random bonus is created!'
+      If the number of consecutive errors exceeds the
+      limit set by the game difficulty level, all points for bonuses and tips are
+      reset to zero.'
     m_Metadata:
       m_Items: []
   - m_Id: 919386207715328
-    m_Localized: Generates bonuses when filled. Filled by searching for words. Each
-      word adds 1 point to this generator, and if the word is bonus and is on the
-      field, then each letter of this word adds 1 point to the generator.
+    m_Localized: 'Generates bonuses when filled.
+
+
+
+      Filled by searching for
+      words. A worn crossword word adds +1 for each letter, and a non-crossword word
+      adds +1.'
     m_Metadata:
       m_Items: []
   - m_Id: 919320084512768
@@ -555,8 +519,7 @@ MonoBehaviour:
   - m_Id: 2019490872328192
     m_Localized: The setting is active in the game - show windows to confirm actions.
       If you want to perform actions without confirmation, uncheck the checkbox in
-      the settings so that all your actions are performed immediately after clicking,
-      without asking for confirmation.
+      the settings so that all your actions are performed immediately after clicking.
     m_Metadata:
       m_Items: []
   - m_Id: 2028775245250560
@@ -571,6 +534,10 @@ MonoBehaviour:
   - m_Id: 2266024218099712
     m_Localized: The main stage of the game has been successfully completed! You
       can increase your ranking by completing random word search tasks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1315924641742848
+    m_Localized: Saving hints
     m_Metadata:
       m_Items: []
   references:

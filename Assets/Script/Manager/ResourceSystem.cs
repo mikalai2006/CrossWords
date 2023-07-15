@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -107,7 +108,7 @@ public class ResourceSystem : StaticInstance<ResourceSystem>
   #region managers bonus
   public List<GameBonus> GetAllBonus()
   {
-    return GetAllAssetsByLabel<GameBonus>(Constants.Labels.LABEL_BONUS);
+    return GetAllAssetsByLabel<GameBonus>(Constants.Labels.LABEL_BONUS).Where(t => !t.disable).ToList();
   }
   #endregion
 

@@ -12,6 +12,7 @@ public class GameBonus : ScriptableObject
   public int value;
   public bool isAlways;
   public bool isMybeGenerate;
+  public bool disable;
   // public ParticleSystem activateEffect;
   // public ParticleSystem MoveEffect;
 }

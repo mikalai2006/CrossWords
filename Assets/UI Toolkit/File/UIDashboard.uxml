@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/File/Base.uss?fileID=7433441132597879392&amp;guid=47ab2fccdf66be0488c7b62162e81d51&amp;type=3#Base" />
-    <ui:VisualElement name="MenuBlok" class="font" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-top: 50px;">
+    <ui:VisualElement name="DashBoard" class="font" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); margin-top: 50px;">
         <ui:VisualElement style="align-items: center; justify-content: center; flex-grow: 1;">
             <ui:VisualElement name="AppName" style="padding-bottom: 20px;">
-                <ui:Label tabindex="-1" text="#appname" display-tooltip-when-elided="true" class="text-primary text-lg font-bold" />
+                <ui:Label tabindex="-1" text="#appname" display-tooltip-when-elided="true" name="AppNameLabel" class="text-lg font-bold" style="text-shadow: 2px 1px 0 rgb(0, 0, 0); font-size: 39px; -unity-text-align: upper-center;" />
             </ui:VisualElement>
             <ui:VisualElement name="UserInfoBlok" style="background-color: rgba(0, 0, 0, 0); margin-bottom: 15px; align-self: center; width: 300px;" />
             <ui:Button text="#exit" display-tooltip-when-elided="true" name="ExitBtn" class="button text-primary" style="display: none;" />

@@ -30,7 +30,7 @@
         </ui:VisualElement>
         <ui:VisualElement style="margin-left: 20px; margin-right: 20px; margin-top: 20px; margin-bottom: 20px; flex-direction: row; justify-content: space-between;">
             <ui:Button text="#tostartmenu" display-tooltip-when-elided="true" name="ToStartMenuBtn" class="button text-primary" />
-            <ui:Button text="#ok" display-tooltip-when-elided="true" name="Ok" class="button text-primary" />
+            <ui:Button text="#ok" display-tooltip-when-elided="true" name="Ok" class="button text-primary" style="display: none;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -49,6 +49,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:f9a9052fe3a3e0948889bf1b4a32b1ae
   _uiDoc: {fileID: 8488872761280059356}
+  _templateInsertBlok: {fileID: 9197481963319205126, guid: b92d20dc672f6bb40b00ab4a2b3250d9, type: 3}
   _directoryItem: {fileID: 9197481963319205126, guid: 2e3d88376789bfe49ba31d50c7e32fc8, type: 3}
 --- !u!1 &7433531000884534050
 GameObject:
@@ -96,5 +97,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: 916087cba0ea93f49a56c8b2aa1fea78, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: b92d20dc672f6bb40b00ab4a2b3250d9, type: 3}
+  sourceAsset: {fileID: 9197481963319205126, guid: 9333355be6be49a44b395a07e7b71f8f, type: 3}
   m_SortingOrder: 99

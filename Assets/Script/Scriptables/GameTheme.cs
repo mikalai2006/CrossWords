@@ -1,11 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu]
 public class GameTheme : ScriptableObject
 {
+
+  public Sprite bgImage;
+
   [Space(5)]
   [Header("Hidden Word")]
   public Color bgHiddenWord;
@@ -41,6 +42,7 @@ public class GameTheme : ScriptableObject
   [Header("Game")]
   public Color bgColor;
   public Color colorBgGrid;
+  public Color colorBgControl;
   public Color colorLine;
   public Color colorPrimary;
   public Color colorSecondary;
@@ -53,6 +55,7 @@ public class GameTheme : ScriptableObject
   // public Color entityActiveColor;
   public Color colorDisable;
   public Color entityColorAsBonus;
+  public Color entityBgButton;
 
   [Space(5)]
   [Header("Hint")]
@@ -60,11 +63,10 @@ public class GameTheme : ScriptableObject
   public Color colorTextHint;
 
   [Space(5)]
-  [Header("Button")]
-  public Color colorBgButton;
-
-  [Space(5)]
-  [Header("Form")]
+  [Header("UI")]
   public Color colorBgInput;
   public Color colorTextInput;
+  public Color colorBgTopSide;
+  public Color colorBgButton;
+  public Color colorBgDialog;
 }
