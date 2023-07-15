@@ -61,7 +61,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9dacdc8b7e2e41144adf717f57690399, type: 2}
   - {fileID: 11400000, guid: 54c516731a7f90140a849b4b71ef23dc, type: 2}
   - {fileID: 11400000, guid: b37a1ad0cae4fb3479ca530f94f76dfb, type: 2}
-  - {fileID: 11400000, guid: 7b1bedb563c99034eb112f8f70f14786, type: 2}
   ShopItems:
   - entity: {fileID: 11400000, guid: 2be5099a5ef97d84db2786c20dfcafde, type: 2}
     count: 1

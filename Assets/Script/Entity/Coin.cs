@@ -82,7 +82,7 @@ public class Coin : BaseEntity
       .SetEase(Ease.OutCubic)
       .OnComplete(() =>
       {
-        _stateManager.IncrementCoin(1);
+        _stateManager.IncrementCoin(10);
 
         Destroy(gameObject);
 

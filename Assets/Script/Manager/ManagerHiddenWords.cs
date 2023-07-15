@@ -276,55 +276,7 @@ public class ManagerHiddenWords : MonoBehaviour
     }
     // Debug.LogWarning($"Add {NeedWords.Count} potential words ({WordForChars}) [maxCountWords={maxCountWords}]");
   }
-  // public HiddenWordMB CreateBonusWord(string word)
-  // {
-  //   // find node for spawn word.
-  //   Debug.Log(word);
-  //   var nodes = GridHelper.FindNodeForSpawnBonusWord(word);
 
-  //   if (nodes.Count == 0)
-  //   {
-  //     return null;
-  //   }
-
-  //   var newObj = GameObject.Instantiate(
-  //         _hiddenWordMB,
-  //         nodes[0].position,
-  //         Quaternion.identity,
-  //         tilemap.transform
-  //       );
-  //   newObj.transform.localPosition = new Vector3(nodes[0].x, nodes[0].y);
-  //   // hiddenWordsMB.Add(newObj, false);
-  //   newObj.Init(this);
-  //   newObj.DrawBonusWord(word, nodes);
-  //   // node.SetOccupiedChar();
-
-  //   return newObj;
-  // }
-  // public HiddenWord CreateWord(string word, int index)
-  // {
-  //   // find node for spawn word.
-  //   var nodes = GridHelper.FindNodeForSpawnWord(word, index);
-
-  //   if (nodes.Count == 0)
-  //   {
-  //     return null;
-  //   }
-
-  //   var newObj = GameObject.Instantiate(
-  //         _hiddenWordMB,
-  //         nodes[0].position,
-  //         Quaternion.identity,
-  //         tilemap.transform
-  //       );
-  //   newObj.transform.localPosition = new Vector3(nodes[0].x, nodes[0].y);
-  //   // hiddenWordsMB.Add(newObj, false);
-  //   newObj.Init(this);
-  //   newObj.DrawWord(word, nodes);
-  //   // node.SetOccupiedChar();
-
-  //   return newObj;
-  // }
 
   public async UniTask CheckChoosedWord()
   {
@@ -489,30 +441,6 @@ public class ManagerHiddenWords : MonoBehaviour
   }
 
 
-  // private void RefreshHiddenWords()
-  // {
-  //   Entities.Clear();
-  //   EntitiesRuntime.Clear();
-
-  //   // Helpers.DestroyChildren(tilemapEntities.transform);
-  //   Helpers.DestroyChildren(tilemap.transform);
-
-  //   HiddenWords.Clear();
-
-  //   var _hiddenWords = CreateHiddenWords();
-
-  //   SetScaleGrid(_hiddenWords);
-
-  //   // CreateHints();
-
-  //   CreateGameObjectHiddenWords(_hiddenWords);
-
-  //   _stateManager.RefreshData(true);
-  //   // CreateEntities();
-  //   _stateManager.UseBonus(1, TypeBonus.Index);
-  // }
-
-
   public async UniTask NextLevel()
   {
     _gameManager.InputManager.Disable();
@@ -577,22 +505,6 @@ public class ManagerHiddenWords : MonoBehaviour
   }
 
 
-  // private void CreateHints()
-  // {
-  //   var countNeedFindWords = NeedWords.Count;
-
-  //   _stateManager.dataGame.activeLevel.hints.Clear();
-
-  //   var countFrequency = (int)System.Math.Ceiling((countNeedFindWords - countNeedFindWords * _gameManager.PlayerSetting.coefDifficulty) * _gameManager.PlayerSetting.coefFrequency);
-  //   _stateManager.dataGame.activeLevel.hints.Add(TypeEntity.Frequency, countFrequency);
-
-  //   var countStar = (int)System.Math.Ceiling((countNeedFindWords - countNeedFindWords * _gameManager.PlayerSetting.coefDifficulty) * _gameManager.PlayerSetting.coefStar);
-  //   _stateManager.dataGame.activeLevel.hints.Add(TypeEntity.Star, countStar);
-
-  //   // _stateManager.dataGame.hint += _stateManager.dataGame.activeLevel.hintLevel;
-  //   // _stateManager.dataGame.star += _stateManager.dataGame.activeLevel.starLevel;
-  // }
-
   public async UniTask CreateEntities()
   {
     var countNeedFindWords = crossWords.Count;
@@ -621,47 +533,6 @@ public class ManagerHiddenWords : MonoBehaviour
       }
     }
 
-    // int countB;
-    // _stateManager.dataGame.hints.TryGetValue(TypeEntity.Bomb, out countB);
-    // if (countB < _gameManager.PlayerSetting.bonusCount.maxBomb)
-    // {
-    //   var colB = (countNeedFindWords - countNeedFindWords * _gameManager.PlayerSetting.coefDifficulty) * _gameManager.PlayerSetting.coefBomb;
-    //   var countBomb = System.Math.Round(colB);
-    //   for (int i = 0; i < countBomb; i++)
-    //   {
-    //     var node = GridHelper.GetRandomNodeWithHiddenChar();
-    //     await _levelManager.AddEntity(node.arrKey, TypeEntity.Bomb, true);
-    //   }
-    // }
-
-    // int countL;
-    // _stateManager.dataGame.hints.TryGetValue(TypeEntity.Lighting, out countL);
-    // if (countL < _gameManager.PlayerSetting.bonusCount.maxLighting)
-    // {
-    //   var colL = (countNeedFindWords - countNeedFindWords * _gameManager.PlayerSetting.coefDifficulty) * _gameManager.PlayerSetting.coefLighting;
-    //   var countLighting = System.Math.Round(colL);
-    //   for (int i = 0; i < countLighting; i++)
-    //   {
-    //     var node = GridHelper.GetRandomNodeWithHiddenChar();
-    //     await _levelManager.AddEntity(node.arrKey, TypeEntity.Lighting, true);
-    //   }
-    // }
-
-    // int countF;
-    // _stateManager.dataGame.hints.TryGetValue(TypeEntity.Frequency, out countF);
-    // if (countF < _gameManager.PlayerSetting.bonusCount.maxFrequency)
-    // {
-    //   var colF = (countNeedFindWords - countNeedFindWords * _gameManager.PlayerSetting.coefDifficulty) * _gameManager.PlayerSetting.coefFrequency;
-    //   var countFrequency = System.Math.Round(colF);
-    //   for (int i = 0; i < countFrequency; i++)
-    //   {
-    //     var node = GridHelper.GetRandomNodeWithHiddenChar();
-    //     await _levelManager.AddEntity(node.arrKey, TypeEntity.Frequency, true);
-    //   }
-    // }
-
-    // Debug.Log($"colS={colS}|colF={colF}|colL={colL}|colB={colB}");
-    // Debug.Log($"countStar={countStar}|countFrequency={countFrequency}|countLighting={countLighting}|countBomb={countBomb}");
   }
 
 
@@ -675,11 +546,6 @@ public class ManagerHiddenWords : MonoBehaviour
     _wordForChars = word;
   }
 
-
-  // private string GetMaxLengthWord()
-  // {
-  //   return NeedWords.Keys.ToList().OrderBy(t => -t.Length).First();
-  // }
 
   public void Reset()
   {

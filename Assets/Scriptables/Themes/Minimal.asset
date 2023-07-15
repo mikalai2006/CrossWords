@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ab369d9f7c175498a033c6688b4df2, type: 3}
   m_Name: Minimal
   m_EditorClassIdentifier: 
-  bgImage: {fileID: 21300000, guid: 1a1507cb994a01c479d4c20adec16168, type: 3}
+  bgImage: {fileID: 21300000, guid: 8a54ec42eb0575740be1cc339df93db4, type: 3}
   bgHiddenWord: {r: 0.44313726, g: 0.56078434, b: 0.5254902, a: 1}
   bgOpentHiddenWord: {r: 0.85882354, g: 0.90588236, b: 0.8901961, a: 1}
   textOpentHiddenWord: {r: 0.12156863, g: 0.23137255, b: 0.27058825, a: 1}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ab369d9f7c175498a033c6688b4df2, type: 3}
   m_Name: BluMagic
   m_EditorClassIdentifier: 
-  bgImage: {fileID: 21300000, guid: e2754062fa84f434ba7457dc6121bf24, type: 3}
+  bgImage: {fileID: 21300000, guid: 74e573502dd459a47af65fd6eb6a63cd, type: 3}
   bgHiddenWord: {r: 0.38039216, g: 0.5019608, b: 0.60784316, a: 1}
   bgOpentHiddenWord: {r: 0.7647059, g: 0.8117647, b: 0.8509804, a: 1}
   textOpentHiddenWord: {r: 0.07058824, g: 0.21176471, b: 0.33333334, a: 1}
