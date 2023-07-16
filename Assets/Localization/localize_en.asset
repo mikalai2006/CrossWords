@@ -187,8 +187,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3458919637876736
-    m_Localized: When used, it opens (suggests) the most frequent letter in the crossword
-      puzzle
+    m_Localized: When used, reveals (suggests) all occurrences of the most frequent
+      letter in the crossword
     m_Metadata:
       m_Items: []
   - m_Id: 3459213977354240
@@ -404,7 +404,7 @@ MonoBehaviour:
   - m_Id: 670509009371136
     m_Localized: 'A word is found that can be formed, but it is not in the crossword.
 
-      
+
 
       You
       get a coin and points to earn tips and bonuses.'
@@ -413,10 +413,10 @@ MonoBehaviour:
   - m_Id: 670107916468224
     m_Localized: 'Found the word from the crossword puzzle!
 
-      
 
-      You
-      get a coin for each letter in this word and points for bonuses.'
+
+      You get a coin
+      for each letter in this word and points for bonuses.'
     m_Metadata:
       m_Items: []
   - m_Id: 669462014623744
@@ -473,11 +473,11 @@ MonoBehaviour:
     m_Localized: 'The test word is not in the dictionary. An attempt is counted as
       an error.
 
-      
 
-      If the number of consecutive errors exceeds the
-      limit set by the game difficulty level, all points for bonuses and tips are
-      reset to zero.'
+
+      If the number of consecutive errors exceeds the limit set
+      by the game difficulty level, all points for bonuses and tips are reset to
+      zero.'
     m_Metadata:
       m_Items: []
   - m_Id: 919386207715328

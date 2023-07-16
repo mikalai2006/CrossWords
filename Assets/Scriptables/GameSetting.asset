@@ -64,10 +64,10 @@ MonoBehaviour:
   ShopItems:
   - entity: {fileID: 11400000, guid: 2be5099a5ef97d84db2786c20dfcafde, type: 2}
     count: 1
-    cost: 0
+    cost: 500
   - entity: {fileID: 11400000, guid: 7dd3f4fc6b9f65840a29682e241374d7, type: 2}
     count: 1
-    cost: 1000
+    cost: 1500
   ShopItemsBonus: []
   noName:
     title:

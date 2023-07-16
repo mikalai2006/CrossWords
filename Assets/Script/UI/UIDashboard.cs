@@ -92,6 +92,12 @@ public class UIDashboard : UILocaleBase
   {
     _result = new DataDialogResult();
 
+
+#if ysdk
+        GetLeaderBoard();
+#endif
+
+
     _processCompletionSource = new TaskCompletionSource<DataDialogResult>();
 
     return await _processCompletionSource.Task;

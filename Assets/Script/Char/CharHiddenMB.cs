@@ -276,7 +276,14 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
     if (rayHit.collider.gameObject == gameObject)
     {
 
-      if (_charInstance.OccupiedNode != null && _charInstance.OccupiedNode.StateNode.HasFlag(StateNode.Open)) return;
+      if (
+        _charInstance.OccupiedNode != null
+        && (
+          _charInstance.OccupiedNode.StateNode.HasFlag(StateNode.Open)
+          ||
+          _charInstance.OccupiedNode.StateNode.HasFlag(StateNode.Hint)
+          )
+        ) return;
 
       // Show message
       _gameManager.InputManager.Disable();
