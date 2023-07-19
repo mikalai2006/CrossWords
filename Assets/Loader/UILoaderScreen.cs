@@ -32,26 +32,41 @@ public class UILoaderScreen : MonoBehaviour
   private float _progressFill;
   private float _targetProgress;
 
+  private void Awake()
+  {
+    GameManager.OnChangeTheme += ChangeTheme;
+  }
+
+  private void OnDestroy()
+  {
+    GameManager.OnChangeTheme -= ChangeTheme;
+  }
+
+  private void ChangeTheme()
+  {
+    var settings = GameManager.Instance.Theme;
+    if (settings == null)
+    {
+      settings = GameManager.Instance.GameSettings.ThemeDefault;
+    }
+    //Camera.main.backgroundColor = settings.bgColor;
+    Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundImage
+      = new StyleBackground(settings.bgImage);
+    progressBar.style.backgroundColor = new StyleColor(settings.colorAccent);
+    progressBarText.style.color = new StyleColor(settings.colorPrimary);
+  }
+
   public async UniTask Load(Queue<ILoadingOperation> loadingOperations)
   {
     try
     {
       // Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundColor
       //   = new StyleColor(GameManager.Instance.Theme.bgColor);
-      var settings = GameManager.Instance.Theme;
-      if (settings == null)
-      {
-        settings = GameManager.Instance.GameSettings.ThemeDefault;
-      }
-      Camera.main.backgroundColor = settings.bgColor;
-      Root.rootVisualElement.Q<VisualElement>("OverBG").style.backgroundImage
-        = new StyleBackground(settings.bgImage);
       progressBarSection = Root.rootVisualElement.Q<VisualElement>(NameProgressBarSection);
       progressBar = Root.rootVisualElement.Q<VisualElement>(NameProgressBar);
-      progressBar.style.backgroundColor = new StyleColor(settings.colorAccent);
       progressBarText = Root.rootVisualElement.Q<Label>(NameProgressBarText);
-      progressBarText.style.color = new StyleColor(settings.colorPrimary);
       SetProgressValue(0);
+      ChangeTheme();
       //buttonsSection = MenuApp.rootVisualElement.Q<VisualElement>("ButtonsSection");
 
       //var newGameButton = MenuApp.rootVisualElement.Q<Button>("newgame");
@@ -84,7 +99,7 @@ public class UILoaderScreen : MonoBehaviour
 
     progressBarSection.visible = true;
 
-    StartCoroutine(UpdateProgressBar());
+    // StartCoroutine(UpdateProgressBar());
 
     foreach (var operation in loadingOperations)
     {
@@ -113,26 +128,29 @@ public class UILoaderScreen : MonoBehaviour
     progressBarText.text = notify;
   }
 
-  private IEnumerator UpdateProgressBar()
-  {
-    while (progressBarSection.visible == true)
-    {
-      if (_progressFill < _targetProgress)
-      {
-        _progressFill += Time.deltaTime * _barSpeed;
-        // Debug.Log($"Value=[{progressBarText.text}]{_progressFill}/{_barSpeed}");
-        SetProgressValue(_progressFill);
-      }
-      yield return null;
-    }
-  }
+  // private IEnumerator UpdateProgressBar()
+  // {
+  //   while (progressBarSection.visible == true)
+  //   {
+  //     if (_progressFill < _targetProgress)
+  //     {
+  //       _progressFill += Time.deltaTime * _barSpeed;
+  //       // Debug.Log($"Value=[{progressBarText.text}]{_progressFill}/{_barSpeed}");
+  //       SetProgressValue(_progressFill);
+  //     }
+  //     yield return null;
+  //   }
+  // }
   private async UniTask WaitForBarFill()
   {
     while (_progressFill < _targetProgress)
     {
-      await UniTask.Delay(1);
+      await UniTask.DelayFrame(1);
+      _progressFill += Time.deltaTime * _barSpeed;
+      // Debug.Log($"Value=[{progressBarText.text}]{_progressFill}/{_barSpeed}");
+      SetProgressValue(_progressFill);
     }
-    await UniTask.Delay(1); //  TimeSpan.FromSeconds(0.15f));
+    await UniTask.Yield(); //  TimeSpan.FromSeconds(0.15f));
   }
 
   //public void InitNewGame()

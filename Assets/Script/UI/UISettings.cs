@@ -118,8 +118,10 @@ public class UISettings : UIBase
   //   CreateMenu();
   // }
 
-  private void CreateListSettings()
+  private async void CreateListSettings()
   {
+    await LocalizationSettings.InitializationOperation.Task;
+
     var userSettings = _gameManager.AppInfo.setting;
 
     _sliderVolumeEffect.value = userSettings.auv;
@@ -165,17 +167,22 @@ public class UISettings : UIBase
       _languageBlock.style.display = DisplayStyle.Flex;
     }
 
-
-    // Theme.
-    var allThemes = _gameManager.ResourceSystem.GetAllTheme();
-    _dropdownTheme.choices.Clear();
-    for (int i = 0; i < allThemes.Count; i++)
-    {
-      GameTheme theme = allThemes[i];
-      _dropdownTheme.choices.Add(theme.name);
-    }
-    _dropdownTheme.value = userSettings.theme;
-    _dropdownTheme.RegisterValueChangedCallback(ChangeTheme);
+    // // Theme.
+    // var allThemes = _gameManager.ResourceSystem.GetAllTheme();
+    // _dropdownTheme.choices.Clear();
+    // for (int i = 0; i < allThemes.Count; i++)
+    // {
+    //   GameTheme theme = allThemes[i];
+    //   var themeNameCurrentLocale = theme.localize.Find(t => t.locale.Identifier.Code == LocalizationSettings.SelectedLocale.Identifier.Code);
+    //   string nameTheme = theme.name;
+    //   if (themeNameCurrentLocale != null)
+    //   {
+    //     nameTheme = themeNameCurrentLocale.title;
+    //   }
+    //   _dropdownTheme.choices.Add(nameTheme);
+    // }
+    // _dropdownTheme.value = userSettings.theme;
+    // _dropdownTheme.RegisterValueChangedCallback(ChangeTheme);
 
     // DoDialog.
     _doDialog.value = userSettings.dod;

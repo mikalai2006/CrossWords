@@ -450,7 +450,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1095655025180672
-    m_Localized: The <b>{name}</b> section is {procent}% complete
+    m_Localized: 'The <b>{name}</b> section
+
+      is {procent}% complete'
     m_Metadata:
       m_Items:
       - rid: 366248018379538446
@@ -513,7 +515,7 @@ MonoBehaviour:
       m_Items:
       - rid: 366248018379538446
   - m_Id: 1699857803935744
-    m_Localized: The request returned an error! Apologize!
+    m_Localized: Having trouble getting a definition! Apologize!
     m_Metadata:
       m_Items: []
   - m_Id: 2019490872328192

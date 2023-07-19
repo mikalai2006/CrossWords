@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 [CreateAssetMenu]
@@ -6,6 +8,7 @@ public class GameTheme : ScriptableObject
 {
 
   public Sprite bgImage;
+  public List<ThemeLocalization> localize;
 
   [Space(5)]
   [Header("Hidden Word")]
@@ -69,4 +72,11 @@ public class GameTheme : ScriptableObject
   public Color colorBgTopSide;
   public Color colorBgButton;
   public Color colorBgDialog;
+}
+
+[System.Serializable]
+public class ThemeLocalization
+{
+  public string title;
+  public Locale locale;
 }

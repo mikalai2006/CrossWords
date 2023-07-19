@@ -32,7 +32,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-  minRate: 0
+  minRate: -1
   locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
   levelWords:
   - words

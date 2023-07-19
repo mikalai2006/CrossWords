@@ -4,8 +4,6 @@ using UnityEngine;
 using Loader;
 using UnityEngine.Localization.Settings;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace User
 {

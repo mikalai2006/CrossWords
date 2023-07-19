@@ -1,10 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class AdManager : Singleton<LevelManager>
+public class AdManager : Singleton<AdManager>
 {
   [DllImport("__Internal")]
   private static extern void ShowAdvFullScreen();
@@ -28,15 +27,13 @@ public class AdManager : Singleton<LevelManager>
     SetLastTime();
   }
 
-  private void Start()
-  {
-#if ysdk
-    GetCanReview();
-#endif
-  }
+  // private void Start()
+  // {
+  // }
 
   public void ShowAdvFullScr()
   {
+
     var diffDate = DateTime.Now - DateTime.Parse(_lastTimeShowAdv);
 
     if (diffDate.TotalMinutes > (double)_gameSetting.adsPerTime)
@@ -116,6 +113,12 @@ public class AdManager : Singleton<LevelManager>
     Debug.Log($"{name}::: SetRateGame {status}");
   }
 
+  public void CheckCanReview()
+  {
+#if ysdk
+    GetCanReview();
+#endif
+  }
 
   public void SetCanReview(bool status)
   {

@@ -19,7 +19,7 @@
                 <ui:Label tabindex="-1" text="#language" display-tooltip-when-elided="true" class="text-primary" />
                 <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="Language" class="text-primary" style="flex-grow: 1;" />
             </ui:VisualElement>
-            <ui:VisualElement class="row" style="background-color: rgba(0, 0, 0, 0); flex-direction: row;">
+            <ui:VisualElement class="row" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; display: none;">
                 <ui:Label tabindex="-1" text="#theme" display-tooltip-when-elided="true" class="text-primary" />
                 <ui:DropdownField index="-1" choices="System.Collections.Generic.List`1[System.String]" name="Theme" class="text-primary" style="flex-grow: 1;" />
             </ui:VisualElement>

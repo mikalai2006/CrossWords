@@ -1,5 +1,3 @@
-
-using System;
 using Cysharp.Threading.Tasks;
 
 public class WordHidden : BaseWord

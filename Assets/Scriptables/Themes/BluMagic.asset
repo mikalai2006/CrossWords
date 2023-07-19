@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ab369d9f7c175498a033c6688b4df2, type: 3}
   m_Name: BluMagic
   m_EditorClassIdentifier: 
-  bgImage: {fileID: 21300000, guid: 74e573502dd459a47af65fd6eb6a63cd, type: 3}
+  bgImage: {fileID: 21300000, guid: 901a215930808e34b86ab290651dd2b8, type: 3}
+  localize:
+  - title: Blue magic
+    locale: {fileID: 11400000, guid: f796f6838dd00ce4a8ab6567f20572b0, type: 2}
+  - title: "\u0413\u043E\u043B\u0443\u0431\u0430\u044F \u043C\u0430\u0433\u0438\u044F"
+    locale: {fileID: 11400000, guid: 64a3977be13583547bee7545b3c13f3f, type: 2}
   bgHiddenWord: {r: 0.38039216, g: 0.5019608, b: 0.60784316, a: 1}
   bgOpentHiddenWord: {r: 0.7647059, g: 0.8117647, b: 0.8509804, a: 1}
   textOpentHiddenWord: {r: 0.07058824, g: 0.21176471, b: 0.33333334, a: 1}

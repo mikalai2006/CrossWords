@@ -136,6 +136,7 @@ PlayerSettings:
   bundleVersion: 1.0.0.0
   preloadedAssets:
   - {fileID: 0}
+  - {fileID: 11400000, guid: 279b51201ed0d104e9b56a923ede9297, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -676,7 +677,7 @@ PlayerSettings:
   webGLTemplate: APPLICATION:PWA
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 2
+  webGLCompressionFormat: 1
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0

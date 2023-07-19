@@ -26,20 +26,17 @@ public class UIShop : UIBase
 
     _listItems = Wrapper.Q<VisualElement>("ListItems");
 
-    FillItems();
-    DrawBalance();
-    // ChangeTheme();
-    base.Initialize(Wrapper);
+    Repaint();
   }
 
 
-  // private void ChangeTheme()
-  // {
-  //   FillItems();
-  //   DrawBalance();
+  private void Repaint()
+  {
+    FillItems();
+    DrawBalance();
 
-  //   base.Initialize(Wrapper);
-  // }
+    base.Initialize(Wrapper);
+  }
 
   private void DrawBalance()
   {
@@ -382,6 +379,8 @@ public class UIShop : UIBase
         showCancelButton = true
       });
 
+      Repaint();
+
       await dialog.ShowAndHide();
     }
 
@@ -438,6 +437,8 @@ public class UIShop : UIBase
         message = message,
         showCancelButton = true
       });
+
+      Repaint();
 
       await dialog.ShowAndHide();
     }

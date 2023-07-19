@@ -1,9 +1,7 @@
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 

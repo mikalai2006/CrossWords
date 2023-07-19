@@ -9,9 +9,9 @@
             <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
                 <ui:Label tabindex="-1" text="Слова \r\nрусского языка" display-tooltip-when-elided="true" name="NameFile" class="m-0 text-lg text-primary" style="-unity-text-align: upper-center; -unity-font-style: bold; padding-bottom: 10px; white-space: normal; display: none;" />
                 <ui:VisualElement name="ProgressBlok" style="background-color: rgba(0, 0, 0, 0); display: flex; flex-grow: 1;">
-                    <ui:Label tabindex="-1" text="#actualprogress" display-tooltip-when-elided="true" class="m-0 p-0 text-secondary text-xss" style="-unity-text-align: upper-center;" />
+                    <ui:Label tabindex="-1" text="#actualprogress" display-tooltip-when-elided="true" class="m-0 p-0 text-secondary text-md" style="-unity-text-align: upper-center; display: none;" />
                     <ui:Label tabindex="-1" text="Major2" display-tooltip-when-elided="true" name="Status" class="m-0 p-0 text-md text-secondary" style="-unity-font-style: bold; -unity-text-align: upper-center; margin-bottom: 5px; display: none;" />
-                    <ui:Label tabindex="-1" text="Found 1212 words. Found 1212 words. Found 1212 words." display-tooltip-when-elided="true" name="FoundWords" class="m-0 p-0 text-secondary text-xs" style="-unity-text-align: upper-center; white-space: normal;" />
+                    <ui:Label tabindex="-1" text="Found 1212 words. Found 1212 words. Found 1212 words." display-tooltip-when-elided="true" name="FoundWords" class="m-0 p-0 text-secondary text-md" style="-unity-text-align: upper-center; white-space: normal;" />
                     <ui:VisualElement style="margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;">
                         <ui:VisualElement name="ProgressBarBox" class="level_blok_progress_wrap" style="height: 10px; background-color: rgba(0, 0, 0, 0.33); border-top-left-radius: 5px; border-bottom-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; position: relative;">
                             <ui:VisualElement name="ProgressBar" class="level_blok_progress_bar" style="width: 75px;" />

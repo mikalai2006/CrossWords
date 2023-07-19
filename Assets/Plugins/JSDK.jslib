@@ -11,6 +11,8 @@ var plugin = {
     // console.groupEnd();
   },
   LoadExtern: function () {
+    if (!player) return;
+
     player.getData().then((jsonUserData) => {
       const stringUserData = JSON.stringify(jsonUserData);
 
@@ -27,11 +29,15 @@ var plugin = {
     });
   },
   GetUserInfoExtern: function () {
-    const jsonUserInfo = {
-      name: player.getName(),
-      photo: player.getPhoto("medium"),
-      uid: player.getUniqueID(),
-    };
+    var jsonUserInfo = {};
+
+    if (player) {
+      jsonUserInfo = {
+        name: player.getName(),
+        photo: player.getPhoto("medium"),
+        uid: player.getUniqueID(),
+      };
+    }
 
     const stringUserInfo = JSON.stringify(jsonUserInfo);
 

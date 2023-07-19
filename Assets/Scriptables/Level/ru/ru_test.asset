@@ -35,7 +35,7 @@ MonoBehaviour:
   minRate: -1
   locale: {fileID: 11400000, guid: 64a3977be13583547bee7545b3c13f3f, type: 2}
   levelWords:
-  - "\u0441\u043B\u043E\u0432\u043E"
+  - "\u0441\u043B\u043E\u0432\u0430"
   - "\u043A\u0440\u043E\u0441\u0441\u0432\u043E\u0440\u0434"
   - "\u043B\u043E\u0433"
   - "\u043A\u043E\u043D\u0442\u0440\u0430\u043A\u0442"

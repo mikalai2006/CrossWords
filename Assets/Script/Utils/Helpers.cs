@@ -4,9 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.Localization.Settings;
 using UnityEngine.Networking;
-using UnityEngine.UI;
 
 /// <summary>
 /// A static class for general helpful methods

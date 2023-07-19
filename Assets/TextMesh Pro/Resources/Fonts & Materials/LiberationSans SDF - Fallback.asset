@@ -98,7 +98,7 @@ Material:
     - _GlowOffset: 0
     - _GlowOuter: 0.05
     - _GlowPower: 0.75
-    - _GradientScale: 10
+    - _GradientScale: 5
     - _LightAngle: 3.1416
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
@@ -112,9 +112,9 @@ Material:
     - _Parallax: 0.02
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 0.9
+    - _ScaleRatioA: 0.8
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.73125
+    - _ScaleRatioC: 0.65
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -178,24 +178,24 @@ MonoBehaviour:
     m_FaceIndex: 0
     m_FamilyName: Liberation Sans
     m_StyleName: Regular
-    m_PointSize: 86
+    m_PointSize: 32
     m_Scale: 1
-    m_UnitsPerEM: 0
-    m_LineHeight: 98.8916
-    m_AscentLine: 77.853516
-    m_CapLine: 59
-    m_MeanLine: 45
+    m_UnitsPerEM: 2048
+    m_LineHeight: 36.796875
+    m_AscentLine: 28.96875
+    m_CapLine: 22
+    m_MeanLine: 17
     m_Baseline: 0
-    m_DescentLine: -18.22461
-    m_SuperscriptOffset: 77.853516
+    m_DescentLine: -6.78125
+    m_SuperscriptOffset: 28.96875
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -18.22461
+    m_SubscriptOffset: -6.78125
     m_SubscriptSize: 0.5
-    m_UnderlineOffset: -12.261719
-    m_UnderlineThickness: 6.298828
-    m_StrikethroughOffset: 18
-    m_StrikethroughThickness: 6.298828
-    m_TabWidth: 24
+    m_UnderlineOffset: -4.5625
+    m_UnderlineThickness: 2.34375
+    m_StrikethroughOffset: 6.8
+    m_StrikethroughThickness: 2.34375
+    m_TabWidth: 9
   m_GlyphTable: []
   m_CharacterTable: []
   m_AtlasTextures:
@@ -234,7 +234,7 @@ MonoBehaviour:
   atlas: {fileID: 0}
   m_AtlasWidth: 512
   m_AtlasHeight: 512
-  m_AtlasPadding: 9
+  m_AtlasPadding: 4
   m_AtlasRenderMode: 4169
   m_glyphInfoList: []
   m_KerningTable:
@@ -247,14 +247,14 @@ MonoBehaviour:
     sourceFontFileName: 
     sourceFontFileGUID: e3265ab4bf004d28a9537516768c1c75
     pointSizeSamplingMode: 0
-    pointSize: 86
-    padding: 9
+    pointSize: 32
+    padding: 4
     packingMode: 4
     atlasWidth: 512
     atlasHeight: 512
-    characterSetSelectionMode: 1
-    characterSequence: 32 - 126, 160 - 255, 8192 - 8303, 8364, 8482, 9633
-    referencedFontAssetGUID: 8f586378b4e144a9851e7b34d9b748ee
+    characterSetSelectionMode: 6
+    characterSequence: 20,2C,2E,31,35,41,46,4E,54,5A,5F,64-65,6E-6F,74-75,77-78,401,410-411,414,41E-420,423-424,428,42F-430,432,434-438,43A-443,447,44B-44C,44F,2026,0400-04FF
+    referencedFontAssetGUID: 2e498d1c8094910479dc3e1b768306a4
     referencedTextAssetGUID: 
     fontStyle: 0
     fontStyleModifier: 0
@@ -314,7 +314,7 @@ Texture2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiberationSans SDF Atlas
+  m_Name: LiberationSans SDF - Fallback Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000

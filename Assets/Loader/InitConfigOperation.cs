@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -60,6 +62,14 @@ namespace Loader
       onProgress?.Invoke(0.3f);
       GameManager.Instance.ResourceSystem = ResourceSystem.Instance;
       await ResourceSystem.Instance.LoadCollectionsAsset<GameTheme>(Constants.Labels.LABEL_THEME);
+
+      // Set theme.
+      if (PlayerPrefs.HasKey(namePlayPref))
+      {
+        List<GameTheme> allThemes = ResourceSystem.Instance.GetAllTheme();
+        GameTheme userTheme = allThemes.Where(t => t.name == playPrefData.setting.theme).FirstOrDefault();
+        GameManager.Instance.SetTheme(userTheme);
+      }
     }
   }
 }
