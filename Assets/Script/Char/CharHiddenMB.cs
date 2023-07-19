@@ -95,34 +95,34 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
   }
 
 
-  public void RunOpenEffect()
-  {
-    var _CachedSystem = GameObject.Instantiate(
-      _gameSetting.Boom,
-      transform.position,
-      Quaternion.identity
-    );
+  // public void RunOpenEffect()
+  // {
+  //   var _CachedSystem = GameObject.Instantiate(
+  //     _gameSetting.Boom,
+  //     transform.position,
+  //     Quaternion.identity
+  //   );
 
-    var main = _CachedSystem.main;
-    // main.startColor = new ParticleSystem.MinMaxGradient(_gameSetting.Theme.bgHiddenWord, _gameSetting.Theme.textFindHiddenWord);
-    main.startSize = new ParticleSystem.MinMaxCurve(0.05f, _levelManager.ManagerHiddenWords.scaleGrid / 2);
+  //   var main = _CachedSystem.main;
+  //   // main.startColor = new ParticleSystem.MinMaxGradient(_gameSetting.Theme.bgHiddenWord, _gameSetting.Theme.textFindHiddenWord);
+  //   main.startSize = new ParticleSystem.MinMaxCurve(0.05f, _levelManager.ManagerHiddenWords.scaleGrid / 2);
 
-    var col = _CachedSystem.colorOverLifetime;
-    col.enabled = true;
+  //   var col = _CachedSystem.colorOverLifetime;
+  //   col.enabled = true;
 
-    Gradient grad = new Gradient();
-    grad.SetKeys(new GradientColorKey[] {
-      new GradientColorKey(_gameManager.Theme.bgHiddenWord, 1.0f),
-      new GradientColorKey(_gameManager.Theme.bgHiddenWord, 0.0f)
-      }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f)
-    });
+  //   Gradient grad = new Gradient();
+  //   grad.SetKeys(new GradientColorKey[] {
+  //     new GradientColorKey(_gameManager.Theme.bgHiddenWord, 1.0f),
+  //     new GradientColorKey(_gameManager.Theme.bgHiddenWord, 0.0f)
+  //     }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f)
+  //   });
 
-    col.color = grad;
+  //   col.color = grad;
 
-    _CachedSystem.Play();
+  //   _CachedSystem.Play();
 
-    Destroy(_CachedSystem.gameObject, 2f);
-  }
+  //   Destroy(_CachedSystem.gameObject, 2f);
+  // }
 
 
   public async UniTask ShowChar(bool runEffect, string _char)
@@ -216,10 +216,10 @@ public class CharHiddenMB : MonoBehaviour //, IPointerDownHandler
 
   public void Open(bool runEffect)
   {
-    if (runEffect) //  && _gameManager.AppInfo.setting.animation
-    {
-      RunOpenEffect();
-    }
+    // if (runEffect) //  && _gameManager.AppInfo.setting.animation
+    // {
+    //   RunOpenEffect();
+    // }
 
     // Remove open char.
     if (

@@ -55,11 +55,10 @@ namespace Loader
       GameManager.Instance.ResourceSystem = ResourceSystem.Instance;
       await ResourceSystem.Instance.LoadCollectionsAsset<GameEntity>(Constants.Labels.LABEL_ENTITY);
 
-      onProgress?.Invoke(0.2f);
       GameManager.Instance.ResourceSystem = ResourceSystem.Instance;
       await ResourceSystem.Instance.LoadCollectionsAsset<GameBonus>(Constants.Labels.LABEL_BONUS);
 
-      onProgress?.Invoke(0.3f);
+      onProgress?.Invoke(0.2f);
       GameManager.Instance.ResourceSystem = ResourceSystem.Instance;
       await ResourceSystem.Instance.LoadCollectionsAsset<GameTheme>(Constants.Labels.LABEL_THEME);
 

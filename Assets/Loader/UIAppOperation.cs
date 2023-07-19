@@ -15,7 +15,7 @@ namespace Loader
       var t = await Helpers.GetLocaledString("loading");
       onSetNotify?.Invoke(t);
 
-      onProgress?.Invoke(0.9f);
+      onProgress?.Invoke(0.3f);
 
       var environment = await GameManager.Instance.AssetProvider.LoadAsset(Constants.UILabels.UI_APP);
 
@@ -24,7 +24,7 @@ namespace Loader
 
       component.Init(environment);
 
-      onProgress?.Invoke(1f);
+      onProgress?.Invoke(.4f);
 
     }
   }

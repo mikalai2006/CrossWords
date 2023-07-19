@@ -32,7 +32,7 @@ namespace User
 
       // var t = await Helpers.GetLocaledString("loading");
       _onSetNotify?.Invoke("...");
-      _onProgress?.Invoke(0.3f);
+      _onProgress?.Invoke(0.2f);
 
       string namePlaypref = GameManager.Instance.KeyPlayPref;
 
@@ -75,7 +75,7 @@ namespace User
       // PlayerPrefs.SetString(namePlaypref, jsonData);
 
 
-      _onProgress?.Invoke(.5f);
+      _onProgress?.Invoke(.3f);
     }
 
 
