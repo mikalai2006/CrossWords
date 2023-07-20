@@ -385,6 +385,10 @@ public class UIDashboard : UILocaleBase
 
     StateManager.OnChangeState -= SetValue;
 
+    _result.isOk = true;
+
+    _processCompletionSource.SetResult(_result);
+
     var operations = new Queue<ILoadingOperation>();
     operations.Enqueue(new GameInitOperation());
     await _gameManager.LoadingScreenProvider.LoadAndDestroy(operations);
@@ -409,9 +413,6 @@ public class UIDashboard : UILocaleBase
 
     // _gameManager.ChangeState(GameState.LoadLevel);
 
-    _result.isOk = true;
-
-    _processCompletionSource.SetResult(_result);
   }
 
   // private async void ClickNewGameButton()
